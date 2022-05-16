@@ -89,8 +89,8 @@ class LogbooksitemsTable extends Table
             ->allowEmptyString('historico');
 
         $validator
-            ->boolean('notificaracao')
-            ->allowEmptyString('notificaracao');
+            ->boolean('notificacao')
+            ->allowEmptyString('notificacao');
 
         $validator
             ->scalar('notificarcontato')
@@ -101,6 +101,11 @@ class LogbooksitemsTable extends Table
             ->scalar('responsavel')
             ->maxLength('responsavel', 80)
             ->allowEmptyString('responsavel');
+        
+        $validator
+            ->scalar('referencia')
+            ->maxLength('referencia', 45)
+            ->allowEmptyString('referencia');
 
         return $validator;
     }

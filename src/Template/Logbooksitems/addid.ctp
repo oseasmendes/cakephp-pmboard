@@ -45,6 +45,7 @@
                 //'default' => date('H:i')
             ));                      
             echo '</div>';
+            echo $this->Form->control('referencia',['class'=> "form-control"]);
             echo $this->Form->control('descricao',['class'=> "form-control"]);
             echo $this->Form->control('historico',['class'=> "form-control"]);
             echo $this->Form->control('notificaracao');

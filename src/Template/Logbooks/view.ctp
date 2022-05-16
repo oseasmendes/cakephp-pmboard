@@ -26,65 +26,40 @@
                     </div>
             </div>
                             <div class="row" >
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Logbook'), ['action' => 'edit', $logbook->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Logbook'), ['action' => 'delete', $logbook->id], ['confirm' => __('Are you sure you want to delete # {0}?', $logbook->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Logbooks'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Logbook'), ['action' => 'add']) ?> </li>
 
-    </ul>
-</nav>
 </div>
 <div class="row" >
 <div class="logbooks view large-9 medium-8 columns content">
-    <h3><?= h($logbook->id) ?></h3>
+    <h3><?= "Board: #".h($logbook->id) ?></h3>
     <table class="table">
-        <tr>
+        <tr>            
+            <th scope="row"><?= __('Data') ?></th>
+            <td><?= h($logbook->data) ?></td>
             <th scope="row"><?= __('Descricao') ?></th>
             <td><?= h($logbook->descricao) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Programa') ?></th>
             <td><?= $logbook->has('programa') ? $this->Html->link($logbook->programa->descricao, ['controller' => 'Programas', 'action' => 'view', $logbook->programa->id]) : '' ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Atividadetipo') ?></th>
             <td><?= $logbook->has('atividadetipo') ? $this->Html->link($logbook->atividadetipo->descricao, ['controller' => 'Atividadetipos', 'action' => 'view', $logbook->atividadetipo->id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($logbook->id) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Data') ?></th>
-            <td><?= h($logbook->data) ?></td>
-        </tr>
+        </tr>                
         <tr>
             <th scope="row"><?= __('Created') ?></th>
             <td><?= h($logbook->created) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Modified') ?></th>
             <td><?= h($logbook->modified) ?></td>
-        </tr>
+        </tr>        
     </table>
     <div class="related">
-        <h4><?= __('Related Logbooksitems') ?></h4>
+        <h5><?= __('Atividades') ?></h5>
         <?php if (!empty($logbook->logbooksitems)): ?>
-        <table cellpadding="0" cellspacing="0">
+         <table class="table">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Projeto Id') ?></th>
-                <th scope="col"><?= __('Consultore Id') ?></th>
-                <th scope="col"><?= __('Logbook Id') ?></th>
-                <th scope="col"><?= __('Data') ?></th>
+                <th scope="col"><?= __('Id') ?></th>                                                
                 <th scope="col"><?= __('Hora') ?></th>
-                <th scope="col"><?= __('Descricao') ?></th>
-                <th scope="col"><?= __('Historico') ?></th>
-                <th scope="col"><?= __('Notificaracao') ?></th>
-                <th scope="col"><?= __('Notificarcontato') ?></th>
+                <th scope="col"><?= __('Referencia') ?></th>                                
+                <th scope="col"><?= __('Descricao') ?></th>                                
                 <th scope="col"><?= __('Responsavel') ?></th>
                 <th scope="col"><?= __('Created') ?></th>
                 <th scope="col"><?= __('Modified') ?></th>
@@ -92,16 +67,10 @@
             </tr>
             <?php foreach ($logbook->logbooksitems as $logbooksitems): ?>
             <tr>
-                <td><?= h($logbooksitems->id) ?></td>
-                <td><?= h($logbooksitems->projeto_id) ?></td>
-                <td><?= h($logbooksitems->consultore_id) ?></td>
-                <td><?= h($logbooksitems->logbook_id) ?></td>
-                <td><?= h($logbooksitems->data) ?></td>
+                <td><?= h($logbooksitems->id) ?></td>                                                
                 <td><?= h($logbooksitems->hora) ?></td>
-                <td><?= h($logbooksitems->descricao) ?></td>
-                <td><?= h($logbooksitems->historico) ?></td>
-                <td><?= h($logbooksitems->notificaracao) ?></td>
-                <td><?= h($logbooksitems->notificarcontato) ?></td>
+                <td><?= h($logbooksitems->referencia) ?></td>                                
+                <td><?= h($logbooksitems->descricao) ?></td>                                
                 <td><?= h($logbooksitems->responsavel) ?></td>
                 <td><?= h($logbooksitems->created) ?></td>
                 <td><?= h($logbooksitems->modified) ?></td>

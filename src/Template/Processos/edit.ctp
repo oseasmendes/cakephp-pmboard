@@ -23,6 +23,7 @@
         <?php
             echo $this->Form->control('descricao',['class'=> "form-control"]);
             echo $this->Form->control('description',['class'=> "form-control"]);
+            echo $this->Form->control('processostipo_id', ['options' => $processostipos, 'empty' => true,'class'=>['class'=> 'form-control']]);
             echo $this->Form->control('movimento',['class'=> "form-control"]);
         ?>
     </fieldset>

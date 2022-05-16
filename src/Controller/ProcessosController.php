@@ -62,7 +62,8 @@ class ProcessosController extends AppController
             }
             $this->Flash->error(__('The processo could not be saved. Please, try again.'));
         }
-        $this->set(compact('processo'));
+        $processostipos = $this->Processos->Processostipos->find('list', ['limit' => 200]);
+        $this->set(compact('processo','processostipos'));
     }
 
     /**
@@ -84,9 +85,10 @@ class ProcessosController extends AppController
 
                 return $this->redirect(['action' => 'index']);
             }
+            $processostipos = $this->Processos->Processostipos->find('list', ['limit' => 200]);
             $this->Flash->error(__('The processo could not be saved. Please, try again.'));
         }
-        $this->set(compact('processo'));
+        $this->set(compact('processo','processostipos'));
     }
 
     /**

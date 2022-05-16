@@ -4,18 +4,17 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Processo Entity
+ * Processostipo Entity
  *
  * @property int $id
  * @property string|null $descricao
  * @property \Cake\I18n\FrozenTime|null $created
  * @property \Cake\I18n\FrozenTime|null $modified
- * @property string|null $description
- * @property string|null $movimento
+ * @property bool|null $ativo
  *
- * @property \App\Model\Entity\Atadetalhe[] $atadetalhes
+ * @property \App\Model\Entity\Processo[] $processos
  */
-class Processo extends Entity
+class Processostipo extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -30,10 +29,7 @@ class Processo extends Entity
         'descricao' => true,
         'created' => true,
         'modified' => true,
-        'processostipo_id' => true,
-        'description' => true,
-        'movimento' => true,
-        'processostipos' => true,
-        'atasdetalhes' => true
+        'ativo' => true,
+        'processos' => true
     ];
 }

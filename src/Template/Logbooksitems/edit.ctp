@@ -32,13 +32,14 @@
             echo $this->Form->control('logbook_id', ['options' => $logbooks, 'empty' => true]);
             echo $this->Form->control('data', ['empty' => true]);
             echo $this->Form->control('hora');
-            echo $this->Form->control('descricao');
-            echo $this->Form->control('historico');
-            echo $this->Form->control('notificaracao');
-            echo $this->Form->control('notificarcontato');
-            echo $this->Form->control('responsavel');
+            echo $this->Form->control('referencia',['class'=> "form-control"]);            
+            echo $this->Form->control('descricao',['class'=> "form-control"]);
+            echo $this->Form->control('historico',['class'=> "form-control"]);
+            echo $this->Form->control('notificacao');
+            echo $this->Form->control('notificarcontato',['class'=> "form-control"]);
+            echo $this->Form->control('responsavel',['class'=> "form-control"]);
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button(__('Submit'),['class'=>'btn btn-info btn-sm btn-block']) ?>
     <?= $this->Form->end() ?>
 </div>

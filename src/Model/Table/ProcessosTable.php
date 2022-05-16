@@ -43,6 +43,10 @@ class ProcessosTable extends Table
         $this->hasMany('Atasdetalhes', [
             'foreignKey' => 'processo_id'
         ]);
+
+        $this->belongsTo('Processostipos', [
+            'foreignKey' => 'processostipo_id'
+        ]);
     }
 
     /**
@@ -73,5 +77,12 @@ class ProcessosTable extends Table
             ->allowEmptyString('movimento');
 
         return $validator;
+    }
+
+    public function buildRules(RulesChecker $rules)
+    {
+        $rules->add($rules->existsIn(['processostipo_id'], 'Processostipos'));
+
+        return $rules;
     }
 }

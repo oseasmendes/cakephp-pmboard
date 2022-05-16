@@ -380,7 +380,13 @@
                   <i class="far fa-circle nav-icon"></i>
                   <p>Comunicados</p>
                 </a>
-              </li>              
+              </li>
+              <li class="nav-item">
+                  <a href="<?= $this->Url->build('/logbooks', ["fullBase" => true]) ?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Diário de Bordo</p>
+                </a>
+              </li>                            
             </ul>
           </li>
           <li class="nav-item">
