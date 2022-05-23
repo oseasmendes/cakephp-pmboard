@@ -20,11 +20,12 @@
                                     <div class="row" > 
 
 <div class="sistemasprocessos form large-9 medium-8 columns content">
-    <?= $this->Form->create($sistemasprocesso) ?>
+    <?= $this->Form->create($sistemasprocesso) ?>   
     <fieldset>
         <legend><?= __('Edit Sistemasprocesso') ?></legend>
-        <?php
-                        echo $this->Form->control('sistema_id', array('default'=>$paramid,'disabled' => 'disabled','value'=>$paramid,'class'=>['class'=> 'form-control'])); //inserido esse parametro para receber 
+        <?php   
+                        echo $this->Form->control('sistema_id', ['options' => $sistemas, 'disabled' => 'disabled','empty' => true,'class'=>['class'=> 'form-control']]);
+                        //echo $this->Form->control('sistema_id', array('default'=>$paramid,'disabled' => 'disabled','value'=>$paramid,'class'=>['class'=> 'form-control'])); //inserido esse parametro para receber 
                         echo $this->Form->control('processo_id', ['options' => $processos, 'empty' => true,'class'=>['class'=> 'form-control']]);
                         echo $this->Form->control('descricao',['class'=> "form-control"]);          
                         echo $this->Form->control('ativo');

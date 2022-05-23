@@ -134,9 +134,6 @@
                 <td><?= $sistema->has('empresa') ? $this->Html->link($sistema->empresa->fantasia, ['controller' => 'Empresas', 'action' => 'view', $sistema->empresa->id]) : '' ?></
                 
                 <td><?= $sistema->has('departamento') ? $this->Html->link($sistema->departamento->descricao, ['controller' => 'Departamentos', 'action' => 'view', $sistema->departamento->id]) : '' ?></td>
-
-               
-                <td><?= h($sistema->modified) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $sistema->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $sistema->id]) ?>
