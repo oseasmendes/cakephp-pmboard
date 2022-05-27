@@ -57,7 +57,8 @@ class SistemasconsultoresController extends AppController
             if ($this->Sistemasconsultores->save($sistemasconsultore)) {
                 $this->Flash->success(__('The sistemasconsultore has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                
+                return $this->redirect(['controller' => 'Sistemas','action' => 'view',$id]);
             }
             $this->Flash->error(__('The sistemasconsultore could not be saved. Please, try again.'));
         }
@@ -83,8 +84,8 @@ class SistemasconsultoresController extends AppController
             $sistemasconsultore = $this->Sistemasconsultores->patchEntity($sistemasconsultore, $this->request->getData());
             if ($this->Sistemasconsultores->save($sistemasconsultore)) {
                 $this->Flash->success(__('The sistemasconsultore has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
+                
+                return $this->redirect(['controller' => 'Sistemas','action' => 'view',$sistemasconsultore->sistema_id]);
             }
             $this->Flash->error(__('The sistemasconsultore could not be saved. Please, try again.'));
         }

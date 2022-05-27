@@ -122,7 +122,8 @@ class ProjetosprodutosController extends AppController
         $frentes = $this->Projetosprodutos->Frentes->find('list', ['limit' => 200]);
         $statusfuncionals = $this->Projetosprodutos->Statusfuncionals->find('list', ['limit' => 200]);
         $participantes = $this->Projetosprodutos->Participantes->find('list',array('order' => array('nome' => 'asc')),['limit' => 1200]);
-        $this->set(compact('projetosprodutos', 'projetos', 'statusfuncionals','frentes','participantes'));
+        $fupqueues = $this->Projetosprodutos->Fupqueues->find('list',array('order' => array('descricao' => 'asc')),['limit' => 1200]);
+        $this->set(compact('projetosprodutos', 'projetos', 'statusfuncionals','frentes','fupqueues','participantes'));
     }
 
 
@@ -165,7 +166,8 @@ class ProjetosprodutosController extends AppController
         $frentes = $this->Projetosprodutos->Frentes->find('list', ['limit' => 200]);
         $statusfuncionals = $this->Projetosprodutos->Statusfuncionals->find('list', ['limit' => 200]);
         $participantes = $this->Projetosprodutos->Participantes->find('list',array('order' => array('nome' => 'asc')),['limit' => 1200]);
-        $this->set(compact('projetosproduto', 'projetos', 'statusfuncionals','frentes','participantes'));
+        $fupqueues = $this->Projetosprodutos->Fupqueues->find('list',array('order' => array('descricao' => 'asc')),['limit' => 1200]);
+        $this->set(compact('projetosproduto', 'projetos', 'statusfuncionals','frentes','participantes','fupqueues'));
     }
 
     /**

@@ -43,7 +43,7 @@
     </table>
     <div align="center">
 
-                <?=  $this->Html->image('galeria'."/".$projetosprodutosentregasimg->projetosprodutosentrega_id."/".h($projetosprodutosentregasimg->imagem), ['alt' => h($projetosprodutosentregasimg->imagem)]); ?>
+                <?=  $this->Html->image('entregas'."/".$projetosprodutosentregasimg->projetosprodutosentrega_id."/".h($projetosprodutosentregasimg->imagemoriginal), ['alt' => h($projetosprodutosentregasimg->imagemoriginal)]); ?>
     </div>
 
 </div>

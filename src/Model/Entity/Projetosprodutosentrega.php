@@ -45,6 +45,8 @@ class Projetosprodutosentrega extends Entity
     protected $_accessible = [
         'referencia' => true,
         'descricao' => true,
+        'historico' => true,
+        'justificativa' => true,
         'servidor' => true,
         'projetosproduto_id' => true,
         'sprintprevista_id' => true,
@@ -72,6 +74,7 @@ class Projetosprodutosentrega extends Entity
         'escoporemocaodescricao' => true,
         'projetosproduto' => true,
         'projetosprodutossprint' => true,
+        'entregasblockpoint' => true,
         'sistema' => true,
         'statusfuncional' => true,
         'pareto' => true,

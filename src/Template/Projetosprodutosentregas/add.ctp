@@ -45,6 +45,8 @@
 
             echo $this->Form->control('referencia',['class'=> "form-control"]);
             echo $this->Form->control('descricao',['class'=> "form-control"]);
+            echo $this->Form->control('historico',['class'=> "form-control"]);
+            echo $this->Form->control('justificativa',['class'=> "form-control"]);
             echo $this->Form->control('sprintoriginal',['class'=> "form-control"]);
             echo $this->Form->control('statusfuncional_id', ['options' => $statusfuncionals, 'empty' => true,'class'=>['class'=> 'form-control']]);
             echo $this->Form->control('pareto_id', ['options' => $paretos, 'empty' => true,'class'=>['class'=> 'form-control']]);

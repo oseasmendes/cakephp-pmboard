@@ -49,6 +49,7 @@ class Statusfuncional extends Entity
         'projetosprodutosruns' => true,
         'projetosprodutosruns' => true,
         'projetosoutofscopes' => true,
+        'fupagendas' => true,
         'projetosstatus' => true,
         'sistemas' => true
     ];

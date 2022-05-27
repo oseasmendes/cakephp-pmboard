@@ -48,6 +48,7 @@
             echo $this->Form->control('frente_id',['options' => $frentes, 'empty' => true,'class'=>['class'=> 'form-control']]);
             echo $this->Form->control('facilitador_id', ['options' => $participantes, 'empty' => true,'class'=>['class'=> 'form-control']]);
             echo $this->Form->control('gerenteprojetocliente_id', ['options' => $participantes, 'empty' => true,'class'=>['class'=> 'form-control']]);                    
+            echo $this->Form->control('fupqueue_id', ['options' => $fupqueues, 'empty' => true,'class'=>['class'=> 'form-control']]);                    
            echo '</p>';
             echo $this->Form->control('dataprevistainicio', ['empty' => true]);
            echo $this->Form->control('dataprevistafim', ['empty' => true]);

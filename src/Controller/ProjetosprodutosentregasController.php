@@ -20,7 +20,7 @@ class ProjetosprodutosentregasController extends AppController
      */
     public function index()
     {
-        $projetosprodutos = $this->Projetosprodutosentregas->Projetosprodutos->find('list',array('conditions' => ['Projetosprodutos.projeto_id = '=> 77],'order' => array('descricao' => 'asc')), ['limit' => 200]);
+        $projetosprodutos = $this->Projetosprodutosentregas->Projetosprodutos->find('list',array('conditions' => ['Projetosprodutos.projeto_id IN '=> [111,110]],'order' => array('descricao' => 'asc')), ['limit' => 200]);
   /*      $this->paginate = [
             'contain' => ['Projetosprodutos', 'Sistemas', 'Statusfuncionals', 'Paretos', 'Unidademedidas','Fases','Empresas','Ambientes'],
             'order' => array('projetosproduto_id' => 'asc','prioridade' => 'asc'),
@@ -40,8 +40,8 @@ class ProjetosprodutosentregasController extends AppController
                             {
                                  $this->paginate = [
                                     'contain' => ['Projetosprodutos', 'Sistemas', 'Statusfuncionals', 'Paretos', 'Unidademedidas','Fases','Empresas','Ambientes'],
-                                    'conditions' => ['Projetosprodutosentregas.projetosproduto_id = '=> $keyword['projetosproduto_id'],['Projetosprodutosentregas.statusfuncional_id = '=> 16]],
-                                'order' => array('referencia' => 'asc'),
+                                    'conditions' => ['Projetosprodutosentregas.projetosproduto_id = '=> $keyword['projetosproduto_id'],['Projetosprodutosentregas.frente_id not in '=> [25,26]],['Projetosprodutosentregas.pareto_id NOT IN '=> [13,11]]],
+                                'order' => array('frente_id' => 'asc','pareto_id' => 'desc','prioridade' => 'asc'),
                                 ];
                                 $projetosprodutosentregas = $this->paginate($this->Projetosprodutosentregas);
                             
@@ -59,7 +59,7 @@ class ProjetosprodutosentregasController extends AppController
                             {
                                 $this->paginate = [
                                     'contain' => ['Projetosprodutos', 'Sistemas', 'Statusfuncionals', 'Paretos', 'Unidademedidas','Fases','Empresas','Ambientes'],
-                                'conditions' => ['Projetosprodutosentregas.statusfuncional_id = '=> 16],
+                                'conditions' => ['Projetosprodutosentregas.statusfuncional_id != '=> 14],
                                 'order' => array('projetosproduto_id' => 'asc','referencia' => 'asc'),
                                 ];
                             $projetosprodutosentregas = $this->paginate($this->Projetosprodutosentregas);
@@ -90,7 +90,7 @@ class ProjetosprodutosentregasController extends AppController
             'contain' => ['Projetosprodutos', 'Sistemas', 'Statusfuncionals', 'Paretos', 'Unidademedidas', 'Agendas', 'Projetosapontamentos', 'Projetosentregasparetos'=> [
         'sort' => ['Projetosentregasparetos.id' => 'DESC']
     ]
-    ,'Fases','Empresas','Ambientes', 'Projetosprodutosentregasalocs','Projetosprodutosentregasflws','Projetosprodutosentregasdiarios','Projetosprodutosentregasimgs','Entregastipos' ],
+    ,'Fases','Empresas','Entregasblockpoints','Ambientes', 'Projetosprodutosentregasalocs','Projetosprodutosentregasflws','Projetosprodutosentregasdiarios','Projetosprodutosentregasimgs','Entregastipos' ],
               'order' => [
                                 'Projetosprodutosentregas.projetosproduto_id' => 'asc','Projetosprodutosentregas.prioridade' => 'asc']
         ]);
@@ -157,7 +157,9 @@ class ProjetosprodutosentregasController extends AppController
 
                 $reg = $id;
 
-                $caminho = WWW_ROOT.DS.'img'.DS.'galeria'.DS.$reg;
+                //$caminho = WWW_ROOT.DS.'img'.DS.'galeria'.DS.$reg;
+                $caminho = WWW_ROOT.DS.'img'.DS.'entregas'.DS.$reg;
+
 
                 $dir = new folder();
                 if ($dir->create($caminho,true,0755)) {
@@ -199,7 +201,10 @@ class ProjetosprodutosentregasController extends AppController
 
            $reg = $id;
 
-                $caminho = WWW_ROOT.DS.'img'.DS.'galeria'.DS.$reg;
+                //$caminho = WWW_ROOT.DS.'img'.DS.'galeria'.DS.$reg;
+
+                $caminho = WWW_ROOT.DS.'img'.DS.'entregas'.DS.$reg;
+
 
         if ($this->Projetosprodutosentregas->delete($projetosprodutosentrega)) {
             $this->Flash->success(__('The projetosprodutosentrega has been deleted.'));

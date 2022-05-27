@@ -54,6 +54,10 @@ class ParticipantesTable extends Table
         $this->hasMany('Projetosprodutos', [
             'foreignKey' => 'facilitador_id'
         ]);
+
+        $this->hasMany('Fupqueuesdistributions', [
+            'foreignKey' => 'participante_id'
+        ]);
     }
 
     /**

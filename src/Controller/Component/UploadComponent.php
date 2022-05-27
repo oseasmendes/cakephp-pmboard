@@ -31,7 +31,9 @@ class UploadComponent extends Component
 			$filename = $file['name'];
 			$file_tmp_name = $file['tmp_name'];
 			$file_ext = substr(strchr($filename,'.'),1);
-			$dir = WWW_ROOT.'img'.DS.'galeria'.DS.$galeria;
+			$dir = WWW_ROOT.'img'.DS.'entregas'.DS.$galeria;
+			//$dir = WWW_ROOT.'img'.DS.'galeria'.DS.$galeria;
+
 			//var_dump($dir);
 			$type_allowed = array('png','jpg','jpeg','gif');
 					if (!in_array($file_ext, $type_allowed)) 

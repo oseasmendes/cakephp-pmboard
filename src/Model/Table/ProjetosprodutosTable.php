@@ -60,6 +60,10 @@ class ProjetosprodutosTable extends Table
             'foreignKey' => 'facilitador_id'
         ]);
 
+        $this->belongsTo('Fupqueues', [
+            'foreignKey' => 'fupqueue_id'
+        ]);
+
          $this->belongsTo('Participantes', [
             'foreignKey' => 'gerenteprojetocliente_id'
         ]);
@@ -207,7 +211,7 @@ class ProjetosprodutosTable extends Table
         $rules->add($rules->existsIn(['frente_id'], 'Frentes'));
         $rules->add($rules->existsIn(['facilitador_id'], 'Participantes'));  
         $rules->add($rules->existsIn(['gerenteprojetocliente_id'], 'Participantes'));        
-
+        $rules->add($rules->existsIn(['fupqueue_id'], 'Fupqueues'));
         return $rules;
     }
 }

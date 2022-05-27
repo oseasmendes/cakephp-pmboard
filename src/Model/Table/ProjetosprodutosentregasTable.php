@@ -84,7 +84,12 @@ class ProjetosprodutosentregasTable extends Table
         $this->hasMany('Agendas', [
             'foreignKey' => 'projetosprodutosentrega_id'
         ]);
+        
         $this->hasMany('Projetosapontamentos', [
+            'foreignKey' => 'projetosprodutosentrega_id'
+        ]);
+
+        $this->hasMany('Entregasblockpoints', [
             'foreignKey' => 'projetosprodutosentrega_id'
         ]);
 
@@ -134,6 +139,16 @@ class ProjetosprodutosentregasTable extends Table
             ->scalar('descricao')
             ->maxLength('descricao', 255)
             ->allowEmptyString('descricao');
+        
+        $validator
+            ->scalar('historico')
+            ->maxLength('historico', 4294967295)
+            ->allowEmptyString('historico');
+        
+        $validator
+            ->scalar('justificativa')
+            ->maxLength('justificativa', 4294967295)
+            ->allowEmptyString('justificativa');
 
          $validator
             ->scalar('servidor')

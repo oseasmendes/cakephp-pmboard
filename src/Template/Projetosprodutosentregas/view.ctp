@@ -115,8 +115,16 @@
                                   
                              <?= $this->Form->button('Follow',['class'=>'btn btn-info btn-sm btn-block']) ?>
                         <?= $this->Form->end() ?> 
-                    </div>                                                                              
+                    </div>                                                                                  
     </div>
+                    <div class="row" >  
+                        <div class="col-2"> 
+                            <?= $this->Form->create($projetosprodutosentrega, ['url'=>['controller' => 'Entregasblockpoints', 'action' => 'addid'],'']) ?>   
+                                <?= $this->Form->control('Impedimentos',['default'=> $this->Number->format($projetosprodutosentrega->id),'type' => 'hidden']); ?>                                    
+                                <?= $this->Form->button('Impedimentos',['class'=>'btn btn-secondary btn-sm btn-block']) ?>
+                            <?= $this->Form->end() ?> 
+                        </div>            
+                    </div>       
 
  
 
@@ -371,7 +379,7 @@
                 <th scope="col"><?= __('Imagemoriginal') ?></th>
                 <th scope="col"><?= __('Imagempath') ?></th>          
                 <th scope="col"><?= __('Created') ?></th>
-                <th scope="col"><?= __('Modified') ?></th>                                
+                <th scope="col"><?= __('Img') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             </thead>
@@ -380,8 +388,16 @@
                 <td><?= h($imagens->id) ?></td>       
                 <td><?= h($imagens->imagemoriginal) ?></td>
                 <td><?= h($imagens->imagempath) ?></td>                                
-                <td><?= h($imagens->created) ?></td>
-                <td><?= h($imagens->modified) ?></td>                
+                <td><?= h($imagens->created) ?></td>               
+                <td>
+                <?php
+                    $Root_Path = "http://".$_SERVER['SERVER_NAME']."/pmboard";
+                    //$pathurl = WWW_ROOT.'img'.DS.'projetosprodutos'.DS.$projetosprodutosimg->projetosproduto->id;
+                
+                    $newpath = $Root_Path.'/img'.'/entregas/'.$imagens->projetosprodutosentrega_id; 
+                    $pathimage = $newpath.'/'.$imagens->imagemoriginal;  
+                    echo '<img src="'.$pathimage.'" alt="Saes" width="120" height="80">';    
+                ?></td>  
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Projetosprodutosentregasimgs', 'action' => 'view', $imagens->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Projetosprodutosentregasimgs', 'action' => 'edit', $imagens->id]) ?>
@@ -422,6 +438,37 @@
         </table>
         <?php endif; ?>
     </div>
+
+
+    <div class="related">        
+        <?php if (!empty($projetosprodutosentrega->entregasblockpoints)): ?>
+        <h4><p class="text-secondary"><?= __('Impedimentos') ?></p></h4>
+        <table class="table">
+            <thead class="thead-light">
+            <tr>
+                <th scope="col"><?= __('Id') ?></th>                       
+                <th scope="col"><?= __('Descricao') ?></th>
+                <th scope="col"><?= __('Created') ?></th>                
+                <th scope="col" class="actions"><?= __('Actions') ?></th>
+            </tr>
+            </thead>
+            <?php foreach ($projetosprodutosentrega->entregasblockpoints as $blocks): ?>
+            <tr>
+                <td><?= h($blocks->id) ?></td>                                                       
+                <td><?= h($blocks->descricao) ?></td>
+                <td><?= h($blocks->created) ?></td>                
+                <td class="actions">
+                    <?= $this->Html->link(__('View'), ['controller' => 'Entregasblockpoints', 'action' => 'view', $blocks->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Entregasblockpoints', 'action' => 'edit', $blocks->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Entregasblockpoints', 'action' => 'delete', $blocks->id], ['confirm' => __('Are you sure you want to delete # {0}?', $blocks->id)]) ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+        <?php endif; ?>
+    </div>
+
+
 
  </div>
 

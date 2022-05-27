@@ -41,6 +41,8 @@
         <?php
             echo $this->Form->control('referencia',['class'=> "form-control"]);
             echo $this->Form->control('descricao',['class'=> "form-control"]);
+            echo $this->Form->control('historico',['class'=> "form-control"]);
+            echo $this->Form->control('justificativa',['class'=> "form-control"]);
             echo $this->Form->control('sprintoriginal',['class'=> "form-control"]);
             echo $this->Form->control('projetosproduto_id', ['options' => $projetosprodutos, 'empty' => true,'class'=>['class'=> 'form-control']]);
             echo $this->Form->control('sistema_id', ['options' => $sistemas, 'empty' => true,'class'=>['class'=> 'form-control']]);

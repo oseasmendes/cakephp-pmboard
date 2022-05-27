@@ -88,6 +88,11 @@ class StatusfuncionalsTable extends Table
         $this->hasMany('Sistemas', [
             'foreignKey' => 'statusfuncional_id'
         ]);
+       
+        $this->hasMany('Fupagendas', [
+            'foreignKey' => 'fupagenda_id'
+        ]);
+      
       
     }
 

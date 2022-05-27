@@ -5,12 +5,27 @@
  */
 ?>
 
+
+<section class="content">
+        <div class="container-fluid">
+            <div class="row">     
+
+                <div class="col-md-12">
+                    <div class="card card-info">
+                        <div class="card-header">
+
+                        <h3 class="card-title">Deliveries</h3>
+                        </div>
+                            <div class="card-body">
+                                    <div class="row" > 
+
+
  <div class="sistemas index large-9 medium-8 columns content"> 
 
   
     <div class="pos-f-t">
           <div class="collapse" id="navbarToggleExternalContent">
-            <div class="bg-dark p-4">
+            <div class="bg-light p-4">
                 <div>
                     <div class="col-sm-8 col-md-7 py-4">                   
                     <div class="dropdown">
@@ -48,7 +63,7 @@
                     <ul class="nav navbar-nav" role="navigation" >                           
                                     <?= $this->Form->create("",['class'=>'form-inline my-2 my-lg-0','type'=>'get']) ?>                
                                             <?= $this->Form->control('projetosproduto_id', ['options' => $projetosprodutos,
-                                                                            'empty' => 'Entregas',                                          
+                                                                            'empty' => 'Produtos',                                          
                                                                             'class'=>['class'=> 'form-control'],
                                                                             'label' => false                               
                                                                             ]); ?>         
@@ -87,8 +102,8 @@
             </div>
           </div>
           <nav class="navbar navbar-dark bg-dark">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-               <span class="navbar-toggler-icon"></span>      
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">            
+            <span class="navbar-toggler-icon"></span>      
             </button>            
           </nav>
     </div> 
@@ -96,7 +111,7 @@
 
 
 <div class="projetosprodutosentregas index large-9 medium-8 columns content">
-    <h3><?= __('Lista de Entregas') ?></h3>
+    <h3><?= __('Deliveries') ?></h3>
     <table class="table table-striped table-responsive">  
         <thead>
             <tr>
@@ -104,8 +119,10 @@
                 <th scope="col"><?= $this->Paginator->sort('referencia','Referencia') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('descricao','Descricao') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('projetosproduto_id','Produto') ?></th>          
-            
+                <th scope="col"><?= $this->Paginator->sort('frente_id','Frente') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('prioridade','Prio') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('responsavel','Requisitante') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('kanban','Kanban') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -116,8 +133,10 @@
                 <td><?= h($projetosprodutosentrega->referencia) ?></td>
                 <td><?= h($projetosprodutosentrega->descricao) ?></td>
                 <td><?= $projetosprodutosentrega->has('projetosproduto') ? $this->Html->link($projetosprodutosentrega->projetosproduto->descricao, ['controller' => 'Projetosprodutos', 'action' => 'view', $projetosprodutosentrega->projetosproduto->id]) : '' ?></td>                
-
+                <td><?= $this->Number->format($projetosprodutosentrega->frente_id) ?></td>
                 <td><?= $this->Number->format($projetosprodutosentrega->prioridade) ?></td>
+                <td><?= h($projetosprodutosentrega->responsavel) ?></td>
+                <td><?= $projetosprodutosentrega->has('pareto') ? $this->Html->link($projetosprodutosentrega->pareto->Kanban, ['controller' => 'Paretos', 'action' => 'view', $projetosprodutosentrega->pareto->id]) : '' ?></td>                
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $projetosprodutosentrega->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $projetosprodutosentrega->id]) ?>
@@ -138,3 +157,12 @@
         <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
     </div>
 </div>
+
+
+</div>                                                                   
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>      
+    </section>
