@@ -57,6 +57,7 @@ class ProcessostiposController extends AppController
             }
             $this->Flash->error(__('The processostipo could not be saved. Please, try again.'));
         }
+        
         $this->set(compact('processostipo'));
     }
 

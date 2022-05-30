@@ -37,7 +37,10 @@ class FupagendasController extends AppController
     public function view($id = null)
     {
         $fupagenda = $this->Fupagendas->get($id, [
-            'contain' => ['Fupqueues', 'Statusfuncionals', 'Fupdeployed', 'Fupinprogres', 'Fupnotstarted']
+            'contain' => ['Fupqueues', 'Statusfuncionals', 'Fupdeployed', 'Fupinprogres', 'Fupnotstarted'=> [
+                'sort' => ['Fupnotstarted.prio' => 'ASC'],
+                //'conditions' => ['Projetosprodutosentregas.pareto_id NOT IN ' => [3,30,27]
+                ],]
         ]);
 
         $this->set('fupagenda', $fupagenda);

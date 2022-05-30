@@ -4,21 +4,31 @@
  * @var \App\Model\Entity\Fupqueue[]|\Cake\Collection\CollectionInterface $fupqueues
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
+
+<section class="content">
+        <div class="container-fluid">
+            <div class="row">     
+
+                <div class="col-md-12">
+                    <div class="card card-info">
+                        <div class="card-header">
+
+                       
+                        </div>
+                            <div class="card-body">
+                                    <div class="row" > 
+                                    </div>
+
+                                    <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Fupqueue'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Fupagendas'), ['controller' => 'Fupagendas', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Fupagenda'), ['controller' => 'Fupagendas', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Fupqueuesdistributions'), ['controller' => 'Fupqueuesdistributions', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Fupqueuesdistribution'), ['controller' => 'Fupqueuesdistributions', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Projetosprodutos'), ['controller' => 'Projetosprodutos', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Projetosproduto'), ['controller' => 'Projetosprodutos', 'action' => 'add']) ?></li>
+        <li class="heading"><?= __('Actions') ?></li>        
+        <li><?= $this->Html->link(__('New Fupqueue'), ['action' => 'add']) ?> </li>        
     </ul>
 </nav>
+
 <div class="fupqueues index large-9 medium-8 columns content">
     <h3><?= __('Fupqueues') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <table class="table">
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
@@ -59,3 +69,13 @@
         <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
     </div>
 </div>
+
+
+</div>                                                                   
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        </div>      
+    </section>

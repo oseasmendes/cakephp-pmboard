@@ -61,6 +61,10 @@ class FupqueuesdistributionsTable extends Table
             ->integer('id')
             ->allowEmptyString('id', 'create');
 
+        $validator
+            ->boolean('ativo')
+            ->allowEmptyString('ativo');
+
         return $validator;
     }
 

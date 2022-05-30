@@ -29,6 +29,7 @@ class Fupqueuesdistribution extends Entity
     protected $_accessible = [
         'fupqueue_id' => true,
         'participante_id' => true,
+        'ativo' => true,
         'created' => true,
         'modified' => true,
         'fupqueue' => true,

@@ -4,6 +4,22 @@
  * @var \App\Model\Entity\Fupqueuesdistribution[]|\Cake\Collection\CollectionInterface $fupqueuesdistributions
  */
 ?>
+
+<section class="content">
+        <div class="container-fluid">
+            <div class="row">     
+
+                <div class="col-md-12">
+                    <div class="card card-info">
+                        <div class="card-header">
+
+                       
+                        </div>
+                            <div class="card-body">
+                                    <div class="row" > 
+                                    </div>
+
+
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
@@ -15,8 +31,8 @@
     </ul>
 </nav>
 <div class="fupqueuesdistributions index large-9 medium-8 columns content">
-    <h3><?= __('Fupqueuesdistributions') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <h3><?= __('Fila de Distribuição') ?></h3>
+    <table class="table">
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
@@ -55,3 +71,13 @@
         <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
     </div>
 </div>
+
+
+</div>                                                                   
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        </div>      
+    </section>

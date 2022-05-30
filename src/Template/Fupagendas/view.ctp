@@ -23,41 +23,31 @@
 
 <div class="fupagendas view large-9 medium-8 columns content">
     <h3><?= h($fupagenda->id) ?></h3>
-    <table class="vertical-table">
+    <table class="table">
         <tr>
             <th scope="row"><?= __('Fupqueue') ?></th>
-            <td><?= $fupagenda->has('fupqueue') ? $this->Html->link($fupagenda->fupqueue->id, ['controller' => 'Fupqueues', 'action' => 'view', $fupagenda->fupqueue->id]) : '' ?></td>
-        </tr>
-        <tr>
+            <td><?= $fupagenda->has('fupqueue') ? $this->Html->link($fupagenda->fupqueue->descricao, ['controller' => 'Fupqueues', 'action' => 'view', $fupagenda->fupqueue->id]) : '' ?></td>
             <th scope="row"><?= __('Descricao') ?></th>
             <td><?= h($fupagenda->descricao) ?></td>
-        </tr>
+        </tr>        
         <tr>
             <th scope="row"><?= __('Statusfuncional') ?></th>
             <td><?= $fupagenda->has('statusfuncional') ? $this->Html->link($fupagenda->statusfuncional->descricao, ['controller' => 'Statusfuncionals', 'action' => 'view', $fupagenda->statusfuncional->id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($fupagenda->id) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Checkpointdata') ?></th>
             <td><?= h($fupagenda->checkpointdata) ?></td>
-        </tr>
+        </tr>        
         <tr>
             <th scope="row"><?= __('Created') ?></th>
             <td><?= h($fupagenda->created) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Modified') ?></th>
             <td><?= h($fupagenda->modified) ?></td>
-        </tr>
+        </tr>        
     </table>   
     <div class="related">
         <h4><?= __('Em Andamento') ?></h4>
         <?php if (!empty($fupagenda->fupinprogres)): ?>
         <table class="table table-bordered table-responsive-sm">  
-            <tr>               
+            <tr style="background-color:rgb(189, 216, 39)">               
                 <th scope="col"><?= __('Departamento') ?></th>                
                 <th scope="col"><?= __('ID','Esupportid') ?></th>
                 <th scope="col"><?= __('Titulo') ?></th>
@@ -65,7 +55,7 @@
                 <th scope="col"><?= __('Requisitante') ?></th>
                 <th scope="col"><?= __('Status Detalhado','Statusdetalhado') ?></th>
                 <th scope="col"><?= __('Analista') ?></th>
-                <th scope="col"><?= __('Comentario') ?></th>
+                <th scope="col"><?= __('Comentário','Comentario') ?></th>
                 <th scope="col"><?= __('Lastupdate') ?></th>              
               
             </tr>
@@ -90,7 +80,7 @@
         <h4><?= __('Não Iniciado') ?></h4>
         <?php if (!empty($fupagenda->fupnotstarted)): ?>
             <table class="table table-bordered table-responsive-sm">  
-            <tr>                
+            <tr style="background-color:rgb(189, 216, 39)">                
                 <th scope="col"><?= __('Departamento') ?></th>                
                 <th scope="col"><?= __('ID','Esupportid') ?></th>
                 <th scope="col"><?= __('Titulo') ?></th>
@@ -118,7 +108,7 @@
         <h4><?= __('Concluído') ?></h4>
         <?php if (!empty($fupagenda->fupdeployed)): ?>
             <table class="table table-bordered table-responsive-sm">  
-            <tr>               
+            <tr style="background-color:rgb(189, 216, 39)">                
                 <th scope="col"><?= __('Departamento') ?></th>             
                 <th scope="col"><?= __('ID','Esupportid') ?></th>
                 <th scope="col"><?= __('Titulo') ?></th>

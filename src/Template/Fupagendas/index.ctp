@@ -4,6 +4,22 @@
  * @var \App\Model\Entity\Fupagenda[]|\Cake\Collection\CollectionInterface $fupagendas
  */
 ?>
+
+<section class="content">
+        <div class="container-fluid">
+            <div class="row">     
+
+                <div class="col-md-12">
+                    <div class="card card-info">
+                        <div class="card-header">
+
+                       
+                        </div>
+                            <div class="card-body">
+                                    <div class="row" > 
+                                    </div>
+
+
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
@@ -22,7 +38,7 @@
 </nav>
 <div class="fupagendas index large-9 medium-8 columns content">
     <h3><?= __('Fupagendas') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <table class="table">
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
@@ -39,7 +55,7 @@
             <?php foreach ($fupagendas as $fupagenda): ?>
             <tr>
                 <td><?= $this->Number->format($fupagenda->id) ?></td>
-                <td><?= $fupagenda->has('fupqueue') ? $this->Html->link($fupagenda->fupqueue->id, ['controller' => 'Fupqueues', 'action' => 'view', $fupagenda->fupqueue->id]) : '' ?></td>
+                <td><?= $fupagenda->has('fupqueue') ? $this->Html->link($fupagenda->fupqueue->descricao, ['controller' => 'Fupqueues', 'action' => 'view', $fupagenda->fupqueue->id]) : '' ?></td>
                 <td><?= h($fupagenda->checkpointdata) ?></td>
                 <td><?= h($fupagenda->descricao) ?></td>
                 <td><?= $fupagenda->has('statusfuncional') ? $this->Html->link($fupagenda->statusfuncional->descricao, ['controller' => 'Statusfuncionals', 'action' => 'view', $fupagenda->statusfuncional->id]) : '' ?></td>
@@ -65,3 +81,15 @@
         <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
     </div>
 </div>
+
+
+
+
+</div>                                                                   
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        </div>      
+    </section>

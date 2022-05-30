@@ -19,8 +19,9 @@
     <fieldset>
         <legend><?= __('Add Fupqueuesdistribution') ?></legend>
         <?php
-            echo $this->Form->control('fupqueue_id', ['options' => $fupqueues, 'empty' => true]);
-            echo $this->Form->control('participante_id', ['options' => $participantes, 'empty' => true]);
+            echo $this->Form->control('fupqueue_id', ['options' => $fupqueues, 'empty' => true,'class'=>['class'=> 'form-control']]);
+            echo $this->Form->control('participante_id', ['options' => $participantes, 'empty' => true,'class'=>['class'=> 'form-control']]);
+            echo $this->Form->control('ativo');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
