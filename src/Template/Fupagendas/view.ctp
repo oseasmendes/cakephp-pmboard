@@ -44,59 +44,60 @@
         </tr>        
     </table>   
     <div class="related">
-        <h4><?= __('Em Andamento') ?></h4>
+        <h4 style="font-family:calibri; font-size:116.667%; color: #002060; font-weight: bold"><?= "Em Andamento" ?></h4>
         <?php if (!empty($fupagenda->fupinprogres)): ?>
         <table class="table table-bordered table-responsive-sm">  
             <tr style="background-color:rgb(189, 216, 39)">               
-                <th scope="col"><?= __('Departamento') ?></th>                
-                <th scope="col"><?= __('ID','Esupportid') ?></th>
-                <th scope="col"><?= __('Titulo') ?></th>
-                <th scope="col"><?= __('Prio') ?></th>
-                <th scope="col"><?= __('Requisitante') ?></th>
-                <th scope="col"><?= __('Status Detalhado','Statusdetalhado') ?></th>
-                <th scope="col"><?= __('Analista') ?></th>
-                <th scope="col"><?= __('Comentário','Comentario') ?></th>
-                <th scope="col"><?= __('Lastupdate') ?></th>              
+                <th scope="col" style="font-family:calibri; color: #002060;text-align: center"><?= __('Depto','Departamento') ?></th>                
+                <th scope="col" style="font-family:calibri; color: #002060;text-align: center"><?= __('ID','Esupportid') ?></th>
+                <th scope="col" style="font-family:calibri; color: #002060;text-align: center"><?= __('Titulo') ?></th>
+                <th scope="col" style="font-family:calibri; color: #002060;text-align: center"><?= __('Prio') ?></th>
+                <th scope="col" style="font-family:calibri; color: #002060;text-align: center"><?= __('Requisitante') ?></th>
+                <th scope="col" style="font-family:calibri; color: #002060;text-align: center"><?= __('Status Detalhado','Statusdetalhado') ?></th>
+                <th scope="col" style="font-family:calibri; color: #002060;text-align: center"><?= __('Analista') ?></th>
+                <th scope="col" style="font-family:calibri; color: #002060;text-align: center"><?= __('Comentário','Comentario') ?></th>
+                <th scope="col" style="font-family:calibri; color: #002060;text-align: center"><?= __('Lastupdate') ?></th>              
               
             </tr>
             <?php foreach ($fupagenda->fupinprogres as $fupinprogres): ?>
             <tr>                
-                <td><?= h($fupinprogres->departamento) ?></td>                
-                <td><?= h($fupinprogres->esupportid) ?></td>
-                <td><?= h($fupinprogres->titulo) ?></td>
-                <td><?= h($fupinprogres->prio) ?></td>
-                <td><?= h($fupinprogres->requisitante) ?></td>
-                <td><?= h($fupinprogres->statusdetalhado) ?></td>
-                <td><?= h($fupinprogres->analista) ?></td>
-                <td><?= h($fupinprogres->comentario) ?></td>
-                <td><?= h($fupinprogres->lastupdate) ?></td>              
+                <td style="font-family:calibri"><?= h($fupinprogres->departamento) ?></td>                
+                <td style="font-family:calibri"><?= h($fupinprogres->esupportid) ?></td>
+                <td style="font-family:calibri"><?= h($fupinprogres->titulo) ?></td>
+                <td style="font-family:calibri"><?= h($fupinprogres->prio) ?></td>
+                <td style="font-family:calibri"><?= h($fupinprogres->requisitante) ?></td>
+                <td style="font-family:calibri"><?= h($fupinprogres->statusdetalhado) ?></td>
+                <td style="font-family:calibri"><?= h($fupinprogres->analista) ?></td>
+                <td style="font-family:calibri"><?= h($fupinprogres->comentario) ?></td>
+                <td style="font-family:calibri"><?= h($fupinprogres->lastupdate) ?></td>              
                
             </tr>
             <?php endforeach; ?>
         </table>
         <?php endif; ?>
     </div>   
+            <p>
     <div class="related">
-        <h4><?= __('Não Iniciado') ?></h4>
+        <h4 style="font-family:calibri; font-size:116.667%; color: #002060; font-weight: bold"><?= "Não Iniciado" ?></h4>
         <?php if (!empty($fupagenda->fupnotstarted)): ?>
             <table class="table table-bordered table-responsive-sm">  
             <tr style="background-color:rgb(189, 216, 39)">                
-                <th scope="col"><?= __('Departamento') ?></th>                
-                <th scope="col"><?= __('ID','Esupportid') ?></th>
-                <th scope="col"><?= __('Titulo') ?></th>
-                <th scope="col"><?= __('Prio') ?></th>
-                <th scope="col"><?= __('Requisitante') ?></th>
-                <th scope="col"><?= __('Status Detalhado','Statusdetalhado') ?></th>                       
+                <th scope="col" style="font-family:calibri; color: #002060; text-align: center"><?= __('Depto','Departamento') ?></th>                
+                <th scope="col" style="font-family:calibri; color: #002060; text-align: center"><?= __('ID','Esupportid') ?></th>
+                <th scope="col" style="font-family:calibri; color: #002060; text-align: center"><?= __('Titulo') ?></th>
+                <th scope="col" style="font-family:calibri; color: #002060; text-align: center"><?= __('Prio') ?></th>
+                <th scope="col" style="font-family:calibri; color: #002060; text-align: center"><?= __('Requisitante') ?></th>
+                <th scope="col" style="font-family:calibri; color: #002060; text-align: center"><?= __('Status Detalhado','Statusdetalhado') ?></th>                       
                
             </tr>
             <?php foreach ($fupagenda->fupnotstarted as $fupnotstarted): ?>
             <tr>                
-                <td><?= h($fupnotstarted->departamento) ?></td>                
-                <td><?= h($fupnotstarted->esupportid) ?></td>
-                <td><?= h($fupnotstarted->titulo) ?></td>
-                <td><?= h($fupnotstarted->prio) ?></td>
-                <td><?= h($fupnotstarted->requisitante) ?></td>
-                <td><?= h($fupnotstarted->statusdetalhado) ?></td>
+                <td style="font-family:calibri"><?= h($fupnotstarted->departamento) ?></td>                
+                <td style="font-family:calibri"><?= h($fupnotstarted->esupportid) ?></td>
+                <td style="font-family:calibri"><?= h($fupnotstarted->titulo) ?></td>
+                <td style="font-family:calibri"><?= h($fupnotstarted->prio) ?></td>
+                <td style="font-family:calibri"><?= h($fupnotstarted->requisitante) ?></td>
+                <td style="font-family:calibri"><?= h($fupnotstarted->statusdetalhado) ?></td>
                   
              
             </tr>
@@ -104,33 +105,34 @@
         </table>
         <?php endif; ?>
     </div>
+            <p>
     <div class="related">
-        <h4><?= __('Concluído') ?></h4>
+        <h4 style="font-family:calibri; font-size:116.667%; color: #002060; font-weight: bold"><?= "Concluído" ?></h4>
         <?php if (!empty($fupagenda->fupdeployed)): ?>
             <table class="table table-bordered table-responsive-sm">  
             <tr style="background-color:rgb(189, 216, 39)">                
-                <th scope="col"><?= __('Departamento') ?></th>             
-                <th scope="col"><?= __('ID','Esupportid') ?></th>
-                <th scope="col"><?= __('Titulo') ?></th>
-                <th scope="col"><?= __('Prio') ?></th>
-                <th scope="col"><?= __('Requisitante') ?></th>
-                <th scope="col"><?= __('Status Detalhado','Statusdetalhado') ?></th>
-                <th scope="col"><?= __('Analista') ?></th>
+                <th scope="col" style="font-family:calibri; color: #002060; text-align: center "><?= __('Depto','Departamento') ?></th>             
+                <th scope="col" style="font-family:calibri; color: #002060; text-align: center"><?= __('ID','Esupportid') ?></th>
+                <th scope="col" style="font-family:calibri; color: #002060; text-align: center"><?= __('Titulo') ?></th>
+                <th scope="col" style="font-family:calibri; color: #002060; text-align: center"><?= __('Prio') ?></th>
+                <th scope="col" style="font-family:calibri; color: #002060; text-align: center"><?= __('Requisitante') ?></th>
+                <th scope="col" style="font-family:calibri; color: #002060; text-align: center"><?= __('Status Detalhado','Statusdetalhado') ?></th>
+                <th scope="col" style="font-family:calibri; color: #002060; text-align: center"><?= __('Analista') ?></th>
             
-                <th scope="col"><?= __('Lastupdate') ?></th>               
+                <th scope="col" style="font-family:calibri; color: #002060"><?= __('Lastupdate') ?></th>               
                
             </tr>
             <?php foreach ($fupagenda->fupdeployed as $fupdeployed): ?>
             <tr>               
-                <td><?= h($fupdeployed->departamento) ?></td>                
-                <td><?= h($fupdeployed->esupportid) ?></td>
-                <td><?= h($fupdeployed->titulo) ?></td>
-                <td><?= h($fupdeployed->prio) ?></td>
-                <td><?= h($fupdeployed->requisitante) ?></td>
-                <td><?= h($fupdeployed->statusdetalhado) ?></td>
-                <td><?= h($fupdeployed->analista) ?></td>
+                <td style="font-family:calibri"><?= h($fupdeployed->departamento) ?></td>                
+                <td style="font-family:calibri"><?= h($fupdeployed->esupportid) ?></td>
+                <td style="font-family:calibri"><?= h($fupdeployed->titulo) ?></td>
+                <td style="font-family:calibri"><?= h($fupdeployed->prio) ?></td>
+                <td style="font-family:calibri"><?= h($fupdeployed->requisitante) ?></td>
+                <td style="font-family:calibri"><?= h($fupdeployed->statusdetalhado) ?></td>
+                <td style="font-family:calibri"><?= h($fupdeployed->analista) ?></td>
              
-                <td><?= h($fupdeployed->lastupdate) ?></td>          
+                <td style="font-family:calibri"><?= h($fupdeployed->lastupdate) ?></td>          
             
             </tr>
             <?php endforeach; ?>
