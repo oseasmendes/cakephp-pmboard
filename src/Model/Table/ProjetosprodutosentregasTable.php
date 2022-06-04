@@ -81,6 +81,10 @@ class ProjetosprodutosentregasTable extends Table
             'foreignKey' => 'entregastipo_id'
         ]);
 
+        $this->belongsTo('Consultores', [
+            'foreignKey' => 'consultore_id'
+        ]);
+
         $this->hasMany('Agendas', [
             'foreignKey' => 'projetosprodutosentrega_id'
         ]);
@@ -252,6 +256,7 @@ class ProjetosprodutosentregasTable extends Table
         $rules->add($rules->existsIn(['empresa_id'], 'Empresas'));
         $rules->add($rules->existsIn(['ambiente_id'], 'Ambientes'));
         $rules->add($rules->existsIn(['entregastipo_id'], 'Entregastipos'));
+        $rules->add($rules->existsIn(['consultore_id'], 'Consultores'));
 
         return $rules;
     }

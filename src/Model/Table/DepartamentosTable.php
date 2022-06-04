@@ -66,6 +66,9 @@ class DepartamentosTable extends Table
         $this->belongsTo('Gerentes', [
             'foreignKey' => 'gerente_id'
         ]);
+        $this->belongsTo('Fupqueues', [
+            'foreignKey' => 'fupqueue_id'
+        ]);
         $this->belongsTo('Empresasunidades', [
             'foreignKey' => 'empresasunidade_id'
         ]);
@@ -98,6 +101,7 @@ class DepartamentosTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->existsIn(['gerente_id'], 'Gerentes'));
+        $rules->add($rules->existsIn(['fupqueue_id'], 'Fupqueues'));
         $rules->add($rules->existsIn(['empresasunidade_id'], 'Empresasunidades'));
 
         return $rules;

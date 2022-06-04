@@ -124,7 +124,7 @@ class ProjetosprodutosentregasController extends AppController
         
         $projetosprodutos = $this->Projetosprodutosentregas->Projetosprodutos->find('list',array('conditions'=>array('Projetosprodutos.id'=>$id),'order' => array('produto' => 'asc')));
         
-        $sistemas = $this->Projetosprodutosentregas->Sistemas->find('list', ['limit' => 200]);
+        $sistemas = $this->Projetosprodutosentregas->Sistemas->find('list',array('conditions'=>array('Sistemas.ativo'=>true),'order' => array('codenome' => 'asc')));
         $fases = $this->Projetosprodutosentregas->Fases->find('list', ['limit' => 200]);
         $statusfuncionals = $this->Projetosprodutosentregas->Statusfuncionals->find('list', ['limit' => 200]);
         $paretos = $this->Projetosprodutosentregas->Paretos->find('list', ['limit' => 200]);
@@ -174,7 +174,7 @@ class ProjetosprodutosentregasController extends AppController
  $projetosprodutoid = $projetosprodutosentrega->projetosproduto_id; 
         //$projetosprodutos = $this->Projetosprodutosentregas->Projetosprodutos->find('list', ['limit' => 200]);
         $projetosprodutos = $this->Projetosprodutosentregas->Projetosprodutos->find('list',array('conditions'=>array('Projetosprodutos.id'=>$projetosprodutoid),'order' => array('codenome' => 'asc')));
-        $sistemas = $this->Projetosprodutosentregas->Sistemas->find('list', ['limit' => 200]);
+        $sistemas = $this->Projetosprodutosentregas->Sistemas->find('list',array('conditions'=>array('Sistemas.ativo'=>true),'order' => array('codenome' => 'asc')));
         $fases = $this->Projetosprodutosentregas->Fases->find('list', ['limit' => 200]);
         $statusfuncionals = $this->Projetosprodutosentregas->Statusfuncionals->find('list', ['limit' => 200]);
         $paretos = $this->Projetosprodutosentregas->Paretos->find('list', ['limit' => 200]);

@@ -35,6 +35,7 @@ class Fupqueue extends Entity
         'ativo' => true,
         'observacao' => true,
         'fupagendas' => true,
+        'departamentos' => true,
         'fupqueuesdistributions' => true,
         'projetosprodutos' => true
     ];

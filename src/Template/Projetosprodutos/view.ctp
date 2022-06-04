@@ -318,10 +318,9 @@
                 <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Ref','Referencia') ?></th>
                 <th scope="col"><?= __('Descricao') ?></th>                                
-                <th scope="col"><?= __('Created') ?></th>                
+                <th scope="col"><?= __('Criado Em','Datacriacaooriginal') ?></th>                
                 <th scope="col"><?= __('Fila','Sprintoriginal') ?></th>
-                <th scope="col"><?= __('CriadoPor','Responsavel') ?></th>
-                <th scope="col"><?= __('Out','Escoporemocao') ?></th>
+                <th scope="col"><?= __('CriadoPor','Responsavel') ?></th>                
                 <th scope="col"><?= __('DtPrev','Prevdatainicio') ?></th>
                 <th scope="col"><?= __('DtReal','Prevdatafim') ?></th>                
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -331,10 +330,9 @@
                 <td><?= h($projetosprodutosentregas->id) ?></td>
                 <td><?= h($projetosprodutosentregas->referencia) ?></td>
                 <td><?= h($projetosprodutosentregas->descricao) ?></td>                        
-                <td><?= h($projetosprodutosentregas->created) ?></td>                
+                <td><?= h($projetosprodutosentregas->datacriacaooriginal) ?></td>                
                 <td><?= h($projetosprodutosentregas->sprintoriginal) ?></td>
-                <td><?= h($projetosprodutosentregas->responsavel) ?></td>
-                <td><?= h($projetosprodutosentregas->escoporemocao) ?></td>
+                <td><?= h($projetosprodutosentregas->responsavel) ?></td>                
                 <td><?= h($projetosprodutosentregas->prevdatainicio) ?></td>
                 <td><?= h($projetosprodutosentregas->prevdatafim) ?></td>               
                 <td class="actions">

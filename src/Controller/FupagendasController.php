@@ -35,12 +35,18 @@ class FupagendasController extends AppController
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function view($id = null)
-    {
+    {    
+        
+        //$fiscalyear = strtotime('2022-03-31');
         $fupagenda = $this->Fupagendas->get($id, [
-            'contain' => ['Fupqueues', 'Statusfuncionals', 'Fupdeployed', 'Fupinprogres', 'Fupnotstarted'=> [
-                'sort' => ['Fupnotstarted.prio' => 'ASC'],
-                //'conditions' => ['Projetosprodutosentregas.pareto_id NOT IN ' => [3,30,27]
-                ],]
+            'contain' => ['Fupqueues', 'Statusfuncionals', 
+            'Fupdeployed' => ['conditions' => ['Fupdeployed.lastupdate >' => date("Y-m-d", mktime(0, 0, 0, date("m") , date("d"),date("Y")-12))]], 
+            //'Fupdeployed' => ['conditions' => ['Fupdeployed.lastupdate >' => $fiscalyear]], 
+            'Fupinprogres',
+            'Fupchamados'=> ['sort' => ['Fupchamados.lastupdate' => 'ASC']], 
+            'Fupnotstarted'=> [
+                'sort' => ['Fupnotstarted.departamento' => 'ASC','Fupnotstarted.prio' => 'ASC'],                
+            ],]
         ]);
 
         $this->set('fupagenda', $fupagenda);

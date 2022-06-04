@@ -64,6 +64,24 @@ class FupnotstartedController extends AppController
         $this->set(compact('fupnotstarted', 'fupagendas'));
     }
 
+    public function addid($id = null)
+    {
+        $fupnotstarted = $this->Fupnotstarted->newEntity();
+        if ($this->request->is('post')) {
+            $fupnotstarted = $this->Fupnotstarted->patchEntity($fupnotstarted, $this->request->getData());
+            $fupnotstarted->fupagenda_id = $id;
+            if ($this->Fupnotstarted->save($fupnotstarted)) {
+                $this->Flash->success(__('The fupnotstarted has been saved.'));
+
+                //return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller'=>'Fupagendas','action' => 'view',$id]);
+            }
+            $this->Flash->error(__('The fupnotstarted could not be saved. Please, try again.'));
+        }
+        $fupagendas = $this->Fupnotstarted->Fupagendas->find('list',array('conditions'=>array('Fupagendas.id'=>$id),'order' => array('descricao' => 'asc')));
+        $this->set(compact('fupnotstarted', 'fupagendas'));
+    }
+
     /**
      * Edit method
      *

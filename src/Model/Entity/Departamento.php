@@ -32,6 +32,7 @@ class Departamento extends Entity
     protected $_accessible = [
         'descricao' => true,
         'gerente_id' => true,
+        'fupqueue_id' => true,
         'empresasunidade_id' => true,
         'created' => true,
         'modified' => true,
@@ -41,6 +42,7 @@ class Departamento extends Entity
         'projetousuarios' => true,
         'gerentes' => true,
         'empresasunidades' => true,
+        'fupqueues' => true,
         'sistemas' => true,
         'sistemasareas' => true,
         'sistemasbriefings' => true

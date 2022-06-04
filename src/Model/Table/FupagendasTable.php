@@ -53,6 +53,11 @@ class FupagendasTable extends Table
         $this->hasMany('Fupdeployed', [
             'foreignKey' => 'fupagenda_id'
         ]);
+
+        $this->hasMany('Fupchamados', [
+            'foreignKey' => 'fupagenda_id'
+        ]);
+
         $this->hasMany('Fupinprogres', [
             'foreignKey' => 'fupagenda_id'
         ]);

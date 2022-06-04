@@ -45,6 +45,9 @@ class FupqueuesTable extends Table
         $this->hasMany('Fupagendas', [
             'foreignKey' => 'fupqueue_id'
         ]);
+        $this->hasMany('Departamentos', [
+            'foreignKey' => 'fupqueue_id'
+        ]);
         $this->hasMany('Fupqueuesdistributions', [
             'foreignKey' => 'fupqueue_id'
         ]);

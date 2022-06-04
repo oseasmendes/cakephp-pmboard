@@ -82,6 +82,7 @@ class Consultore extends Entity
         'projetosalocs' => true,
         'regimecontratacao' => true,
         'projetosapontamentos' => true,
+        'projetosprodutosentregas' => true,
         'projetosprodutosentregasalocs' => true,
         'esupportstetlagentes' => true,
         'sistemasconsultores' => true

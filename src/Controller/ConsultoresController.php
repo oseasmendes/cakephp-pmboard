@@ -81,7 +81,7 @@ class ConsultoresController extends AppController
     public function view($id = null)
     {
         $consultore = $this->Consultores->get($id, [
-            'contain' => ['Departamentos', 'Superiorimediatos', 'Consultorias', 'Fivewthreehs', 'Projetosalocs','Projetosapontamentos', 'Sistemasconsultores','Consultoresnotas','Consultoresferias',
+            'contain' => ['Departamentos','Projetosprodutosentregas' ,'Superiorimediatos', 'Consultorias', 'Fivewthreehs', 'Projetosalocs','Projetosapontamentos', 'Sistemasconsultores','Consultoresnotas','Consultoresferias',
                  'Projetosprodutosentregasalocs' => 
                         ['conditions' => ['Projetosprodutosentregasalocs.pareto_id !=' => 3],
                             'sort' => ['Projetosprodutosentregasalocs.descricao' => 'ASC',

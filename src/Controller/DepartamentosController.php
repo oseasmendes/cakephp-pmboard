@@ -61,8 +61,10 @@ class DepartamentosController extends AppController
         }
 
         $gerentes = $this->Departamentos->Gerentes->find('list', ['limit' => 200]);
+        $fupqueues = $this->Projetosprodutos->Fupqueues->find('list',array('order' => array('descricao' => 'asc')),['limit' => 1200]);
         $empresasunidades = $this->Departamentos->Empresasunidades->find('list', ['limit' => 200]);
-        $this->set(compact('departamento','gerentes','empresasunidades'));
+        $fupqueues = $this->Departamentos->Fupqueues->find('list',array('order' => array('descricao' => 'asc')),['limit' => 1200]);
+        $this->set(compact('departamento','gerentes','empresasunidades','fupqueues'));
     }
 
     /**
@@ -88,7 +90,8 @@ class DepartamentosController extends AppController
         }
         $gerentes = $this->Departamentos->Gerentes->find('list', ['limit' => 200]);
         $empresasunidades = $this->Departamentos->Empresasunidades->find('list', ['limit' => 200]);
-        $this->set(compact('departamento','gerentes','empresasunidades'));
+        $fupqueues = $this->Departamentos->Fupqueues->find('list',array('order' => array('descricao' => 'asc')),['limit' => 1200]);
+        $this->set(compact('departamento','gerentes','empresasunidades','fupqueues'));
     }
 
     /**

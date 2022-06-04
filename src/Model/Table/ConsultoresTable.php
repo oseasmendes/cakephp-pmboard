@@ -79,6 +79,10 @@ class ConsultoresTable extends Table
             'foreignKey' => 'consultore_id'
         ]);
 
+        $this->hasMany('Projetosprodutosentregas', [
+            'foreignKey' => 'consultore_id'
+        ]);
+
         $this->hasMany('Projetosapontamentos', [
             'foreignKey' => 'consultore_id'
         ]);

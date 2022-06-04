@@ -56,6 +56,7 @@ class Projetosprodutosentrega extends Entity
         'pareto_id' => true,
         'fase_id' => true,
         'empresa_id' => true,
+        'consultore_id' => true,
         'ambiente_id' => true,
         'responsavel' => true,
         'created' => true,
@@ -89,6 +90,7 @@ class Projetosprodutosentrega extends Entity
         'archivedate' => true,        
         'archivereason' => true,
         'projetosapontamentos' => true,
+        'consultore' => true,
         'entregastipos' => true,
         'projetosentregasparetos' => true,
         'view_kanbanentregas' => true

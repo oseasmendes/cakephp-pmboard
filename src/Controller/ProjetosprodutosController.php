@@ -91,7 +91,7 @@ class ProjetosprodutosController extends AppController
                                                 ], 
                 'Projetosprodutosentregas'=> [
         'sort' => ['Projetosprodutosentregas.prioridade' => 'ASC'],
-        'conditions' => ['Projetosprodutosentregas.pareto_id NOT IN ' => [3,30,27]],
+        'conditions' => ['Projetosprodutosentregas.pareto_id NOT IN ' => [30,27,47]],
     ], 'Projetosprodutosfeedbacks','Projetosprodutosimgs', 
     'Projetosprodutosnotas','Projetosprodutosparetos','Projetosprodutosriscos','Participantes','Frentes','Agendas','Projetosprodutosreqs','Projetosoutofscopes','Projetosprodutosalocs']]);
 

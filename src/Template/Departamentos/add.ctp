@@ -29,6 +29,7 @@
         <?php
             echo $this->Form->control('empresasunidade_id', ['options' => $empresasunidades, 'empty' => true]);
             echo $this->Form->control('gerente_id', ['options' => $gerentes, 'empty' => true]);
+            echo $this->Form->control('fupqueue_id', ['options' => $fupqueues, 'empty' => true,'class'=>['class'=> 'form-control']]);                    
             echo $this->Form->control('descricao');
         ?>
     </fieldset>

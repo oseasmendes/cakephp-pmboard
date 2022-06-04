@@ -196,8 +196,9 @@
         </tr>
     </table>
     <div class="related">
-        <h4><p class="text-primary"><?= __('5W2H') ?></p></h4>
+        
         <?php if (!empty($consultore->fivewthreehs)): ?>
+            <h4><p class="text-primary"><?= __('5W2H') ?></p></h4>
          <table class="table table-striped table-responsive-sm">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>                
@@ -236,9 +237,45 @@
         </table>
         <?php endif; ?>
     </div>
-     <div class="related">
-        <h4><p class="text-primary"><?= __('Plano de Férias') ?></p></h4>
+
+
+    <div class="related">       
+        <?php if (!empty($consultore->produtosprojetosentregas)): ?>
+         <h4><p class="text-primary"><?= __('Entregas') ?></p></h4>   
+         <table class="table table-striped">
+            <tr>
+                <th scope="col"><?= __('Id') ?></th>
+                <th scope="col"><?= __('Referencia') ?></th>  
+                <th scope="col"><?= __('Descricao') ?></th>
+                <th scope="col"><?= __('Lancto','Datacriacaooriginal') ?></th>
+                <th scope="col"><?= __('Created') ?></th>
+                <th scope="col"><?= __('Modified') ?></th>    
+                <th scope="col" class="actions"><?= __('Actions') ?></th>
+            </tr>
+            <?php foreach ($consultore->produtosprojetosentregas as $entregas): ?>
+            <tr>
+                <td><?= h($entregas->id) ?></td>
+                <td><?= h($entregas->referencia) ?></td>
+                <td><?= h($entregas->descricao) ?></td>
+                <td><?= h($entregas->datacriacaooriginal) ?></td>
+                <td><?= h($entregas->created) ?></td>
+                <td><?= h($entregas->modified) ?></td>
+                <td class="actions">
+                    <?= $this->Html->link(__('View'), ['controller' => 'Projetosprodutosentregas', 'action' => 'view', $entregas->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Projetosprodutosentregas', 'action' => 'edit', $entregas->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Projetosprodutosentregas', 'action' => 'delete', $entregas->id], ['confirm' => __('Are you sure you want to delete # {0}?', $entregas->id)]) ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+        <?php endif; ?>
+    </div> 
+
+
+
+     <div class="related">       
         <?php if (!empty($consultore->consultoresferias)): ?>
+         <h4><p class="text-primary"><?= __('Plano de Férias') ?></p></h4>   
          <table class="table table-striped">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
@@ -268,8 +305,9 @@
         <?php endif; ?>
     </div>   
     <div class="related">
-        <h4><p class="text-primary"><?= __('Alocações') ?></p></h4>
+        
         <?php if (!empty($consultore->projetosalocs)): ?>
+        <h4><p class="text-primary"><?= __('Alocações') ?></p></h4>
          <table class="table table-striped">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
@@ -304,9 +342,9 @@
         </table>
         <?php endif; ?>
     </div>
-    <div class="related">
-        <h4><p class="text-primary"><?= __('Apontamentos') ?></p></h4>
+    <div class="related">        
         <?php if (!empty($consultore->projetosapontamentos)): ?>
+            <h4><p class="text-primary"><?= __('Apontamentos') ?></p></h4>
          <table class="table table-striped">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>                
@@ -345,9 +383,9 @@
         </table>
         <?php endif; ?>
     </div>
-    <div class="related">
-        <h4><p class="text-primary"><?= __('Sistema Associado') ?></p></h4>
+    <div class="related">        
         <?php if (!empty($consultore->sistemasconsultores)): ?>
+         <h4><p class="text-primary"><?= __('Sistema Associado') ?></p></h4>
          <table class="table table-info table-responsive-sm">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
@@ -384,9 +422,9 @@
         </table>
         <?php endif; ?>
     </div>   
-     <div class="related">
-        <h4><p class="text-primary"><?= __('Anotações') ?></p></h4>
+     <div class="related">        
         <?php if (!empty($consultore->consultoresnotas)): ?>
+         <h4><p class="text-primary"><?= __('Anotações') ?></p></h4>
          <table class="table table-info table-responsive-sm">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
@@ -411,9 +449,9 @@
         </table>
         <?php endif; ?>
     </div>
-    <div class="related">
-        <h4><p class="text-primary"><?= __('Atividades Alocadas') ?></p></h4>
+    <div class="related">        
         <?php if (!empty($consultore->projetosprodutosentregasalocs)): ?>
+            <h4><p class="text-primary"><?= __('Atividades Alocadas') ?></p></h4>   
          <table class="table table-striped">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
