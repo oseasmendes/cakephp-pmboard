@@ -64,6 +64,24 @@ class FupinprogresController extends AppController
         $this->set(compact('fupinprogre', 'fupagendas'));
     }
 
+    public function addid($id = null)
+    {
+        $fupinprogre = $this->Fupinprogres->newEntity();
+        if ($this->request->is('post')) {
+            $fupinprogre = $this->Fupinprogres->patchEntity($fupinprogre, $this->request->getData());
+            $fupinprogre->fupagenda_id = $id;
+            if ($this->Fupinprogres->save($fupinprogre)) {
+                $this->Flash->success(__('The fupinprogre has been saved.'));
+
+                //return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller'=>'Fupagendas','action' => 'view',$id]);
+            }
+            $this->Flash->error(__('The fupinprogre could not be saved. Please, try again.'));
+        }
+        $fupagendas = $this->Fupinprogres->Fupagendas->find('list',array('conditions'=>array('Fupagendas.id'=>$id),'order' => array('descricao' => 'asc')));        
+        $this->set(compact('fupinprogre', 'fupagendas'));
+    }
+
     /**
      * Edit method
      *

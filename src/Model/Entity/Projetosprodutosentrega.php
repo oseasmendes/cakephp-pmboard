@@ -69,6 +69,7 @@ class Projetosprodutosentrega extends Entity
         'prevdatafim' => true,        
         'prioridade' => true,
         'ordem' => true,
+        'ativo' => true,
         'canal' => true,
         'escoporemocaodata' => true,
         'escoporemocao' => true,
@@ -93,6 +94,7 @@ class Projetosprodutosentrega extends Entity
         'consultore' => true,
         'entregastipos' => true,
         'projetosentregasparetos' => true,
+        'projetosentregasreqs' => true,
         'view_kanbanentregas' => true
     ];
 }

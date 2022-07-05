@@ -61,7 +61,7 @@ class FupqueuesdistributionsController extends AppController
             $this->Flash->error(__('The fupqueuesdistribution could not be saved. Please, try again.'));
         }
         $fupqueues = $this->Fupqueuesdistributions->Fupqueues->find('list', ['limit' => 200]);
-        $participantes = $this->Fupqueuesdistributions->Participantes->find('list',array('order' => array('nome' => 'asc')),['limit' => 2000]);
+        $participantes = $this->Fupqueuesdistributions->Participantes->find('list',array('conditions'=>array('Participantes.empresa_id = '=>8),'order' => array('nome' => 'asc')));
         $this->set(compact('fupqueuesdistribution', 'fupqueues', 'participantes'));
     }
 
@@ -87,7 +87,7 @@ class FupqueuesdistributionsController extends AppController
             $this->Flash->error(__('The fupqueuesdistribution could not be saved. Please, try again.'));
         }
         $fupqueues = $this->Fupqueuesdistributions->Fupqueues->find('list', ['limit' => 200]);
-        $participantes = $this->Fupqueuesdistributions->Participantes->find('list', ['limit' => 200]);
+        $participantes = $this->Fupqueuesdistributions->Participantes->find('list',array('conditions'=>array('Participantes.empresa_id = '=>8),'order' => array('nome' => 'asc')));
         $this->set(compact('fupqueuesdistribution', 'fupqueues', 'participantes'));
     }
 

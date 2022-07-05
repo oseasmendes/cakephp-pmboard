@@ -47,8 +47,8 @@ class Sistemascfgintegration extends Entity
         'integration_id' => true,
         'tecnologia' => true,
         'sistema' => true,
-        'transaction' => true,
-        'transactiondescricao' => true,
+        'transacao' => true,
+        'transacaodescricao' => true,
         'integration' => true
     ];
 }

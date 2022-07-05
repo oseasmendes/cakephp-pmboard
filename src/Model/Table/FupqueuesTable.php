@@ -81,6 +81,23 @@ class FupqueuesTable extends Table
             ->scalar('observacao')
             ->maxLength('observacao', 250)
             ->allowEmptyString('observacao');
+        
+        $validator
+            ->boolean('tickets')
+            ->allowEmptyString('tickets');
+
+        $validator
+            ->boolean('improvements')
+            ->allowEmptyString('improvements');
+
+        $validator
+            ->boolean('projects')
+            ->allowEmptyString('projects');
+        
+        $validator
+            ->boolean('fup')
+            ->allowEmptyString('fup');
+
 
         return $validator;
     }

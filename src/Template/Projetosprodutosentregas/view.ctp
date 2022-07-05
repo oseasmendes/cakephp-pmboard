@@ -14,7 +14,7 @@
                     <div class="card card-info">
                         <div class="card-header">
 
-                        <h3 class="card-title">Lista de Projetos</h3>
+                        <h3 class="card-title">Deliverable</h3>
                         </div>
                             <div class="card-body">
                                     <div class="row" > 
@@ -123,8 +123,15 @@
                                 <?= $this->Form->control('Impedimentos',['default'=> $this->Number->format($projetosprodutosentrega->id),'type' => 'hidden']); ?>                                    
                                 <?= $this->Form->button('Impedimentos',['class'=>'btn btn-secondary btn-sm btn-block']) ?>
                             <?= $this->Form->end() ?> 
-                        </div>            
-                    </div>       
+                        </div> 
+                        <div class="col-2"> 
+                            <?= $this->Form->create($projetosprodutosentrega, ['url'=>['controller' => 'Projetosentregasreqs', 'action' => 'addid'],'']) ?>   
+                                <?= $this->Form->control('Requisito',['default'=> $this->Number->format($projetosprodutosentrega->id),'type' => 'hidden']); ?>                                    
+                                <?= $this->Form->button('Add Requisitos',['class'=>'btn btn-secondary btn-sm btn-block']) ?>
+                            <?= $this->Form->end() ?>                                
+                        </div>      
+                    </div>                                                                                  
+ 
 
  
 
@@ -468,6 +475,33 @@
         <?php endif; ?>
     </div>
 
+    <div class="related">        
+        <?php if (!empty($projetosprodutosentrega->projetosentregasreqs)): ?>
+        <h4><p class="text-secondary"><?= __('Requisitos') ?></p></h4>
+        <table class="table">
+            <thead class="thead-light">
+            <tr>
+                <th scope="col"><?= __('Id') ?></th>                       
+                <th scope="col"><?= __('Descricao') ?></th>
+                <th scope="col"><?= __('Created') ?></th>                
+                <th scope="col" class="actions"><?= __('Actions') ?></th>
+            </tr>
+            </thead>
+            <?php foreach ($projetosprodutosentrega->projetosentregasreqs as $reqs): ?>
+            <tr>
+                <td><?= h($reqs->id) ?></td>                                                       
+                <td><?= h($reqs->descricao) ?></td>
+                <td><?= h($reqs->created) ?></td>                
+                <td class="actions">
+                    <?= $this->Html->link(__('View'), ['controller' => 'Projetosentregasreqs', 'action' => 'view', $reqs->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Projetosentregasreqs', 'action' => 'edit', $reqs->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Projetosentregasreqs', 'action' => 'delete', $reqs->id], ['confirm' => __('Are you sure you want to delete # {0}?', $reqs->id)]) ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+        <?php endif; ?>
+    </div>
 
 
  </div>

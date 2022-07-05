@@ -21,6 +21,7 @@ class ProcessosFixture extends TestFixture
         'modified' => ['type' => 'datetime', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
         'description' => ['type' => 'string', 'length' => 255, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'movimento' => ['type' => 'string', 'length' => 20, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
+        'processostipo_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
         ],
@@ -41,10 +42,11 @@ class ProcessosFixture extends TestFixture
             [
                 'id' => 1,
                 'descricao' => 'Lorem ipsum dolor sit amet',
-                'created' => '2019-05-31 22:01:19',
-                'modified' => '2019-05-31 22:01:19',
+                'created' => '2022-06-20 20:48:00',
+                'modified' => '2022-06-20 20:48:00',
                 'description' => 'Lorem ipsum dolor sit amet',
-                'movimento' => 'Lorem ipsum dolor '
+                'movimento' => 'Lorem ipsum dolor ',
+                'processostipo_id' => 1
             ],
         ];
         parent::init();

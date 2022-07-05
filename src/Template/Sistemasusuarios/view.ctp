@@ -13,17 +13,17 @@
                     <div class="card card-info">
                         <div class="card-header">
 
-                        <h3 class="card-title">System Roll</h3>
+                        <h3 class="card-title">User</h3>
                         </div>
                             <div class="card-body">
                                     <div class="row" > 
+                                    </div>
 
 
 
 <div class="sistemasusuarios view large-9 medium-8 columns content">
     <h3><?= h($sistemasusuario->id) ?></h3>
-    <table class="vertical-table">
-       s
+    <table class="table">
         <tr>
             <th scope="row"><?= __('Sistema') ?></th>
             <td><?= $sistemasusuario->has('sistema') ? $this->Html->link($sistemasusuario->sistema->descricao, ['controller' => 'Sistemas', 'action' => 'view', $sistemasusuario->sistema->id]) : '' ?></td>

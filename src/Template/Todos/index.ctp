@@ -16,6 +16,7 @@
                         </div>
                             <div class="card-body">
                                     <div class="row" > 
+                                    </div> 
 
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
@@ -25,7 +26,7 @@
     </ul>
 </nav>
 <div class="todos index large-9 medium-8 columns content">
-    <h3><?= __('Todos') ?></h3>
+    <h3><?= __('ToDo') ?></h3>
     <table class="table table-hover">
         <thead>
             <tr>

@@ -14,6 +14,10 @@
             )
         ?></li>
         <li><?= $this->Html->link(__('List Processos'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('List Processostipos'), ['controller' => 'Processostipos', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Processostipo'), ['controller' => 'Processostipos', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Atasdetalhes'), ['controller' => 'Atasdetalhes', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Atasdetalhe'), ['controller' => 'Atasdetalhes', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="processos form large-9 medium-8 columns content">
@@ -21,10 +25,10 @@
     <fieldset>
         <legend><?= __('Edit Processo') ?></legend>
         <?php
-            echo $this->Form->control('descricao',['class'=> "form-control"]);
-            echo $this->Form->control('description',['class'=> "form-control"]);
-            echo $this->Form->control('processostipo_id', ['options' => $processostipos, 'empty' => true,'class'=>['class'=> 'form-control']]);
-            echo $this->Form->control('movimento',['class'=> "form-control"]);
+            echo $this->Form->control('descricao');
+            echo $this->Form->control('description');
+            echo $this->Form->control('movimento');
+            echo $this->Form->control('processostipo_id', ['options' => $processostipos, 'empty' => true]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

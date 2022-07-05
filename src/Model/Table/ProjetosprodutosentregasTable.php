@@ -119,6 +119,10 @@ class ProjetosprodutosentregasTable extends Table
         $this->hasMany('Projetosprodutosentregasflws', [
             'foreignKey' => 'projetosprodutosentrega_id'
         ]);
+
+        $this->hasMany('Projetosentregasreqs', [
+            'foreignKey' => 'projetosprodutosentrega_id'
+        ]);
       
     }
 

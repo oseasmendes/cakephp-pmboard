@@ -74,35 +74,35 @@ class ProjetosprodutosController extends AppController
 
 
     }
-
-    /**
-     * View method
-     *
-     * @param string|null $id Projetosproduto id.
-     * @return \Cake\Http\Response|void
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
+    
     public function view($id = null)
     {
         $projetosproduto = $this->Projetosprodutos->get($id, [
-            'contain' => ['Projetos', 'Projetosprodutosreqs' ,'Statusfuncionals', 'Agendas'=> [
-                                                    'sort' => ['Agendas.dataagenda' => 'ASC','Agendas.horainicio' => 'ASC'], 
-                                                    'conditions' => ['Agendas.dataagenda >=' => date("Y-m-d", mktime(0, 0, 0, date("m") , date("d")-7,date("Y"))),'Agendas.tipoagenda !=' => 'SCRUM'],
-                                                ], 
-                'Projetosprodutosentregas'=> [
-        'sort' => ['Projetosprodutosentregas.prioridade' => 'ASC'],
-        'conditions' => ['Projetosprodutosentregas.pareto_id NOT IN ' => [30,27,47]],
-    ], 'Projetosprodutosfeedbacks','Projetosprodutosimgs', 
-    'Projetosprodutosnotas','Projetosprodutosparetos','Projetosprodutosriscos','Participantes','Frentes','Agendas','Projetosprodutosreqs','Projetosoutofscopes','Projetosprodutosalocs']]);
+            'contain' => ['Projetos', 
+                        'Projetosprodutosreqs',
+                        'Statusfuncionals',
+                        'Agendas'=> [
+                                        'sort' => ['Agendas.dataagenda' => 'ASC','Agendas.horainicio' => 'ASC'], 
+                                        'conditions' => ['Agendas.dataagenda >=' => date("Y-m-d", mktime(0, 0, 0, date("m") , date("d")-7,date("Y"))),
+                                                        'Agendas.tipoagenda !=' => 'SCRUM'],], 
+                        'Projetosprodutosentregas'=> [
+                                        'sort' => ['Projetosprodutosentregas.prioridade' => 'ASC'],
+                                        'conditions' => ['Projetosprodutosentregas.pareto_id NOT IN ' => [30,27,47]], ], //47 - Closed
+                        'Projetosprodutosfeedbacks',
+                        'Projetosprodutosimgs', 
+                        'Projetosprodutosnotas',
+                        'Projetosprodutosparetos',
+                        'Projetosprodutosriscos',
+                        'Participantes',
+                        'Frentes',
+                        'Agendas',
+                        'Projetosprodutosreqs',
+                        'Projetosoutofscopes',
+                        'Projetosprodutosalocs']]);
 
         $this->set('projetosproduto', $projetosproduto);
     }
-
-    /**
-     * Add method
-     *
-     * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
-     */
+    
     public function add($id = null)
     {
         $projetosprodutos = $this->Projetosprodutos->newEntity();
@@ -126,16 +126,6 @@ class ProjetosprodutosController extends AppController
         $this->set(compact('projetosprodutos', 'projetos', 'statusfuncionals','frentes','fupqueues','participantes'));
     }
 
-
-    
-
-    /**
-     * Edit method
-     *
-     * @param string|null $id Projetosproduto id.
-     * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
     public function edit($id = null)
     {
         $projetosproduto = $this->Projetosprodutos->get($id, [
@@ -169,14 +159,7 @@ class ProjetosprodutosController extends AppController
         $fupqueues = $this->Projetosprodutos->Fupqueues->find('list',array('order' => array('descricao' => 'asc')),['limit' => 1200]);
         $this->set(compact('projetosproduto', 'projetos', 'statusfuncionals','frentes','participantes','fupqueues'));
     }
-
-    /**
-     * Delete method
-     *
-     * @param string|null $id Projetosproduto id.
-     * @return \Cake\Http\Response|null Redirects to index.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
+   
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);

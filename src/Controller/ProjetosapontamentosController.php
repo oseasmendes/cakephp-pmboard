@@ -65,7 +65,7 @@ class ProjetosapontamentosController extends AppController
             }
             $this->Flash->error(__('The projetosapontamento could not be saved. Please, try again.'));
         }
-        $consultores = $this->Projetosapontamentos->Consultores->find('list',array('order' => array('nome' => 'asc')), ['limit' => 200]);
+        $consultores = $this->Projetosapontamentos->Consultores->find('list',array('conditions'=>array('Consultores.engajado'=>true),'order' => array('nome' => 'asc')), ['limit' => 200]);
 
         $statusfuncionals = $this->Projetosapontamentos->Statusfuncionals->find('list', ['limit' => 200]);
 

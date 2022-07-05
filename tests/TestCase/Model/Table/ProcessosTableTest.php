@@ -24,7 +24,8 @@ class ProcessosTableTest extends TestCase
      */
     public $fixtures = [
         'app.Processos',
-        'app.Atadetalhes'
+        'app.Atasdetalhes',
+        'app.Processostipos'
     ];
 
     /**
@@ -67,6 +68,16 @@ class ProcessosTableTest extends TestCase
      * @return void
      */
     public function testValidationDefault()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test buildRules method
+     *
+     * @return void
+     */
+    public function testBuildRules()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

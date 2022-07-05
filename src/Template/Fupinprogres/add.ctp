@@ -13,7 +13,7 @@
     </ul>
 </nav>
 <div class="fupinprogres form large-9 medium-8 columns content">
-    <?= $this->Form->create($fupinprogre) ?>
+            <?= $this->Form->create($fupinprogre) ?>
     <fieldset>
         <legend><?= __('Add Fupinprogre') ?></legend>
         <?php

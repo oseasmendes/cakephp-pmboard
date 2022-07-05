@@ -4,20 +4,22 @@
  * @var \App\Model\Entity\Projetosprodutosentregasdiario $projetosprodutosentregasdiario
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Projetosprodutosentregasdiarios'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Projetosprodutosentregas'), ['controller' => 'Projetosprodutosentregas', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Projetosprodutosentrega'), ['controller' => 'Projetosprodutosentregas', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Consultores'), ['controller' => 'Consultores', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Consultore'), ['controller' => 'Consultores', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Fivewthreehs'), ['controller' => 'Fivewthreehs', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Fivewthreeh'), ['controller' => 'Fivewthreehs', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Statusfuncionals'), ['controller' => 'Statusfuncionals', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Statusfuncional'), ['controller' => 'Statusfuncionals', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
+
+
+<section class="content">
+        <div class="container-fluid">
+            <div class="row">     
+
+                <div class="col-md-12">
+                    <div class="card card-info">
+                        <div class="card-header">
+
+                       
+                        </div>
+                            <div class="card-body">
+                                    <div class="row" > 
+                                    </div>
+
 <div class="projetosprodutosentregasdiarios form large-9 medium-8 columns content">
     <?= $this->Form->create($projetosprodutosentregasdiario) ?>
             <?php $paramid = $_POST['Daily']; ?>
@@ -45,3 +47,14 @@
     <?= $this->Form->button(__('Submit'),['class'=>'btn btn-primary']) ?>
     <?= $this->Form->end() ?>
 </div>
+
+
+
+</div>                                                                   
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        </div>      
+    </section>

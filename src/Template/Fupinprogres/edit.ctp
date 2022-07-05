@@ -4,6 +4,22 @@
  * @var \App\Model\Entity\Fupinprogre $fupinprogre
  */
 ?>
+<section class="content">
+        <div class="container-fluid">
+            <div class="row">     
+
+                <div class="col-md-12">
+                    <div class="card card-info">
+                        <div class="card-header">
+
+                       
+                        </div>
+                            <div class="card-body">
+                                    <div class="row" > 
+                                    </div>
+
+
+
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
@@ -39,3 +55,14 @@
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
 </div>
+
+
+
+</div>                                                                   
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        </div>      
+    </section>

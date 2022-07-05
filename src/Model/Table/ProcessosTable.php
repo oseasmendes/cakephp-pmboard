@@ -9,7 +9,14 @@ use Cake\Validation\Validator;
 /**
  * Processos Model
  *
- * @property |\Cake\ORM\Association\HasMany $Atasdetalhes
+ * @property \App\Model\Table\ProcessostiposTable|\Cake\ORM\Association\BelongsTo $Processostipos
+ * @property \App\Model\Table\AtasdetalhesTable|\Cake\ORM\Association\HasMany $Atasdetalhes
+ * @property |\Cake\ORM\Association\HasMany $Projetosentregasreqs
+ * @property |\Cake\ORM\Association\HasMany $Projetosprodutosreqs
+ * @property |\Cake\ORM\Association\HasMany $Projetosprodutosruns
+ * @property |\Cake\ORM\Association\HasMany $Projetosreqs
+ * @property |\Cake\ORM\Association\HasMany $Sistemasprocessos
+ * @property |\Cake\ORM\Association\HasMany $Sistemasusuariosprocessos
  *
  * @method \App\Model\Entity\Processo get($primaryKey, $options = [])
  * @method \App\Model\Entity\Processo newEntity($data = null, array $options = [])
@@ -40,12 +47,29 @@ class ProcessosTable extends Table
 
         $this->addBehavior('Timestamp');
 
+        $this->belongsTo('Processostipos', [
+            'foreignKey' => 'processostipo_id'
+        ]);
         $this->hasMany('Atasdetalhes', [
             'foreignKey' => 'processo_id'
         ]);
-
-        $this->belongsTo('Processostipos', [
-            'foreignKey' => 'processostipo_id'
+        $this->hasMany('Projetosentregasreqs', [
+            'foreignKey' => 'processo_id'
+        ]);
+        $this->hasMany('Projetosprodutosreqs', [
+            'foreignKey' => 'processo_id'
+        ]);
+        $this->hasMany('Projetosprodutosruns', [
+            'foreignKey' => 'processo_id'
+        ]);
+        $this->hasMany('Projetosreqs', [
+            'foreignKey' => 'processo_id'
+        ]);
+        $this->hasMany('Sistemasprocessos', [
+            'foreignKey' => 'processo_id'
+        ]);
+        $this->hasMany('Sistemasusuariosprocessos', [
+            'foreignKey' => 'processo_id'
         ]);
     }
 
@@ -79,6 +103,13 @@ class ProcessosTable extends Table
         return $validator;
     }
 
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->existsIn(['processostipo_id'], 'Processostipos'));

@@ -19,11 +19,9 @@ class ProcessosController extends AppController
      */
     public function index()
     {
-        $this->paginate = [            
-             'order' => [
-           'Processos.descricao' => 'asc']
-             ];
-
+        $this->paginate = [
+            'contain' => ['Processostipos']
+        ];
         $processos = $this->paginate($this->Processos);
 
         $this->set(compact('processos'));
@@ -39,7 +37,7 @@ class ProcessosController extends AppController
     public function view($id = null)
     {
         $processo = $this->Processos->get($id, [
-            'contain' => ['Atasdetalhes']
+            'contain' => ['Processostipos', 'Atasdetalhes']
         ]);
 
         $this->set('processo', $processo);
@@ -63,7 +61,7 @@ class ProcessosController extends AppController
             $this->Flash->error(__('The processo could not be saved. Please, try again.'));
         }
         $processostipos = $this->Processos->Processostipos->find('list', ['limit' => 200]);
-        $this->set(compact('processo','processostipos'));
+        $this->set(compact('processo', 'processostipos'));
     }
 
     /**
@@ -85,10 +83,10 @@ class ProcessosController extends AppController
 
                 return $this->redirect(['action' => 'index']);
             }
-            $processostipos = $this->Processos->Processostipos->find('list', ['limit' => 200]);
             $this->Flash->error(__('The processo could not be saved. Please, try again.'));
         }
-        $this->set(compact('processo','processostipos'));
+        $processostipos = $this->Processos->Processostipos->find('list', ['limit' => 200]);
+        $this->set(compact('processo', 'processostipos'));
     }
 
     /**

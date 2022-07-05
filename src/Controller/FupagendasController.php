@@ -20,8 +20,20 @@ class FupagendasController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Fupqueues', 'Statusfuncionals']
+            'contain' => ['Fupqueues', 'Statusfuncionals'],
+            'order' => ['Fupagendas.checkpointdata' => 'DESC']            
         ];
+
+        /* $this->paginate = [
+            'contain' => ['Fases','Statusfuncionals','Programas'],
+            'limit' => 100,             
+             'conditions' => ['arquivo = '=>false,'propostatecnica = '=>true,'statusfuncional_id NOT IN '=> [1,2,3,4,6,8,9,10,11,13,14,15,18,19]],       
+             'order' => [
+           'Projetos.previstodatafim' => 'asc']
+
+       ]; */
+
+
         $fupagendas = $this->paginate($this->Fupagendas);
 
         $this->set(compact('fupagendas'));
@@ -40,7 +52,7 @@ class FupagendasController extends AppController
         //$fiscalyear = strtotime('2022-03-31');
         $fupagenda = $this->Fupagendas->get($id, [
             'contain' => ['Fupqueues', 'Statusfuncionals', 
-            'Fupdeployed' => ['conditions' => ['Fupdeployed.lastupdate >' => date("Y-m-d", mktime(0, 0, 0, date("m") , date("d"),date("Y")-12))]], 
+            'Fupdeployed' => ['sort' => ['Fupdeployed.lastupdate' => 'DESC'],'conditions' => ['Fupdeployed.lastupdate >' => date("Y-m-d", mktime(0, 0, 0, date("m") -12, date("d"),date("Y")))]], 
             //'Fupdeployed' => ['conditions' => ['Fupdeployed.lastupdate >' => $fiscalyear]], 
             'Fupinprogres',
             'Fupchamados'=> ['sort' => ['Fupchamados.lastupdate' => 'ASC']], 

@@ -36,7 +36,7 @@ class DepartamentosController extends AppController
     public function view($id = null)
     {
         $departamento = $this->Departamentos->get($id, [
-            'contain' => ['Agendaanual','Gerentes','Empresasunidades' ,'Consultores', 'Projetousuarios', 'Sistemas', 'Sistemasareas', 'Sistemasbriefings']
+            'contain' => ['Agendas','Gerentes','Empresasunidades' ,'Consultores', 'Sistemas', 'Sistemasareas', 'Sistemasbriefings']
         ]);
 
         $this->set('departamento', $departamento);

@@ -4,24 +4,24 @@
  * @var \App\Model\Entity\Sistemascfgintegration $sistemascfgintegration
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Sistemascfgintegration'), ['action' => 'edit', $sistemascfgintegration->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Sistemascfgintegration'), ['action' => 'delete', $sistemascfgintegration->id], ['confirm' => __('Are you sure you want to delete # {0}?', $sistemascfgintegration->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Sistemascfgintegrations'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Sistemascfgintegration'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Tecnologias'), ['controller' => 'Tecnologias', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Tecnologia'), ['controller' => 'Tecnologias', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Sistemas'), ['controller' => 'Sistemas', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Sistema'), ['controller' => 'Sistemas', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Integrations'), ['controller' => 'Integrations', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Integration'), ['controller' => 'Integrations', 'action' => 'add']) ?> </li>
-    </ul>
-</nav>
+
+<section class="content">
+        <div class="container-fluid">
+            <div class="row">     
+
+                <div class="col-md-12">
+                    <div class="card card-info">
+                        <div class="card-header">
+
+                        <h3 class="card-title">System Roll</h3>
+                        </div>
+                            <div class="card-body">
+                                    <div class="row" > 
+                                    </div>
+
 <div class="sistemascfgintegrations view large-9 medium-8 columns content">
     <h3><?= h($sistemascfgintegration->id) ?></h3>
-    <table class="vertical-table">
+    <table class="table">
         <tr>
             <th scope="row"><?= __('Tecnologia') ?></th>
             <td><?= $sistemascfgintegration->has('tecnologia') ? $this->Html->link($sistemascfgintegration->tecnologia->descricao, ['controller' => 'Tecnologias', 'action' => 'view', $sistemascfgintegration->tecnologia->id]) : '' ?></td>
@@ -47,9 +47,19 @@
             <td><?= $sistemascfgintegration->has('integration') ? $this->Html->link($sistemascfgintegration->integration->descricao, ['controller' => 'Integrations', 'action' => 'view', $sistemascfgintegration->integration->id]) : '' ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($sistemascfgintegration->id) ?></td>
+            <th scope="row"><?= __('Transação/Objeto') ?></th>
+            <td><?= h($sistemascfgintegration->transacao) ?></td>
         </tr>
+        <tr>
+            <th scope="row"><?= __('Descrição Trans/Obj') ?></th>
+            <td><?= h($sistemascfgintegration->transacaodescricao) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Referência Direção') ?></th>
+            <td><?= h($sistemascfgintegration->referenciadirecao) ?></td>
+        </tr>
+       
+
         <tr>
             <th scope="row"><?= __('Created') ?></th>
             <td><?= h($sistemascfgintegration->created) ?></td>
@@ -64,3 +74,12 @@
         <?= $this->Text->autoParagraph(h($sistemascfgintegration->observacao)); ?>
     </div>
 </div>
+
+
+</div>                                                                   
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>      
+    </section>

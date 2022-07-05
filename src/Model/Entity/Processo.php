@@ -12,8 +12,10 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime|null $modified
  * @property string|null $description
  * @property string|null $movimento
+ * @property int|null $processostipo_id
  *
- * @property \App\Model\Entity\Atadetalhe[] $atadetalhes
+ * @property \App\Model\Entity\Atasdetalhe[] $atasdetalhes
+ * @property \App\Model\Entity\Processostipo $processostipo
  */
 class Processo extends Entity
 {
@@ -30,10 +32,10 @@ class Processo extends Entity
         'descricao' => true,
         'created' => true,
         'modified' => true,
-        'processostipo_id' => true,
         'description' => true,
         'movimento' => true,
-        'processostipos' => true,
-        'atasdetalhes' => true
+        'processostipo_id' => true,
+        'atasdetalhes' => true,
+        'processostipo' => true
     ];
 }

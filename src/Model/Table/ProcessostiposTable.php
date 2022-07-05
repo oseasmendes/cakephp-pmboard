@@ -35,7 +35,7 @@ class ProcessostiposTable extends Table
         parent::initialize($config);
 
         $this->setTable('processostipos');
-        $this->setDisplayField('id');
+        $this->setDisplayField('descricao');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');

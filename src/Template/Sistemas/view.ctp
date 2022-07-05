@@ -298,14 +298,12 @@
                 <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
                 <th scope="col"><?= __('Descricao') ?></th>
-                <th scope="col"><?= __('Projetosproduto Id') ?></th>
-                <th scope="col"><?= __('Sistema Id') ?></th>
-                <th scope="col"><?= __('Statusfuncional Id') ?></th>
-                <th scope="col"><?= __('Pareto Id') ?></th>
+                <th scope="col"><?= __('PrdId','Projetosproduto Id') ?></th>               
+                <th scope="col"><?= __('Stat','Statusfuncional Id') ?></th>
+                <th scope="col"><?= __('ParetoId','Pareto Id') ?></th>
                 <th scope="col"><?= __('Created') ?></th>
                 <th scope="col"><?= __('Modified') ?></th>
-                <th scope="col"><?= __('Tmpprevisto') ?></th>
-                <th scope="col"><?= __('Unidademedida Id') ?></th>
+                <th scope="col"><?= __('Canal') ?></th> 
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($sistema->projetosprodutosentregas as $projetosprodutosentregas): ?>
@@ -313,14 +311,12 @@
                 <td><?= h($projetosprodutosentregas->id) ?></td>
                 <td><?= h($projetosprodutosentregas->referencia) ?></td>
                 <td><?= h($projetosprodutosentregas->descricao) ?></td>
-                <td><?= h($projetosprodutosentregas->projetosproduto_id) ?></td>
-                <td><?= h($projetosprodutosentregas->sistema_id) ?></td>
+                <td><?= h($projetosprodutosentregas->projetosproduto_id) ?></td>               
                 <td><?= h($projetosprodutosentregas->statusfuncional_id) ?></td>
                 <td><?= h($projetosprodutosentregas->pareto_id) ?></td>
                 <td><?= h($projetosprodutosentregas->created) ?></td>
                 <td><?= h($projetosprodutosentregas->modified) ?></td>
-                <td><?= h($projetosprodutosentregas->tmpprevisto) ?></td>
-                <td><?= h($projetosprodutosentregas->unidademedida_id) ?></td>
+                <td><?= h($projetosprodutosentregas->canal) ?></td>             
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Projetosprodutosentregas', 'action' => 'view', $projetosprodutosentregas->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Projetosprodutosentregas', 'action' => 'edit', $projetosprodutosentregas->id]) ?>
@@ -504,8 +500,7 @@
                 <th scope="col"><?= __('Tecnologia Id') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
                 <th scope="col"><?= __('Descricao') ?></th>
-                <th scope="col"><?= __('Contato') ?></th>
-                <th scope="col"><?= __('Observacao') ?></th>
+                <th scope="col"><?= __('Contato') ?></th>                
                 <th scope="col"><?= __('Created') ?></th>
                 <th scope="col"><?= __('Modified') ?></th>
                 <th scope="col"><?= __('Sistema Id') ?></th>
@@ -518,8 +513,7 @@
                 <td><?= h($sistemascfgintegrations->tecnologia_id) ?></td>
                 <td><?= h($sistemascfgintegrations->referencia) ?></td>
                 <td><?= h($sistemascfgintegrations->descricao) ?></td>
-                <td><?= h($sistemascfgintegrations->contato) ?></td>
-                <td><?= h($sistemascfgintegrations->observacao) ?></td>
+                <td><?= h($sistemascfgintegrations->contato) ?></td>                
                 <td><?= h($sistemascfgintegrations->created) ?></td>
                 <td><?= h($sistemascfgintegrations->modified) ?></td>
                 <td><?= h($sistemascfgintegrations->sistema_id) ?></td>

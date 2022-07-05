@@ -72,7 +72,7 @@ class TodosController extends AppController
         }
         $programas = $this->Todos->Programas->find('list',array('conditions'=>array('Programas.ativo'=>true),'order' => array('Programas.descricao' => 'asc')));
         $projetos = $this->Todos->Projetos->find('list',array('conditions'=>array('Projetos.ativo'=>true),'order' => array('Projetos.codenome' => 'asc')));
-        $projetosprodutos = $this->Todos->Projetosprodutos->find('list', ['limit' => 200]);
+        $projetosprodutos = $this->Todos->Projetosprodutos->find('list',array('conditions'=>array('Projetosprodutos.ativo = '=>true,'Projetosprodutos.statusfuncional_id NOT IN '=> [1,2,3,4,6,8,9,10,11,13,14,15,18,19]),'order' => array('Projetosprodutos.projeto_id' => 'desc','Projetosprodutos.descricao' => 'asc','Projetosprodutos.prioridade' => 'asc')) , ['limit' => 2000]);
         $naturezas = $this->Todos->Naturezas->find('list', ['limit' => 200]);
         $paretos = $this->Todos->Paretos->find('list', ['limit' => 200]);
         $participantes = $this->Todos->Participantes->find('list', ['limit' => 200]);        
@@ -102,7 +102,8 @@ class TodosController extends AppController
         }
         $programas = $this->Todos->Programas->find('list', ['limit' => 200]);
         $projetos = $this->Todos->Projetos->find('list', ['limit' => 200]);
-        $projetosprodutos = $this->Todos->Projetosprodutos->find('list', ['limit' => 200]);
+        //$projetosprodutos = $this->Todos->Projetosprodutos->find('list', ['limit' => 200]);
+        $projetosprodutos = $this->Todos->Projetosprodutos->find('list',array('conditions'=>array('Projetosprodutos.ativo = '=>true,'Projetosprodutos.statusfuncional_id NOT IN '=> [1,2,3,4,6,8,9,10,11,13,14,15,18,19]),'order' => array('Projetosprodutos.projeto_id' => 'desc','Projetosprodutos.descricao' => 'asc','Projetosprodutos.prioridade' => 'asc')) , ['limit' => 2000]);
         $naturezas = $this->Todos->Naturezas->find('list', ['limit' => 200]);
         $paretos = $this->Todos->Paretos->find('list', ['limit' => 200]);
         $participantes = $this->Todos->Participantes->find('list', ['limit' => 200]);        

@@ -83,6 +83,18 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="<?= $this->Url->build('/projetosprodutos', ["fullBase" => true]) ?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Produtos</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= $this->Url->build('/projetosprodutosentregas', ["fullBase" => true]) ?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Entregas</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="<?= $this->Url->build('/consultores', ["fullBase" => true]) ?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Consultores</p>

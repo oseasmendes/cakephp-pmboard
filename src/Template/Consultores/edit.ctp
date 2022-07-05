@@ -98,6 +98,7 @@
             echo $this->Form->control('selecionar');
             echo $this->Form->control('engajado');             
             echo $this->Form->control('prio');
+            echo $this->Form->control('ativo');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit'), ['class'=> "btn btn-primary"]) ?>

@@ -253,6 +253,10 @@ class ConsultoresTable extends Table
         $validator
             ->integer('prio')
             ->allowEmptyString('prio');
+        
+        $validator
+            ->integer('ativo')
+            ->allowEmptyString('ativo');
 
 
         return $validator;

@@ -17,7 +17,7 @@
 </nav>
 <div class="processostipos view large-9 medium-8 columns content">
     <h3><?= h($processostipo->id) ?></h3>
-    <table class="vertical-table">
+    <table class="table table-striped table-responsive">  
         <tr>
             <th scope="row"><?= __('Descricao') ?></th>
             <td><?= h($processostipo->descricao) ?></td>

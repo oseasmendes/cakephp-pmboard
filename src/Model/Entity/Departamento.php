@@ -36,7 +36,7 @@ class Departamento extends Entity
         'empresasunidade_id' => true,
         'created' => true,
         'modified' => true,
-        'agendaanual' => true,
+        'agendas' => true,
         'consultores' => true,
         'projetousuarios' => true,
         'projetousuarios' => true,

@@ -45,7 +45,7 @@ class DepartamentosTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->hasMany('Agendaanual', [
+        $this->hasMany('Agendas', [
             'foreignKey' => 'departamento_id'
         ]);
         $this->hasMany('Consultores', [

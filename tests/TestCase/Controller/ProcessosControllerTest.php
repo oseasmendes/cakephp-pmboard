@@ -19,7 +19,8 @@ class ProcessosControllerTest extends TestCase
      */
     public $fixtures = [
         'app.Processos',
-        'app.Atadetalhes'
+        'app.Atasdetalhes',
+        'app.Processostipos'
     ];
 
     /**

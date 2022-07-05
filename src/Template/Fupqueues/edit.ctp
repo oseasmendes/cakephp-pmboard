@@ -26,6 +26,10 @@
         <?php
             echo $this->Form->control('descricao',['class'=> "form-control"]);
             echo $this->Form->control('observacao',['class'=> "form-control"]);
+            echo $this->Form->control('tickets');
+            echo $this->Form->control('improvements');
+            echo $this->Form->control('projects');
+            echo $this->Form->control('fup');
             echo $this->Form->control('ativo');
             
         ?>

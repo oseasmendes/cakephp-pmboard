@@ -59,8 +59,8 @@ class ProjetosprodutosentregasController extends AppController
                             {
                                 $this->paginate = [
                                     'contain' => ['Projetosprodutos', 'Sistemas', 'Statusfuncionals', 'Paretos', 'Unidademedidas','Fases','Empresas','Ambientes'],
-                                'conditions' => ['Projetosprodutosentregas.statusfuncional_id != '=> 14],
-                                'order' => array('projetosproduto_id' => 'asc','referencia' => 'asc'),
+                                'conditions' => ['Projetosprodutosentregas.statusfuncional_id != '=> 14,'Projetosprodutosentregas.pareto_id NOT IN ' => [30,27,47,11,40,13]],
+                                'order' => array('canal' => 'desc','projetosproduto_id' => 'asc','referencia' => 'asc'),
                                 ];
                             $projetosprodutosentregas = $this->paginate($this->Projetosprodutosentregas);
                             }
@@ -87,10 +87,28 @@ class ProjetosprodutosentregasController extends AppController
     public function view($id = null)
     {
         $projetosprodutosentrega = $this->Projetosprodutosentregas->get($id, [
-            'contain' => ['Projetosprodutos', 'Sistemas', 'Statusfuncionals', 'Paretos', 'Unidademedidas', 'Agendas', 'Projetosapontamentos', 'Projetosentregasparetos'=> [
-        'sort' => ['Projetosentregasparetos.id' => 'DESC']
+            'contain' => [
+                'Projetosprodutos', 
+                'Sistemas', 
+                'Statusfuncionals', 
+                'Paretos', 
+                'Unidademedidas', 
+                'Agendas', 
+                'Projetosapontamentos', 
+                'Projetosentregasparetos'=> [
+        'sort' => ['Projetosentregasparetos.id' => 'DESC'],
+        'conditions' => ['Projetosentregasparetos.created >=' => date("Y-m-d", mktime(0, 0, 0, date("m") , date("d")-7,date("Y")))]           
     ]
-    ,'Fases','Empresas','Entregasblockpoints','Ambientes', 'Projetosprodutosentregasalocs','Projetosprodutosentregasflws','Projetosprodutosentregasdiarios','Projetosprodutosentregasimgs','Entregastipos' ],
+    ,'Fases',
+    'Empresas',
+    'Entregasblockpoints',
+    'Ambientes', 
+    'Projetosentregasreqs', 
+    'Projetosprodutosentregasalocs',
+    'Projetosprodutosentregasflws',
+    'Projetosprodutosentregasdiarios',
+    'Projetosprodutosentregasimgs',
+    'Entregastipos' ],
               'order' => [
                                 'Projetosprodutosentregas.projetosproduto_id' => 'asc','Projetosprodutosentregas.prioridade' => 'asc']
         ]);
@@ -221,7 +239,7 @@ class ProjetosprodutosentregasController extends AppController
                     }
 
                 } else {
-                        $this->Session->SetFlash('Pasta '.$id.' Não Existe');
+                        $this->Flash->error('Pasta '.$id.' Não Existe');                        
                 }
 
        

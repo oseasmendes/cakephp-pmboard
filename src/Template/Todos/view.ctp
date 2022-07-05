@@ -4,6 +4,21 @@
  * @var \App\Model\Entity\Todo $todo
  */
 ?>
+
+<section class="content">
+        <div class="container-fluid">
+            <div class="row">     
+
+                <div class="col-md-12">
+                    <div class="card card-info">
+                        <div class="card-header">
+
+                        <h3 class="card-title">TO DO List</h3>
+                        </div>
+                            <div class="card-body">
+                                    <div class="row" >
+                                    </div>    
+
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
@@ -11,22 +26,9 @@
         <li><?= $this->Form->postLink(__('Delete Todo'), ['action' => 'delete', $todo->id], ['confirm' => __('Are you sure you want to delete # {0}?', $todo->id)]) ?> </li>
         <li><?= $this->Html->link(__('List Todos'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Todo'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Programas'), ['controller' => 'Programas', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Programa'), ['controller' => 'Programas', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Projetos'), ['controller' => 'Projetos', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Projeto'), ['controller' => 'Projetos', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Projetosprodutos'), ['controller' => 'Projetosprodutos', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Projetosproduto'), ['controller' => 'Projetosprodutos', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Naturezas'), ['controller' => 'Naturezas', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Natureza'), ['controller' => 'Naturezas', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Paretos'), ['controller' => 'Paretos', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Pareto'), ['controller' => 'Paretos', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Participantes'), ['controller' => 'Participantes', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Participante'), ['controller' => 'Participantes', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Todoseventos'), ['controller' => 'Todoseventos', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Todosevento'), ['controller' => 'Todoseventos', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Todosobservadores'), ['controller' => 'Todosobservadores', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Todosobservadore'), ['controller' => 'Todosobservadores', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Todoseventos'), ['controller' => 'Todoseventos', 'action' => 'index']) ?> </li>        
     </ul>
 </nav>
 <div class="row no-gutters" >
@@ -40,7 +42,7 @@
 
 <div class="todos view large-9 medium-8 columns content">
     <h3><?= h($todo->id) ?></h3>
-    <table class="vertical-table">
+    <table class="table">
         <tr>
             <th scope="row"><?= __('Programa') ?></th>
             <td><?= $todo->has('programa') ? $this->Html->link($todo->programa->descricao, ['controller' => 'Programas', 'action' => 'view', $todo->programa->id]) : '' ?></td>
@@ -128,15 +130,18 @@
     </table>
     <div class="row">
         <h4><?= __('Resumotecnico') ?></h4>
-        <?= $this->Text->autoParagraph(h($todo->resumotecnico)); ?>
+        <div>
+            <?= $this->Text->autoParagraph(h($todo->resumotecnico)); ?>
+        </div>
     </div>
     <div class="row">
-        <h4><?= __('Observacao') ?></h4>
+        <h5><?= __('Observacao') ?></h5>
+        </p>
         <?= $this->Text->autoParagraph(h($todo->observacao)); ?>
     </div>
-    <div class="related">
-        <h4><?= __('Related Todoseventos') ?></h4>
+    <div class="related">        
         <?php if (!empty($todo->todoseventos)): ?>
+        <h4><?= __('Eventos') ?></h4>    
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
@@ -173,9 +178,9 @@
         </table>
         <?php endif; ?>
     </div>
-    <div class="related">
-        <h4><?= __('Related Todosobservadores') ?></h4>
+    <div class="related">        
         <?php if (!empty($todo->todosobservadores)): ?>
+        <h4><?= __('Observadores') ?></h4>    
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
@@ -205,3 +210,16 @@
         <?php endif; ?>
     </div>
 </div>
+
+
+
+
+</div>
+
+                                    </div>                                                                   
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>      
+    </section>

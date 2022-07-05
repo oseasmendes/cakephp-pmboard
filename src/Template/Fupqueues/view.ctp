@@ -4,48 +4,49 @@
  * @var \App\Model\Entity\Fupqueue $fupqueue
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Fupqueue'), ['action' => 'edit', $fupqueue->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Fupqueue'), ['action' => 'delete', $fupqueue->id], ['confirm' => __('Are you sure you want to delete # {0}?', $fupqueue->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Fupqueues'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Fupqueue'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Fupagendas'), ['controller' => 'Fupagendas', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Fupagenda'), ['controller' => 'Fupagendas', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Fupqueuesdistributions'), ['controller' => 'Fupqueuesdistributions', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Fupqueuesdistribution'), ['controller' => 'Fupqueuesdistributions', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Projetosprodutos'), ['controller' => 'Projetosprodutos', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Projetosproduto'), ['controller' => 'Projetosprodutos', 'action' => 'add']) ?> </li>
-    </ul>
-</nav>
+<section class="content">
+        <div class="container-fluid">
+            <div class="row">     
+
+                <div class="col-md-12">
+                    <div class="card card-info">
+                        <div class="card-header">
+
+                       
+                        </div>
+                            <div class="card-body">
+                                    <div class="row" > 
+                                    </div>
+
 <div class="fupqueues view large-9 medium-8 columns content">
     <h3><?= h($fupqueue->id) ?></h3>
-    <table class="vertical-table">
+    <table class="table">
         <tr>
             <th scope="row"><?= __('Descricao') ?></th>
             <td><?= h($fupqueue->descricao) ?></td>
+        </tr>        
+        <tr>
+            <th scope="row"><?= __('Created') ?></th>
+            <td><?= h($fupqueue->created) ?></td>
+            <th scope="row"><?= __('Modified') ?></th>
+            <td><?= h($fupqueue->modified) ?></td>        
+            <th scope="row"><?= __('Ativo') ?></th>
+            <td><?= $fupqueue->ativo ? __('Yes') : __('No'); ?></td>                    
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Tickets') ?></th>
+            <td><?= $fupqueue->tickets ? __('Yes') : __('No'); ?></td>
+            <th scope="row"><?= __('Improvements') ?></th>
+            <td><?= $fupqueue->improvements ? __('Yes') : __('No'); ?></td>
+            <th scope="row"><?= __('Projects') ?></th>
+            <td><?= $fupqueue->projects ? __('Yes') : __('No'); ?></td>
+            <th scope="row"><?= __('Fup') ?></th>
+            <td><?= $fupqueue->fup ? __('Yes') : __('No'); ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Observacao') ?></th>
             <td><?= h($fupqueue->observacao) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($fupqueue->id) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Created') ?></th>
-            <td><?= h($fupqueue->created) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Modified') ?></th>
-            <td><?= h($fupqueue->modified) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Ativo') ?></th>
-            <td><?= $fupqueue->ativo ? __('Yes') : __('No'); ?></td>
-        </tr>
+        </tr>       
     </table>
     <div class="related">
         <h4><?= __('Related Fupagendas') ?></h4>
@@ -181,3 +182,16 @@
         <?php endif; ?>
     </div>
 </div>
+
+
+
+
+
+</div>                                                                   
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        </div>      
+    </section>

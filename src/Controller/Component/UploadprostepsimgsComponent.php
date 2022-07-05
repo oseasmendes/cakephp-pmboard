@@ -38,7 +38,7 @@ class UploadprostepsimgsComponent extends Component
 			$dir = WWW_ROOT.'img'.DS.'sistemaprostepsimgs'.DS.$galeria;
             //var_dump($dir);
 			
-			$type_allowed = array('png','jpg','jpeg','gif','pptx','xls','xlsx','pdf','doc','docx','sql');
+			$type_allowed = array('png','jpg','jpeg','gif','pptx','xls','xlsx','pdf','doc','docx','sql','prc','zip');
 					if (!in_array($file_ext, $type_allowed)) 
 					{
 						$this->registry->getController()->Flash->error('Type of file not is allowed: "'.$file['type'].'"');
