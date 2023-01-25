@@ -38,7 +38,8 @@
             echo $this->Form->control('empresa_id', ['options' => $empresas, 'empty' => true,'class'=>['class'=> 'form-control']]);
             echo $this->Form->control('ambiente_id', ['options' => $ambientes, 'empty' => true,'class'=>['class'=> 'form-control']]);
             echo $this->Form->control('entregastipo_id', ['options' => $entregastipos, 'empty' => true,'class'=>['class'=> 'form-control']]);
-            
+            echo $this->Form->control('consultore_id', ['options' => $consultores, 'empty' => true,'class'=>['class'=> 'form-control']]);
+
             echo $this->Form->control('responsavel',['class'=> "form-control"]);
             echo $this->Form->control('statusfuncional_id', ['options' => $statusfuncionals, 'empty' => true,'class'=>['class'=> 'form-control']]);
             echo $this->Form->control('pareto_id', ['options' => $paretos, 'empty' => true,'class'=>['class'=> 'form-control']]);

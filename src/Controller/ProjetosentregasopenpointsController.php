@@ -20,7 +20,7 @@ class ProjetosentregasopenpointsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Projetosentregasreqsreves', 'Motivos']
+            'contain' => ['Projetosentregasreqsrefs', 'Motivos']
         ];
         $projetosentregasopenpoints = $this->paginate($this->Projetosentregasopenpoints);
 
@@ -37,7 +37,7 @@ class ProjetosentregasopenpointsController extends AppController
     public function view($id = null)
     {
         $projetosentregasopenpoint = $this->Projetosentregasopenpoints->get($id, [
-            'contain' => ['Projetosentregasreqsreves', 'Motivos']
+            'contain' => ['Projetosentregasreqsrefs', 'Projetosentregasopprespostas', 'Motivos']
         ]);
 
         $this->set('projetosentregasopenpoint', $projetosentregasopenpoint);
@@ -62,7 +62,7 @@ class ProjetosentregasopenpointsController extends AppController
         }
         $projetosentregasreqsreves = $this->Projetosentregasopenpoints->Projetosentregasreqsreves->find('list', ['limit' => 200]);
         $motivos = $this->Projetosentregasopenpoints->Motivos->find('list', ['limit' => 200]);
-        $this->set(compact('projetosentregasopenpoint', 'projetosentregasreqsreves', 'motivos'));
+        $this->set(compact('projetosentregasopenpoint', 'Projetosentregasreqsrefs', 'motivos'));
     }
 
     public function addid($id = null)

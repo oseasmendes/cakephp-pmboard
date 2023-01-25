@@ -102,12 +102,15 @@ class ConsultoresferiasController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $consultoresferia = $this->Consultoresferias->get($id);
+        $consultorid = $consultoresferia->consultore_id;
         if ($this->Consultoresferias->delete($consultoresferia)) {
             $this->Flash->success(__('The consultoresferia has been deleted.'));
         } else {
             $this->Flash->error(__('The consultoresferia could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        //return $this->redirect(['action' => 'index']);
+        return $this->redirect(['controller' => 'Consultores','action' => 'view',$consultorid]);
+
     }
 }

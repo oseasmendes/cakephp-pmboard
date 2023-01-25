@@ -69,6 +69,11 @@ class SistemascfgscriptsTable extends Table
             ->scalar('descricao')
             ->maxLength('descricao', 250)
             ->allowEmptyString('descricao');
+        
+        $validator
+            ->scalar('codenome')
+            ->maxLength('codenome', 100)
+            ->allowEmptyString('codenome');
 
         $validator
             ->scalar('scriptaplicado')

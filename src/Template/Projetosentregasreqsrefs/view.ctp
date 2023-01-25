@@ -254,7 +254,7 @@
         <tr style="background-color:rgb(189, 216, 39)">                  
                 <th scope="col"><?= __('Id') ?></th>                    
                 <th scope="col"><?= __('Descricao') ?></th>
-                <th scope="col"><?= __('Data') ?></th>
+                <th scope="col"><?= __('DtPrev.','Dataprevistaatendimento') ?></th>
                 <th scope="col"><?= __('Planoacao') ?></th>                                
                 <th scope="col"><?= __('Resolvido') ?></th>                                
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -263,7 +263,7 @@
             <tr>                
                 <td><?= h($opp->id) ?></td>                                
                 <td><?= h($opp->descricao) ?></td>                
-                <td><?= h($opp->Data) ?></td>     
+                <td><?= h($opp->dataprevistaatendimento) ?></td>     
                 <td><?= h($opp->planoacao) ?></td>     
                 <td><?= h($opp->resolvido) ?></td>     
                 <td class="actions">

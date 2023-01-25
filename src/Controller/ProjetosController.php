@@ -185,6 +185,7 @@ class ProjetosController extends AppController
                                  //'conditions' => ['Projetos.datasuspensao !=' => 'NULL'],
                                 /* 'conditions' => [/*'isnull(Projetos.datasuspensao)'],'Projetos.realizadodatainicio !=' => 'NULL'],
                                  'limit' => 100,  */            
+                                 'conditions' => ['arquivo = '=>false,'propostatecnica = '=>true,'statusfuncional_id NOT IN '=> [1,2,3,4,6,8,9,10,11,13,14,15,18,19]],      
                                   'order' => [
                                 'Projetos.descricao' => 'asc']
 

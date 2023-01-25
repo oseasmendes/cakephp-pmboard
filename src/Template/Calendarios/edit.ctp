@@ -35,6 +35,7 @@
             echo $this->Form->control('feriado');
             echo $this->Form->control('diaserial');
             echo $this->Form->control('endweek');
+            echo $this->Form->control('technicalfreezing');
             echo $this->Form->control('semananumero');
             echo $this->Form->control('referenciadia');
             echo $this->Form->control('tempoabertura');

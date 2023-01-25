@@ -36,7 +36,7 @@ class ProjetosentregasopenpointsTable extends Table
         parent::initialize($config);
 
         $this->setTable('projetosentregasopenpoints');
-        $this->setDisplayField('id');
+        $this->setDisplayField('descricao');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
@@ -48,6 +48,11 @@ class ProjetosentregasopenpointsTable extends Table
         $this->belongsTo('Motivos', [
             'foreignKey' => 'motivo_id'
         ]);
+
+        $this->hasMany('Projetosentregasopprespostas', [
+            'foreignKey' => 'projetosentregasopenpoint_id'
+        ]);
+
     }
 
     /**
@@ -94,6 +99,17 @@ class ProjetosentregasopenpointsTable extends Table
             ->scalar('planodeacaodescricao')
             ->maxLength('planodeacaodescricao', 255)
             ->allowEmptyString('planodeacaodescricao');
+
+        
+        $validator
+            ->date('dataprevistaatendimento')
+            ->allowEmptyDate('dataprevistaatendimento');
+
+        $validator
+            ->scalar('responsavel')
+            ->maxLength('responsavel', 255)
+            ->allowEmptyString('responsavel');
+
 
         return $validator;
     }

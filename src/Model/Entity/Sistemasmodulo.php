@@ -42,6 +42,7 @@ class Sistemasmodulo extends Entity
         'created' => true,
         'modified' => true,
         'sistema' => true,
+        'sistemascfgtables' => true,       
         'statusfuncional' => true
     ];
 }

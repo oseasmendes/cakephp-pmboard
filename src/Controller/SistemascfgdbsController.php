@@ -79,12 +79,14 @@ class SistemascfgdbsController extends AppController
         $sistemascfgdb = $this->Sistemascfgdbs->get($id, [
             'contain' => []
         ]);
+        $sistemaid = $sistemascfgdb->sistema_id;
         if ($this->request->is(['patch', 'post', 'put'])) {
             $sistemascfgdb = $this->Sistemascfgdbs->patchEntity($sistemascfgdb, $this->request->getData());
             if ($this->Sistemascfgdbs->save($sistemascfgdb)) {
                 $this->Flash->success(__('The sistemascfgdb has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                //return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'Sistemas','action' => 'view',$sistemaid]);
             }
             $this->Flash->error(__('The sistemascfgdb could not be saved. Please, try again.'));
         }
@@ -104,12 +106,14 @@ class SistemascfgdbsController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $sistemascfgdb = $this->Sistemascfgdbs->get($id);
+        $sistemaid = $sistemascfgdb->sistema_id;
         if ($this->Sistemascfgdbs->delete($sistemascfgdb)) {
             $this->Flash->success(__('The sistemascfgdb has been deleted.'));
         } else {
             $this->Flash->error(__('The sistemascfgdb could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        //return $this->redirect(['action' => 'index']);
+        return $this->redirect(['controller' => 'Sistemas','action' => 'view',$sistemaid]);
     }
 }

@@ -108,6 +108,10 @@ class CalendariosTable extends Table
             ->allowEmptyString('endweek');
 
         $validator
+            ->integer('technicalfreezing')
+            ->allowEmptyString('technicalfreezing');
+
+        $validator
             ->integer('semananumero')
             ->allowEmptyString('semananumero');
 

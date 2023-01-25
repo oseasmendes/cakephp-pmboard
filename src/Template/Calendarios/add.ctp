@@ -42,9 +42,11 @@
             echo $this->Form->control('feriado');
             echo $this->Form->control('diaserial');
             echo $this->Form->control('endweek');
+            echo $this->Form->control('technicalfreezing');            
+            echo $this->Form->control('tempoabertura');
             echo $this->Form->control('semananumero');
             echo $this->Form->control('referenciadia');
-            echo $this->Form->control('tempoabertura');
+            echo $this->Form->control('tempoabertura');            
             echo $this->Form->control('tempoparadaprogramada');
             echo $this->Form->control('tempodisponivel');
             echo $this->Form->control('calendariosplano_id', ['options' => $calendariosplanos, 'empty' => true]);

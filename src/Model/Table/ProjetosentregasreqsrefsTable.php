@@ -143,6 +143,15 @@ class ProjetosentregasreqsrefsTable extends Table
             ->integer('ordem')
             ->allowEmptyString('ordem');
 
+        $validator
+            ->boolean('outofscope')
+            ->allowEmptyString('outofscope');
+
+        $validator
+            ->scalar('outofscopedescription')
+            ->maxLength('outofscopedescription', 255)
+            ->allowEmptyString('outofscopedescription');      
+
         return $validator;
     }
 

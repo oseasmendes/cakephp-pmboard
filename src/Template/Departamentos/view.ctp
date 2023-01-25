@@ -4,27 +4,21 @@
  * @var \App\Model\Entity\Departamento $departamento
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Departamento'), ['action' => 'edit', $departamento->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Departamento'), ['action' => 'delete', $departamento->id], ['confirm' => __('Are you sure you want to delete # {0}?', $departamento->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Departamentos'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Departamento'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Agendaanual'), ['controller' => 'Agendaanual', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Agendaanual'), ['controller' => 'Agendaanual', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Consultores'), ['controller' => 'Consultores', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Consultore'), ['controller' => 'Consultores', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Projetousuarios'), ['controller' => 'Projetousuarios', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Projetousuario'), ['controller' => 'Projetousuarios', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Sistemas'), ['controller' => 'Sistemas', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Sistema'), ['controller' => 'Sistemas', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Sistemasareas'), ['controller' => 'Sistemasareas', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Sistemasarea'), ['controller' => 'Sistemasareas', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Sistemasbriefings'), ['controller' => 'Sistemasbriefings', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Sistemasbriefing'), ['controller' => 'Sistemasbriefings', 'action' => 'add']) ?> </li>
-    </ul>
-</nav>
+<section class="content">
+        <div class="container-fluid">
+            <div class="row">     
+
+                <div class="col-md-12">
+                    <div class="card card-info">
+                        <div class="card-header">
+
+                       
+                        </div>
+                            <div class="card-body">
+                                    <div class="row" > 
+                                    </div>
+
+
 <div class="departamentos view large-9 medium-8 columns content">
     <h3><?= h($departamento->id) ?></h3>
     <table class="vertical-table">
@@ -305,4 +299,82 @@
         </table>
         <?php endif; ?>
     </div>
+    <div class="related">        
+        <?php if (!empty($departamento->participantes)): ?>
+        <h4><?= __('Membros/Participantes') ?></h4>
+        <table class="table table-striped table-responsive"> 
+            <tr>
+                <th scope="col"><?= __('Id') ?></th>
+                <th scope="col"><?= __('Nome') ?></th>
+                <th scope="col"><?= __('Email') ?></th>                
+                <th scope="col"><?= __('Created') ?></th>
+                <th scope="col"><?= __('Modified') ?></th>                
+                <th scope="col" class="actions"><?= __('Actions') ?></th>
+            </tr>
+            <?php foreach ($departamento->participantes as $obj): ?>
+            <tr>
+                <td><?= h($obj->id) ?></td>
+                <td><?= h($obj->nome) ?></td>
+                <td><?= h($obj->email) ?></td>                
+                <td><?= h($obj->created) ?></td>
+                <td><?= h($obj->modified) ?></td>                
+                <td class="actions">
+                    <?= $this->Html->link(__('View'), ['controller' => 'Participantes', 'action' => 'view', $obj->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Participantes', 'action' => 'edit', $obj->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Participantes', 'action' => 'delete', $obj->id], ['confirm' => __('Are you sure you want to delete # {0}?', $obj->id)]) ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+        <?php endif; ?>
+    </div>
+
+    <div class="related">        
+        <?php if (!empty($departamento->projetosprodutosentregas)): ?>
+        <h4><?= __('Entregas') ?></h4>
+        <table class="table table-striped table-responsive"> 
+            <tr>
+                <th scope="col"><?= __('Id') ?></th>
+                <th scope="col"><?= __('Canal') ?></th>
+                <th scope="col"><?= __('Referencia') ?></th>
+                <th scope="col"><?= __('Descricao') ?></th>   
+                <th scope="col"><?= __('Comentario') ?></th>   
+                <th scope="col"><?= __('Atendidopor') ?></th>   
+                <th scope="col"><?= __('Created') ?></th>
+                <th scope="col"><?= __('Modified') ?></th>                
+                <th scope="col" class="actions"><?= __('Actions') ?></th>
+            </tr>
+            <?php foreach ($departamento->projetosprodutosentregas as $obj): ?>
+            <tr>
+                <td><?= h($obj->id) ?></td>
+                <td><?= h($obj->canal) ?></td>
+                <td><?= h($obj->referencia) ?></td>                
+                <td><?= h($obj->descricao) ?></td>  
+                <td><?= h($obj->comentario) ?></td>
+                <td><?= h($obj->atendidopor) ?></td>
+                <td><?= h($obj->created) ?></td>
+                <td><?= h($obj->modified) ?></td>                
+                <td class="actions">
+                    <?= $this->Html->link(__('View'), ['controller' => 'Projetosprodutosentregas', 'action' => 'view', $obj->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Projetosprodutosentregas', 'action' => 'edit', $obj->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Projetosprodutosentregas', 'action' => 'delete', $obj->id], ['confirm' => __('Are you sure you want to delete # {0}?', $obj->id)]) ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+        <?php endif; ?>
+    </div>
 </div>
+
+
+
+
+
+</div>                                                                   
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        </div>      
+    </section>

@@ -39,6 +39,9 @@
             echo $this->Form->control('participante_id', ['options' => $participantes, 'empty' => true]);
             echo $this->Form->control('dataemissao', ['empty' => true]);
             echo $this->Form->control('solicitante');
+            echo $this->Form->control('docversion',['empty' => true,'label'=>'Versão']);
+            echo $this->Form->control('docreference',['empty' => true,'label'=>'Doc. Referencia']);
+            echo $this->Form->control('docchangereference',['empty' => true,'label'=>'Resumo Técnico da Melhoria']);
             echo $this->Form->control('wave');
             echo $this->Form->control('prioridade');
             echo $this->Form->control('descricao');

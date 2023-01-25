@@ -109,6 +109,15 @@ class SistemasTable extends Table
             'foreignKey' => 'sistema_id'
         ]);
 
+        // 17-10-2022 - Oséas 
+        $this->hasMany('Sistemascfgtables', [
+            'foreignKey' => 'sistema_id'
+        ]);        
+
+        $this->hasMany('Sistemasrelatorios', [
+            'foreignKey' => 'sistema_id'
+        ]);
+
         $this->hasMany('Sistemasconsultores', [
             'foreignKey' => 'sistema_id'
         ]);

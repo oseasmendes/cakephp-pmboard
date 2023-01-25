@@ -36,7 +36,23 @@ class DepartamentosController extends AppController
     public function view($id = null)
     {
         $departamento = $this->Departamentos->get($id, [
-            'contain' => ['Agendas','Gerentes','Empresasunidades' ,'Consultores', 'Sistemas', 'Sistemasareas', 'Sistemasbriefings']
+            'contain' => ['Agendas',
+                            'Gerentes',
+                            'Empresasunidades',
+                            'Consultores',
+                            'Sistemas',
+                            'Sistemasareas',
+                            'Sistemasbriefings',
+                            'Projetosprodutosentregas'=> [
+                                'sort' => [
+                                        'Projetosprodutosentregas.canal' => 'DESC',
+                                        'Projetosprodutosentregas.comentario' => 'ASC',
+                                        'Projetosprodutosentregas.created' => 'DESC'], 
+                                'conditions' => [
+                                                'Projetosprodutosentregas.datarealizada is null',
+                                                'Projetosprodutosentregas.frente_id = ' => 24,
+                                                'Projetosprodutosentregas.comentario not in '=> ['Cancelado','Implementado em produção','Não iniciado']]],
+                            'Participantes']
         ]);
 
         $this->set('departamento', $departamento);

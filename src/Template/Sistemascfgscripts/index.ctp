@@ -29,7 +29,7 @@
                 <th scope="col"><?= $this->Paginator->sort('ativo') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('autor') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('dataroteiro') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('palavraschave') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('codenome') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('documento_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
@@ -47,7 +47,7 @@
                 <td><?= h($sistemascfgscript->ativo) ?></td>
                 <td><?= h($sistemascfgscript->autor) ?></td>
                 <td><?= h($sistemascfgscript->dataroteiro) ?></td>
-                <td><?= h($sistemascfgscript->palavraschave) ?></td>
+                <td><?= h($sistemascfgscript->codenome) ?></td>
                 <td><?= $sistemascfgscript->has('documento') ? $this->Html->link($sistemascfgscript->documento->descricao, ['controller' => 'Documentos', 'action' => 'view', $sistemascfgscript->documento->id]) : '' ?></td>
                 <td><?= h($sistemascfgscript->created) ?></td>
                 <td><?= h($sistemascfgscript->modified) ?></td>

@@ -36,6 +36,9 @@ class Projetosentregasopenpoint extends Entity
         'descricao' => true,
         'detalhes' => true,
         'data' => true,
+        'data' => true,
+        'dataprevistaatendimento' => true,
+        'responsavel' => true,
         'motivo_id' => true,
         'planoacao' => true,
         'resolvido' => true,
@@ -44,6 +47,7 @@ class Projetosentregasopenpoint extends Entity
         'created' => true,
         'modified' => true,
         'projetosentregasreqsref' => true,
+        'Projetosentregasopprespostas' => true,
         'motivo' => true
     ];
 }

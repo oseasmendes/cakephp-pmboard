@@ -41,6 +41,7 @@ class Sistemascfgscript extends Entity
         'sistema_id' => true,
         'scriptstipo_id' => true,
         'descricao' => true,
+        'codenome' => true,
         'scriptaplicado' => true,
         'versaonumero' => true,
         'ativo' => true,

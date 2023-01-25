@@ -47,7 +47,9 @@
             echo $this->Form->control('programa_id', ['options' => $programas, 'empty' => true,'class'=>['class'=> 'form-control']]);
             echo $this->Form->control('projeto_id', ['options' => $projetos, 'empty' => true,'class'=>['class'=> 'form-control']]);
             echo $this->Form->control('projetosproduto_id', ['options' => $projetosprodutos, 'empty' => true,'class'=>['class'=> 'form-control']]);
+            echo $this->Form->control('projetosprodutosentrega_id', ['options' => $projetosprodutosentregas, 'empty' => true,'class'=>['class'=> 'form-control']]);
             echo $this->Form->control('requisitante',['class'=> "form-control"]);
+            echo $this->Form->control('idinc',['class'=> "form-control"]);
             echo $this->Form->control('assunto',['class'=> "form-control"]);
             echo $this->Form->control('resumotecnico',['class'=> "form-control"]);
             echo $this->Form->control('nrorequisicao',['class'=> "form-control"]);

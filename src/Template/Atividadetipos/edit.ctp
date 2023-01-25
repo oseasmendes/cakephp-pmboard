@@ -25,6 +25,14 @@
         <?php
             echo $this->Form->control('descricao');
         ?>
+         <div class="form-check form-check-inline">                  
+                    <div class="filho">
+                        <?= $this->Form->control('notificacao'); ?>
+                    </div>  
+                    <div class="filho">
+                        <?= $this->Form->control('tecnica'); ?>
+                    </div>  
+            </div>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>

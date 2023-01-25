@@ -41,7 +41,15 @@ class SistemaprostepsController extends AppController
     public function view($id = null)
     {
         $sistemaprostep = $this->Sistemaprosteps->get($id, [
-            'contain' => ['Sistemaproactions', 'Participantes', 'Consultores', 'Sistemaprostepsfiles','Sistemaprostepsimgs']
+            'contain' => [
+                    'Sistemaproactions', 
+                    'Participantes', 
+                    'Consultores', 
+                    'Sistemaprostepsfiles',
+                    'Sistemaprostepsimgs'=>[
+                        'sort' => ['Sistemaprostepsimgs.ordem' => 'ASC'],
+                        //'conditions' => ['Sistemaprostepsimgs.ativo =' => true],
+                    ]]
         ]);
 
         $this->set('sistemaprostep', $sistemaprostep);

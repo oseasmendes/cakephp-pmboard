@@ -40,6 +40,7 @@ class Departamento extends Entity
         'consultores' => true,
         'projetousuarios' => true,
         'projetousuarios' => true,
+        'participantes' => true,
         'gerentes' => true,
         'empresasunidades' => true,
         'fupqueues' => true,

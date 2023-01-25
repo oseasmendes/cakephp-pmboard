@@ -78,7 +78,7 @@
                         <?= $this->Form->create($projetosprodutosentrega, ['url'=>['controller' => 'Projetosentregasparetos', 'action' => 'add'],'']) ?>   
                             <?= $this->Form->control('Pareto',['default'=> $this->Number->format($projetosprodutosentrega->id),'type' => 'hidden']); ?>
                                   
-                             <?= $this->Form->button('Inserir Paretos',['class'=>'btn btn-primary btn-sm btn-block']) ?>
+                             <?= $this->Form->button('Inserir Paretos',['class'=>'btn btn-info btn-sm btn-block']) ?>
                         <?= $this->Form->end() ?> 
                     </div>      
                     <div class="col-2"> 
@@ -129,15 +129,33 @@
                                 <?= $this->Form->control('Requisito',['default'=> $this->Number->format($projetosprodutosentrega->id),'type' => 'hidden']); ?>                                    
                                 <?= $this->Form->button('Add Requisitos',['class'=>'btn btn-secondary btn-sm btn-block']) ?>
                             <?= $this->Form->end() ?>                                
-                        </div>      
+                        </div>
+                        <div class="col-2"> 
+                            <?= $this->Form->create($projetosprodutosentrega, ['url'=>['controller' => 'Todos', 'action' => 'addident'],'']) ?>   
+                                <?= $this->Form->control('Todoent',['default'=> $this->Number->format($projetosprodutosentrega->id),'type' => 'hidden']); ?>                                    
+                                <?= $this->Form->button('Add ToDo',['class'=>'btn btn-secondary btn-sm btn-block']) ?>
+                            <?= $this->Form->end() ?>                                
+                        </div>   
+                        <div class="col-2"> 
+                            <?= $this->Form->create($projetosprodutosentrega, ['url'=>['controller' => 'Projetosprodutosentregasurls', 'action' => 'addid'],'']) ?>   
+                                <?= $this->Form->control('urls',['default'=> $this->Number->format($projetosprodutosentrega->id),'type' => 'hidden']); ?>                                    
+                                <?= $this->Form->button('Add URL',['class'=>'btn btn-secondary btn-sm btn-block']) ?>
+                            <?= $this->Form->end() ?>                                
+                        </div>         
+                        <div class="col-2"> 
+                            <?= $this->Form->create($projetosprodutosentrega, ['url'=>['controller' => 'Projetosentregasnotas', 'action' => 'addid'],'']) ?>   
+                                <?= $this->Form->control('nota',['default'=> $this->Number->format($projetosprodutosentrega->id),'type' => 'hidden']); ?>                                    
+                                <?= $this->Form->button('Add Nova',['class'=>'btn btn-secondary btn-sm btn-block']) ?>
+                            <?= $this->Form->end() ?>                                
+                        </div>       
                     </div>                                                                                  
  
 
  
 
 <div class="projetosprodutosentregas view large-9 medium-8 columns content">
-    <h3><p class="text-info"><?= 'Entrega: '.$this->Number->format($projetosprodutosentrega->id).'-'. h($projetosprodutosentrega->descricao) ?></p></h3>
-    <table class="table table-primary table-responsive-sm">  
+    <h3><p class="text-info"><?= $this->Number->format($projetosprodutosentrega->id).'-'.h($projetosprodutosentrega->canal)."#".h($projetosprodutosentrega->referencia)." - ".h($projetosprodutosentrega->descricao) ?></p></h3>
+    <table class="table table-info table-responsive-sm">  
         <tr>
             <th scope="row"><?= __('Projetosproduto') ?></th>
             <td><?= $projetosprodutosentrega->has('projetosproduto') ? $this->Html->link($projetosprodutosentrega->projetosproduto->descricao, ['controller' => 'Projetosprodutos', 'action' => 'view', $projetosprodutosentrega->projetosproduto->id]) : '' ?></td>
@@ -145,6 +163,8 @@
             <td><?= $this->Number->format($projetosprodutosentrega->ordem) ?></td>
             <th scope="row"><?= __('Referencia') ?></th>
             <td><?= h($projetosprodutosentrega->referencia) ?></td>
+            <th scope="row"><?= __('Consultor') ?></th>
+            <td><?= $projetosprodutosentrega->has('consultore') ? $this->Html->link($projetosprodutosentrega->consultore->nome, ['controller' => 'Consultores', 'action' => 'view', $projetosprodutosentrega->consultore->id]) : '' ?></td>
         </tr>        
         <tr>
             <th scope="row"><?= __('Descricao') ?></th>
@@ -190,32 +210,28 @@
     </table>
     <div class="related">
         <h4><p class="text-secondary"><?= __('Agendas') ?></p></h4>
-        <?php if (!empty($projetosprodutosentrega->agendaanual)): ?>
+        <?php if (!empty($projetosprodutosentrega->agendas)): ?>
         <table class="table">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Atividadetipo Id') ?></th>
-                <th scope="col"><?= __('Departamento Id') ?></th>
-                <th scope="col"><?= __('Projeto Id') ?></th>
-                <th scope="col"><?= __('Tipoagenda') ?></th>
+                <th scope="col"><?= __('Atividade','Atividadetipo Id') ?></th>
+                <th scope="col"><?= __('Depto','Departamento Id') ?></th>
+                <th scope="col"><?= __('PrjId','Projeto Id') ?></th>
+                <th scope="col"><?= __('Tipo','Tipoagenda') ?></th>
                 <th scope="col"><?= __('Observacao') ?></th>
-                <th scope="col"><?= __('Dataagenda') ?></th>
-                <th scope="col"><?= __('Horainicio') ?></th>
-                <th scope="col"><?= __('Horafim') ?></th>
+                <th scope="col"><?= __('Data','Dataagenda') ?></th>
+                <th scope="col"><?= __('Inicio','Horainicio') ?></th>
+                <th scope="col"><?= __('Fim','Horafim') ?></th>
                 <th scope="col"><?= __('Local') ?></th>
                 <th scope="col"><?= __('Created') ?></th>
                 <th scope="col"><?= __('Modified') ?></th>
-                <th scope="col"><?= __('Etiquetaadicional') ?></th>
-                <th scope="col"><?= __('Diadasemana') ?></th>
-                <th scope="col"><?= __('Localdiferente') ?></th>
-                <th scope="col"><?= __('Periodicidade') ?></th>
-                <th scope="col"><?= __('Referencia') ?></th>
-                <th scope="col"><?= __('Referenciadia') ?></th>
-                <th scope="col"><?= __('Projetosproduto Id') ?></th>
-                <th scope="col"><?= __('Projetosprodutosentrega Id') ?></th>
+                <th scope="col"><?= __('Motivo','Etiquetaadicional') ?></th>
+                <th scope="col"><?= __('Dia','Diadasemana') ?></th>                
+                <th scope="col"><?= __('Periodo','Periodicidade') ?></th>
+                <th scope="col"><?= __('Referencia') ?></th>                
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
-            <?php foreach ($projetosprodutosentrega->agendaanual as $agendaanual): ?>
+            <?php foreach ($projetosprodutosentrega->agendas as $agendaanual): ?>
             <tr>
                 <td><?= h($agendaanual->id) ?></td>
                 <td><?= h($agendaanual->atividadetipo_id) ?></td>
@@ -230,17 +246,13 @@
                 <td><?= h($agendaanual->created) ?></td>
                 <td><?= h($agendaanual->modified) ?></td>
                 <td><?= h($agendaanual->etiquetaadicional) ?></td>
-                <td><?= h($agendaanual->diadasemana) ?></td>
-                <td><?= h($agendaanual->localdiferente) ?></td>
+                <td><?= h($agendaanual->diadasemana) ?></td>                
                 <td><?= h($agendaanual->Periodicidade) ?></td>
-                <td><?= h($agendaanual->referencia) ?></td>
-                <td><?= h($agendaanual->referenciadia) ?></td>
-                <td><?= h($agendaanual->projetosproduto_id) ?></td>
-                <td><?= h($agendaanual->projetosprodutosentrega_id) ?></td>
+                <td><?= h($agendaanual->referencia) ?></td>                
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Agendaanual', 'action' => 'view', $agendaanual->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Agendaanual', 'action' => 'edit', $agendaanual->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Agendaanual', 'action' => 'delete', $agendaanual->id], ['confirm' => __('Are you sure you want to delete # {0}?', $agendaanual->id)]) ?>
+                    <?= $this->Html->link(__('View'), ['controller' => 'Agendas', 'action' => 'view', $agendaanual->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Agendas', 'action' => 'edit', $agendaanual->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Agendas', 'action' => 'delete', $agendaanual->id], ['confirm' => __('Are you sure you want to delete # {0}?', $agendaanual->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
@@ -474,6 +486,35 @@
         <?php endif; ?>
     </div>
 
+    <div class="related">        
+        <?php if (!empty($projetosprodutosentrega->projetosentregasnotas)): ?>
+        <h4><p class="text-secondary"><?= __('Notas') ?></p></h4>
+        <table class="table">
+            <thead class="thead-light">
+            <tr>
+                <th scope="col"><?= __('Id') ?></th>                       
+                <th scope="col"><?= __('Descricao') ?></th>
+                <th scope="col"><?= __('Historico') ?></th>
+                <th scope="col"><?= __('Created') ?></th>                
+                <th scope="col" class="actions"><?= __('Actions') ?></th>
+            </tr>
+            </thead>
+            <?php foreach ($projetosprodutosentrega->projetosentregasnotas as $nota): ?>
+            <tr>
+                <td><?= h($nota->id) ?></td>                                                       
+                <td><?= h($nota->descricao) ?></td>
+                <td><?= h($nota->historico) ?></td>
+                <td><?= h($nota->created) ?></td>                
+                <td class="actions">
+                    <?= $this->Html->link(__('View'), ['controller' => 'Projetosentregasnotas', 'action' => 'view', $nota->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Projetosentregasnotas', 'action' => 'edit', $nota->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Projetosentregasnotas', 'action' => 'delete', $nota->id], ['confirm' => __('Are you sure you want to delete # {0}?', $nota->id)]) ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+        <?php endif; ?>
+    </div>
 
     <div class="related">        
         <?php if (!empty($projetosprodutosentrega->entregasblockpoints)): ?>
@@ -483,7 +524,8 @@
             <tr>
                 <th scope="col"><?= __('Id') ?></th>                       
                 <th scope="col"><?= __('Descricao') ?></th>
-                <th scope="col"><?= __('Created') ?></th>                
+                <th scope="col"><?= __('Created') ?></th>  
+                <th scope="col"><?= __('Resolvido Em','Resolvidoem') ?></th>  
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             </thead>
@@ -492,6 +534,7 @@
                 <td><?= h($blocks->id) ?></td>                                                       
                 <td><?= h($blocks->descricao) ?></td>
                 <td><?= h($blocks->created) ?></td>                
+                <td><?= h($blocks->resolvidoem) ?></td>                
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Entregasblockpoints', 'action' => 'view', $blocks->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Entregasblockpoints', 'action' => 'edit', $blocks->id]) ?>
@@ -531,6 +574,63 @@
         <?php endif; ?>
     </div>
 
+    <div class="related">        
+        <?php if (!empty($projetosprodutosentrega->todos)): ?>
+        <h4><p class="text-secondary"><?= __('ToDos') ?></p></h4>
+        <table class="table">
+            <thead class="thead-light">
+            <tr>
+                <th scope="col"><?= __('Id') ?></th>                       
+                <th scope="col"><?= __('Assunto') ?></th>
+                <th scope="col"><?= __('Created') ?></th>                
+                <th scope="col" class="actions"><?= __('Actions') ?></th>
+            </tr>
+            </thead>
+            <?php foreach ($projetosprodutosentrega->todos as $todo): ?>
+            <tr>
+                <td><?= h($todo->id) ?></td>                                                       
+                <td><?= h($todo->assunto) ?></td>
+                <td><?= h($todo->created) ?></td>                
+                <td class="actions">
+                    <?= $this->Html->link(__('View'), ['controller' => 'Todos', 'action' => 'view', $todo->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Todos', 'action' => 'edit', $todo->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Todos', 'action' => 'delete', $todo->id], ['confirm' => __('Are you sure you want to delete # {0}?', $todo->id)]) ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+        <?php endif; ?>
+    </div>
+
+    <div class="related">        
+        <?php if (!empty($projetosprodutosentrega->projetosprodutosentregasurls)): ?>
+        <h4><p class="text-secondary"><?= __('URLs') ?></p></h4>
+        <table class="table">
+            <thead class="thead-light">
+            <tr>
+                <th scope="col"><?= __('Id') ?></th>                       
+                <th scope="col"><?= __('Descrição') ?></th>
+                <th scope="col"><?= __('URL') ?></th>
+                <th scope="col"><?= __('Created') ?></th>                
+                <th scope="col" class="actions"><?= __('Actions') ?></th>
+            </tr>
+            </thead>
+            <?php foreach ($projetosprodutosentrega->projetosprodutosentregasurls as $url): ?>
+            <tr>
+                <td><?= h($url->id) ?></td>                                                       
+                <td><?= h($url->descricao) ?></td>
+                <td><?= h($url->url) ?></td>                
+                <td><?= h($url->created) ?></td>                
+                <td class="actions">
+                    <?= $this->Html->link(__('View'), ['controller' => 'Projetosprodutosentregasurls', 'action' => 'view', $url->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Projetosprodutosentregasurls', 'action' => 'edit', $url->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Projetosprodutosentregasurls', 'action' => 'delete', $url->id], ['confirm' => __('Are you sure you want to delete # {0}?', $url->id)]) ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+        <?php endif; ?>
+    </div>
 
  </div>
 

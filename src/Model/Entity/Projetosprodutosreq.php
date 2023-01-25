@@ -55,6 +55,8 @@ class Projetosprodutosreq extends Entity
         'participante_id' => true,
         'dataemissao' => true,
         'solicitante' => true,
+        'outofscope' => true,
+        'outofscopedescription' => true,
         'wave' => true,
         'ativo' => true,            
         'prioridade' => true,

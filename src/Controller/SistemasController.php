@@ -91,9 +91,12 @@ class SistemasController extends AppController
                             'Sistemascfgrelacionados',
                             'Sistemascfgscripts',
                             'Sistemascfgurls',
+                            'Sistemascfgtables'=> ['sort' => ['Sistemascfgtables.tabelanome' => 'asc'],
+                                                    'conditions' => ['Sistemascfgtables.ativo = '=> true]],                            
                             'Sistemasconsultores',
                             'Sistemasdocs',
                             'Sistemashistoricos',
+                            'Sistemasrelatorios',
                             'Sistemasriscos',
                             'Sistemasusuarios',
                             'Sistemasnotas',
@@ -129,6 +132,7 @@ class SistemasController extends AppController
         $this->set(compact('sistema', 'empresas', 'departamentos','statusfuncionals','sistemasestrategias','empresasunidades','sistemasqueues'));
     }
 
+    
   
     /**
      * Edit method

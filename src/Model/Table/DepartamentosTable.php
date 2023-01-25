@@ -63,6 +63,14 @@ class DepartamentosTable extends Table
         $this->hasMany('Sistemasbriefings', [
             'foreignKey' => 'departamento_id'
         ]);
+        $this->hasMany('Participantes', [
+            'foreignKey' => 'departamento_id'
+        ]);
+
+        $this->hasMany('Projetosprodutosentregas', [
+            'foreignKey' => 'departamento_id'
+        ]);
+
         $this->belongsTo('Gerentes', [
             'foreignKey' => 'gerente_id'
         ]);

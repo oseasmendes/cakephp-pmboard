@@ -101,7 +101,7 @@
         <table class="table table-bordered table-responsive-sm">  
         
             <tr style="background-color:rgb(189, 216, 39)">               
-            <!--    <th scope="col" style="font-family:calibri; color: #002060;text-align: center"><?= __('Depto','Departamento') ?></th>  -->              
+                <th scope="col" style="font-family:calibri; color: #002060;text-align: center"><?= __('Depto','Departamento') ?></th>               
                 <th scope="col" style="font-family:calibri; color: #002060;text-align: center"><?= __('ID','Esupportid') ?></th>
                 <th scope="col" style="font-family:calibri; color: #002060;text-align: center"><?= __('Titulo') ?></th>
                 <th scope="col" style="font-family:calibri; color: #002060;text-align: center"><?= __('Prio') ?></th>
@@ -114,7 +114,7 @@
             </tr>
             <?php foreach ($fupagenda->fupinprogres as $fupinprogres): ?>
             <tr>                
-                <!-- <td style="font-family:calibri"><?= h($fupinprogres->departamento) ?></td>  -->              
+                <td style="font-family:calibri"><?= h($fupinprogres->departamento) ?></td>              
                 <td style="font-family:calibri"><?= h($fupinprogres->esupportid) ?></td>
                 <td style="font-family:calibri"><?= h($fupinprogres->titulo) ?></td>
                 <td style="font-family:calibri"><?= h($fupinprogres->prio) ?></td>
@@ -138,7 +138,7 @@
         <?php if (!empty($fupagenda->fupnotstarted)): ?>
             <table class="table table-bordered table-responsive-sm">  
             <tr style="background-color:rgb(189, 216, 39)">                
-                <!-- <th scope="col" style="font-family:calibri; color: #002060; text-align: center"><?= __('Depto','Departamento') ?></th>  -->              
+                <th scope="col" style="font-family:calibri; color: #002060; text-align: center"><?= __('Depto','Departamento') ?></th>                
                 <th scope="col" style="font-family:calibri; color: #002060; text-align: center"><?= __('ID','Esupportid') ?></th>
                 <th scope="col" style="font-family:calibri; color: #002060; text-align: center"><?= __('Titulo') ?></th>
                 <th scope="col" style="font-family:calibri; color: #002060; text-align: center"><?= __('Prio') ?></th>
@@ -147,7 +147,7 @@
             </tr>
             <?php foreach ($fupagenda->fupnotstarted as $fupnotstarted): ?>
             <tr>                
-               <!-- <td style="font-family:calibri"><?= h($fupnotstarted->departamento) ?></td>  -->              
+                <td style="font-family:calibri"><?= h($fupnotstarted->departamento) ?></td>                
                 <td style="font-family:calibri"><?= h($fupnotstarted->esupportid) ?></td>
                 <td style="font-family:calibri"><?= h($fupnotstarted->titulo) ?></td>
                 <td style="font-family:calibri"><?= h($fupnotstarted->prio) ?></td>

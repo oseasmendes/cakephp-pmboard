@@ -92,8 +92,10 @@ class ProjetosprodutosentregasController extends AppController
                 'Sistemas', 
                 'Statusfuncionals', 
                 'Paretos', 
+                'Consultores', 
                 'Unidademedidas', 
                 'Agendas', 
+                'Todos', 
                 'Projetosapontamentos', 
                 'Projetosentregasparetos'=> [
         'sort' => ['Projetosentregasparetos.id' => 'DESC'],
@@ -108,6 +110,8 @@ class ProjetosprodutosentregasController extends AppController
     'Projetosprodutosentregasflws',
     'Projetosprodutosentregasdiarios',
     'Projetosprodutosentregasimgs',
+    'Projetosprodutosentregasurls',
+    'Projetosentregasnotas',
     'Entregastipos' ],
               'order' => [
                                 'Projetosprodutosentregas.projetosproduto_id' => 'asc','Projetosprodutosentregas.prioridade' => 'asc']
@@ -189,7 +193,7 @@ class ProjetosprodutosentregasController extends AppController
             $this->Flash->error(__('The projetosprodutosentrega could not be saved. Please, try again.'));
         }
       //  $entrega = $projetosprodutosentrega->projetosproduto_id;
- $projetosprodutoid = $projetosprodutosentrega->projetosproduto_id; 
+        $projetosprodutoid = $projetosprodutosentrega->projetosproduto_id; 
         //$projetosprodutos = $this->Projetosprodutosentregas->Projetosprodutos->find('list', ['limit' => 200]);
         $projetosprodutos = $this->Projetosprodutosentregas->Projetosprodutos->find('list',array('conditions'=>array('Projetosprodutos.id'=>$projetosprodutoid),'order' => array('codenome' => 'asc')));
         $sistemas = $this->Projetosprodutosentregas->Sistemas->find('list',array('conditions'=>array('Sistemas.ativo'=>true),'order' => array('codenome' => 'asc')));
@@ -201,7 +205,10 @@ class ProjetosprodutosentregasController extends AppController
         $unidademedidas = $this->Projetosprodutosentregas->Unidademedidas->find('list', ['limit' => 200]);
 
         $entregastipos = $this->Projetosprodutosentregas->Entregastipos->find('list', ['limit' => 200]);
-        $this->set(compact('projetosprodutosentrega', 'projetosprodutos', 'sistemas', 'statusfuncionals', 'paretos', 'unidademedidas','fases','empresas','ambientes','entregastipos'));
+
+        $consultores = $this->Projetosprodutosentregas->Consultores->find('list',array('conditions'=>array('Consultores.engajado'=>1),'order' => array('Consultores.nome' => 'asc')));
+
+        $this->set(compact('projetosprodutosentrega', 'projetosprodutos', 'sistemas', 'statusfuncionals', 'paretos', 'unidademedidas','fases','empresas','ambientes','entregastipos','consultores'));
     }
 
     /**

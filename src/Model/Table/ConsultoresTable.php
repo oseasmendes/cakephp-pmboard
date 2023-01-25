@@ -105,6 +105,10 @@ class ConsultoresTable extends Table
         $this->hasMany('Esupportsetlagentes', [
             'foreignKey' => 'consultore_id'
         ]);
+
+        $this->hasMany('Agendas', [
+            'foreignKey' => 'consultore_id'
+        ]);
     }
 
     /**

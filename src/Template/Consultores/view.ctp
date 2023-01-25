@@ -4,6 +4,23 @@
  * @var \App\Model\Entity\Consultore $consultore
  */
 ?>
+<section class="content">
+        <div class="container-fluid">
+            <div class="row">     
+
+                <div class="col-md-12">
+                    <div class="card card-info">
+                        <div class="card-header">
+
+                        <h3 class="card-title">Deliverable</h3>
+                        </div>
+                            <div class="card-body">
+                                    <div class="row" > 
+
+                                   
+
+
+
 <div class="sistemas index large-9 medium-8 columns content"> 
 
 
@@ -53,148 +70,105 @@
     </div> 
 
 </div>
-
+</div>                   
+                  
+<div class="consultores view large-9 medium-8 columns content">
+    <h1><p class="text-info"><?= "#".$this->Number->format($consultore->id)." - ".h($consultore->nome) ?></p></h1>
+    <div class="row" > 
                     <div class="col-3"> 
                         <?= $this->Form->create($consultore, ['url'=>['controller' => 'Consultoresnotas', 'action' => 'add'],'']) ?>   
                             <?= $this->Form->control('Nota',['default'=> $this->Number->format($consultore->id),'type' => 'hidden']); ?>
                                   
                              <?= $this->Form->button('Inserir Anotação',['class'=>'btn btn-primary btn-sm btn-block']) ?>
                         <?= $this->Form->end() ?> 
-                    </div>                    
-<div class="consultores view large-9 medium-8 columns content">
-    <h1><p class="text-info"><?= h($consultore->nome) ?></p></h1>
+                    </div> 
+</div> 
     <table class="table table-primary table-responsive-sm">  
         <tr>
             <th scope="row"><?= __('Nome') ?></th>
             <td><?= h($consultore->nome) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Departamento') ?></th>
             <td><?= $consultore->has('departamento') ? $this->Html->link($consultore->departamento->descricao, ['controller' => 'Departamentos', 'action' => 'view', $consultore->departamento->id]) : '' ?></td>
-        </tr>
+        </tr>        
         <tr>
             <th scope="row"><?= __('Email') ?></th>
             <td><?= h($consultore->email) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Telefone') ?></th>
             <td><?= h($consultore->telefone) ?></td>
-        </tr>
+        </tr>        
         <tr>
             <th scope="row"><?= __('Cargo') ?></th>
             <td><?= h($consultore->cargo) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Responsabilidade') ?></th>
             <td><?= h($consultore->responsabilidade) ?></td>
-        </tr>
+        </tr>        
         <tr>
             <th scope="row"><?= __('Superiorimediato') ?></th>
             <td><?= $consultore->has('superiorimediato') ? $this->Html->link($consultore->superiorimediato->nome, ['controller' => 'Superiorimediatos', 'action' => 'view', $consultore->superiorimediato->id]) : '' ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Consultoria') ?></th>
             <td><?= $consultore->has('consultoria') ? $this->Html->link($consultore->consultoria->razaosocial, ['controller' => 'Consultorias', 'action' => 'view', $consultore->consultoria->id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Chapa') ?></th>
-            <td><?= h($consultore->chapa) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Regime de Contratação') ?></th>
-            <td><?= h($consultore->regimecontratacao) ?></td>
-        </tr>
+        </tr>                
         <tr>
             <th scope="row"><?= __('Login') ?></th>
             <td><?= h($consultore->login) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($consultore->id) ?></td>
-        </tr>
+            <th scope="row"><?= __('Prio') ?></th>
+            <td><?= h($consultore->prio) ?></td>
+        </tr>        
         <tr>
             <th scope="row"><?= __('Data Nascimento') ?></th>
             <td><?= h($consultore->datanascimento) ?></td>
-        </tr>
-         <tr>
             <th scope="row"><?= __('Data Engajamento') ?></th>
             <td><?= h($consultore->dataengajamento) ?></td>
-        </tr>
-         <tr>
-            <th scope="row"><?= __('Liberação de Acessos') ?></th>
-            <td><?= h($consultore->dataliberacaoacessos) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Data de Desligamento') ?></th>
-            <td><?= h($consultore->datadesligamento) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Data de Liberação de Acessos') ?></th>
-            <td><?= h($consultore->dataliberacaoacessos) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Data de Contratacao') ?></th>
-            <td><?= h($consultore->datacontratacao) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Data de Integracao') ?></th>
-            <td><?= h($consultore->dataintegracao) ?></td>
-        </tr>
-
-        <tr>
-            <th scope="row"><?= __('Endereco') ?></th>
-            <td><?= h($consultore->endereco) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Complemento') ?></th>
-            <td><?= h($consultore->complemento) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Bairro') ?></th>
-            <td><?= h($consultore->bairro) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Cidade') ?></th>
-            <td><?= h($consultore->cidade) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Cep') ?></th>
-            <td><?= h($consultore->cep) ?></td>
-        </tr>
-
+        </tr>                  
         <tr>
             <th scope="row"><?= __('Created') ?></th>
             <td><?= h($consultore->created) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Modified') ?></th>
             <td><?= h($consultore->modified) ?></td>
-        </tr>
+        </tr>        
         <tr>
             <th scope="row"><?= __('Selecionar') ?></th>
             <td><?= $consultore->selecionar ? __('Yes') : __('No'); ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Duplacidadania') ?></th>
             <td><?= $consultore->duplacidadania ? __('Yes') : __('No'); ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Cidadania1') ?></th>
-            <td><?= h($consultore->cidadania1) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Cidadania2') ?></th>
-            <td><?= h($consultore->cidadania2) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Cidadania3') ?></th>
-            <td><?= h($consultore->cidadania3) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Prio') ?></th>
-            <td><?= h($consultore->prio) ?></td>
-        </tr>
+        </tr>                        
     </table>
+
+    <div class="related">
+        
+        <?php if (!empty($consultore->agendas)): ?>
+            <h4><p class="text-primary"><?= __('Agendas') ?></p></h4>
+         <table class="table table-striped table-responsive-sm">
+            <tr>
+                <th scope="col"><?= __('Id') ?></th>                
+                <th scope="col"><?= __('Data','Dataagenda') ?></th>
+                <th scope="col"><?= __('Dia','Diadasemana') ?></th>              
+                <th scope="col"><?= __('Inicio','Horainicio') ?></th>               
+                <th scope="col"><?= __('Fim','Horafim') ?></th>
+                <th scope="col"><?= __('Titulo','Etiquetaadicional') ?></th>                  
+                <th scope="col"><?= __('Created') ?></th>                               
+                <th scope="col" class="actions"><?= __('Actions') ?></th>
+            </tr>
+            <?php foreach ($consultore->agendas as $agenda): ?>
+            <tr>            
+                <td><?= h($agenda->id) ?></td>                
+                <td><?= h($agenda->dataagenda) ?></td>
+                <td><?= h($agenda->diadasemana) ?></td>              
+                <td><?= date("H:i", strtotime(h($agenda->horainicio))) ?></td>
+                <td><?= date("H:i", strtotime(h($agenda->horafim))) ?></td>
+                <td><?= h($agenda->etiquetaadicional) ?></td>                               
+                <td><?= h($agenda->created) ?></td>                              
+                <td class="actions">
+                    <?= $this->Html->link(__('View'), ['controller' => 'Agendas', 'action' => 'view', $agenda->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Agendas', 'action' => 'edit', $agenda->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Agendas', 'action' => 'delete', $agenda->id], ['confirm' => __('Are you sure you want to delete # {0}?', $agenda->id)]) ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+        <?php endif; ?>
+    </div>
+
     <div class="related">
         
         <?php if (!empty($consultore->fivewthreehs)): ?>
@@ -240,7 +214,7 @@
 
 
     <div class="related">       
-        <?php if (!empty($consultore->produtosprojetosentregas)): ?>
+        <?php if (!empty($consultore->projetosprodutosentregas)): ?>
          <h4><p class="text-primary"><?= __('Entregas') ?></p></h4>   
          <table class="table table-striped">
             <tr>
@@ -248,18 +222,18 @@
                 <th scope="col"><?= __('Referencia') ?></th>  
                 <th scope="col"><?= __('Descricao') ?></th>
                 <th scope="col"><?= __('Lancto','Datacriacaooriginal') ?></th>
-                <th scope="col"><?= __('Created') ?></th>
-                <th scope="col"><?= __('Modified') ?></th>    
+                <th scope="col"><?= __('Comentario') ?></th>    
+                <th scope="col"><?= __('Created') ?></th>                
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
-            <?php foreach ($consultore->produtosprojetosentregas as $entregas): ?>
+            <?php foreach ($consultore->projetosprodutosentregas as $entregas): ?>
             <tr>
                 <td><?= h($entregas->id) ?></td>
                 <td><?= h($entregas->referencia) ?></td>
                 <td><?= h($entregas->descricao) ?></td>
                 <td><?= h($entregas->datacriacaooriginal) ?></td>
-                <td><?= h($entregas->created) ?></td>
-                <td><?= h($entregas->modified) ?></td>
+                <td><?= h($entregas->comentario) ?></td>
+                <td><?= h($entregas->created) ?></td>                
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Projetosprodutosentregas', 'action' => 'view', $entregas->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Projetosprodutosentregas', 'action' => 'edit', $entregas->id]) ?>
@@ -295,9 +269,9 @@
                 <td><?= h($consultoresferias->created) ?></td>
                 <td><?= h($consultoresferias->modified) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Projetosprodutosentregasalocs', 'action' => 'view', $consultoresferias->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Projetosprodutosentregasalocs', 'action' => 'edit', $consultoresferias->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Projetosprodutosentregasalocs', 'action' => 'delete', $consultoresferias->id], ['confirm' => __('Are you sure you want to delete # {0}?', $consultoresferias->id)]) ?>
+                    <?= $this->Html->link(__('View'), ['controller' => 'Consultoresferias', 'action' => 'view', $consultoresferias->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Consultoresferias', 'action' => 'edit', $consultoresferias->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Consultoresferias', 'action' => 'delete', $consultoresferias->id], ['confirm' => __('Are you sure you want to delete # {0}?', $consultoresferias->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
@@ -462,20 +436,31 @@
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($consultore->projetosprodutosentregasalocs as $palocs): ?>
-            <tr>
-                <td><?= h($palocs->id) ?></td>
-                <td><?= h($palocs->descricao) ?></td>                                    
-                <td><?= h($palocs->competencia_id) ?></td>
-                <td><?= h($palocs->pareto_id) ?></td>   
-                <td><?= h($palocs->created) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Projetosprodutosentregasalocs', 'action' => 'view', $palocs->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Projetosprodutosentregasalocs', 'action' => 'edit', $palocs->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Projetosprodutosentregasalocs', 'action' => 'delete', $palocs->id], ['confirm' => __('Are you sure you want to delete # {0}?', $palocs->id)]) ?>
-                </td>
-            </tr>
+                <tr>
+                    <td><?= h($palocs->id) ?></td>
+                    <td><?= h($palocs->descricao) ?></td>                                    
+                    <td><?= h($palocs->competencia_id) ?></td>
+                    <td><?= h($palocs->pareto_id) ?></td>   
+                    <td><?= h($palocs->created) ?></td>
+                    <td class="actions">
+                        <?= $this->Html->link(__('View'), ['controller' => 'Projetosprodutosentregasalocs', 'action' => 'view', $palocs->id]) ?>
+                        <?= $this->Html->link(__('Edit'), ['controller' => 'Projetosprodutosentregasalocs', 'action' => 'edit', $palocs->id]) ?>
+                        <?= $this->Form->postLink(__('Delete'), ['controller' => 'Projetosprodutosentregasalocs', 'action' => 'delete', $palocs->id], ['confirm' => __('Are you sure you want to delete # {0}?', $palocs->id)]) ?>
+                    </td>
+                </tr>
             <?php endforeach; ?>
         </table>
         <?php endif; ?>
     </div>   
 </div>
+
+
+</div>                                                                   
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>      
+        </div>      
+        </div>      
+    </section>

@@ -55,6 +55,8 @@ class Projetosentregasreqsref extends Entity
         'teste' => true,
         'cancelled' => true,
         'unplanned' => true,
+        'outofscope' => true,
+        'outofscopedescription' => true,
         'statusfuncional_id' => true,
         'projetosentregasreqsrefsents'=> true,
         'projetosentregaschanges'=> true,

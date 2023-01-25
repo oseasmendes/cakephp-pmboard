@@ -20,7 +20,11 @@ class ProjetosapontamentosController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Consultores', 'Projetosprodutosentregas', 'Statusfuncionals']
+            'contain' => ['Consultores', 
+                        'Projetosprodutosentregas', 
+                        'Statusfuncionals'],
+            'conditions' => ['Projetosapontamentos.statusfuncional_id != '=> 14],
+                        'order' => array('Projetosapontamentos.data' => 'desc'),
         ];
         $projetosapontamentos = $this->paginate($this->Projetosapontamentos);
 

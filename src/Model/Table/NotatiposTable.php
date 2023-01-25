@@ -47,6 +47,10 @@ class NotatiposTable extends Table
         $this->hasMany('Projetosprodutosnotas', [
             'foreignKey' => 'notatipo_id'
         ]);
+
+        $this->hasMany('Projetosentregasnotas', [
+            'foreignKey' => 'notatipo_id'
+        ]);
     }
 
     /**

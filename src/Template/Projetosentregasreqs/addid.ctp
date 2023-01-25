@@ -25,7 +25,7 @@
             <?php $paramid = $_POST['Requisito']; ?>
             <?php $this->projetosprodutosentrega_id = $paramid; ?>
     <fieldset>
-        <legend><?= __('Add Requirements') ?></legend>
+        <legend><?= __('Abertura de Requisitos') ?></legend>
 
         <?php
             //echo $this->Form->control('projetosprodutosentrega_id', ['options' => $projetosprodutosentregas, 'empty' => true]);
@@ -39,6 +39,9 @@
             echo $this->Form->control('ordem',['class'=> "form-control"]);
             echo $this->Form->control('prioridade',['class'=> "form-control"]);
             echo $this->Form->control('origem',['class'=> "form-control"]);
+            echo $this->Form->control('docversion',['empty' => true,'label'=>'Versão','class'=> "form-control"]);
+            echo $this->Form->control('docreference',['empty' => true,'label'=>'Doc. Referencia','class'=> "form-control"]);
+            echo $this->Form->control('docchangereference',['empty' => true,'label'=>'Resumo Técnico da Melhoria','class'=> "form-control"]);
             echo $this->Form->control('descricao',['class'=> "form-control"]);            
             echo $this->Form->control('objetivo',['class'=> "form-control"]);
             echo $this->Form->control('regradenegocio',['class'=> "form-control"]);
@@ -53,6 +56,9 @@
             echo $this->Form->control('referencia',['class'=> "form-control"]);
             echo $this->Form->control('frente_id', ['options' => $frentes, 'empty' => true,'class'=>['class'=> 'form-control']]);
             echo $this->Form->control('ativo');
+            echo $this->Form->control('outofscope',['empty' => true,'label'=>'Fora de Escopo']);
+            echo $this->Form->control('outofscopedescription',['empty' => true,'label'=>'Fora de Escopo - Detalhes','class'=> "form-control"]);
+
             echo $this->Form->control('reqstatus',['class'=> "form-control"]);            
         ?>
     </fieldset>

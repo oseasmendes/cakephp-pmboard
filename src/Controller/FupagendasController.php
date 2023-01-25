@@ -49,11 +49,11 @@ class FupagendasController extends AppController
     public function view($id = null)
     {    
         
-        //$fiscalyear = strtotime('2022-03-31');
+        $fiscalyear = strtotime('2022-03-31');
         $fupagenda = $this->Fupagendas->get($id, [
             'contain' => ['Fupqueues', 'Statusfuncionals', 
             'Fupdeployed' => ['sort' => ['Fupdeployed.lastupdate' => 'DESC'],'conditions' => ['Fupdeployed.lastupdate >' => date("Y-m-d", mktime(0, 0, 0, date("m") -12, date("d"),date("Y")))]], 
-            //'Fupdeployed' => ['conditions' => ['Fupdeployed.lastupdate >' => $fiscalyear]], 
+            'Fupdeployed' => ['conditions' => ['Fupdeployed.lastupdate >' => $fiscalyear]], 
             'Fupinprogres',
             'Fupchamados'=> ['sort' => ['Fupchamados.lastupdate' => 'ASC']], 
             'Fupnotstarted'=> [

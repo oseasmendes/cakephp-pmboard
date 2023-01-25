@@ -23,6 +23,7 @@
         <?php
             echo $this->Form->control('sistema_id', ['options' => $sistemas, 'empty' => true]);
             echo $this->Form->control('scriptstipo_id', ['options' => $scriptstipos, 'empty' => true]);
+            echo $this->Form->control('codenome', ['label' => 'Codenome','empty' => true,'class'=>['class'=> 'form-control']]);
             echo $this->Form->control('descricao');
             echo $this->Form->control('scriptaplicado');
             echo $this->Form->control('versaonumero');

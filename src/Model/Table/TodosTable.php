@@ -75,6 +75,10 @@ class TodosTable extends Table
         $this->hasMany('Todosobservadores', [
             'foreignKey' => 'todo_id'
         ]);
+
+        $this->belongsTo('Projetosprodutosentregas', [
+            'foreignKey' => 'projetosprodutosentrega_id'
+        ]);
     }
 
     /**
@@ -120,6 +124,11 @@ class TodosTable extends Table
             ->scalar('patrocinador')
             ->maxLength('patrocinador', 200)
             ->allowEmptyString('patrocinador');
+        
+            $validator
+            ->scalar('idinc')
+            ->maxLength('idinc', 45)
+            ->allowEmptyString('idinc');
 
         $validator
             ->integer('prioridade')
@@ -166,6 +175,7 @@ class TodosTable extends Table
         $rules->add($rules->existsIn(['pareto_id'], 'Paretos'));
         $rules->add($rules->existsIn(['participante_id'], 'Participantes'));
         $rules->add($rules->existsIn(['requisitante_id'], 'Participantes'));
+        $rules->add($rules->existsIn(['projetosprodutosentrega_id'], 'Projetosprodutosentregas'));
 
         return $rules;
     }

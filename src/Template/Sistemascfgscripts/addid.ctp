@@ -30,6 +30,7 @@
             echo $this->Form->control('sistema_id', array('default'=>$paramid,'disabled' => 'disabled','value'=>$paramid,'class'=>['class'=> 'form-control']));             
             echo $this->Form->control('documento_id', ['options' => $documentos, 'empty' => true,'class'=>['class'=> 'form-control']]);
             echo $this->Form->control('scriptstipo_id', ['options' => $scriptstipos, 'empty' => true,'class'=>['class'=> 'form-control']]);
+            echo $this->Form->control('codenome', ['label' => 'Codenome','empty' => true,'class'=>['class'=> 'form-control']]);
             echo $this->Form->control('descricao', ['label' => 'Descrição','empty' => true,'class'=>['class'=> 'form-control']]);
             echo $this->Form->control('scriptaplicado', ['label' => 'Script','empty' => true,'class'=>['class'=> 'form-control']]);
             echo $this->Form->control('versaonumero', ['label' => 'Versão','empty' => true,'class'=>['class'=> 'form-control']]);  

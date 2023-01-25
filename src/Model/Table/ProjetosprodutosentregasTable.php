@@ -85,6 +85,10 @@ class ProjetosprodutosentregasTable extends Table
             'foreignKey' => 'consultore_id'
         ]);
 
+        $this->belongsTo('Departamentos', [
+            'foreignKey' => 'departamento_id'
+        ]);
+
         $this->hasMany('Agendas', [
             'foreignKey' => 'projetosprodutosentrega_id'
         ]);
@@ -123,6 +127,20 @@ class ProjetosprodutosentregasTable extends Table
         $this->hasMany('Projetosentregasreqs', [
             'foreignKey' => 'projetosprodutosentrega_id'
         ]);
+
+        $this->hasMany('Todos', [
+            'foreignKey' => 'projetosprodutosentrega_id'
+        ]);
+
+        $this->hasMany('Projetosprodutosentregasurls', [
+            'foreignKey' => 'projetosprodutosentrega_id'
+        ]);
+
+        $this->hasMany('Projetosentregasnotas', [
+            'foreignKey' => 'projetosprodutosentrega_id'
+        ]);
+
+        
       
     }
 
@@ -261,6 +279,7 @@ class ProjetosprodutosentregasTable extends Table
         $rules->add($rules->existsIn(['ambiente_id'], 'Ambientes'));
         $rules->add($rules->existsIn(['entregastipo_id'], 'Entregastipos'));
         $rules->add($rules->existsIn(['consultore_id'], 'Consultores'));
+        $rules->add($rules->existsIn(['departamento_id'], 'Departamentos'));
 
         return $rules;
     }

@@ -36,7 +36,7 @@ class SistemasmodulosTable extends Table
         parent::initialize($config);
 
         $this->setTable('sistemasmodulos');
-        $this->setDisplayField('id');
+        $this->setDisplayField('nome');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
@@ -47,6 +47,11 @@ class SistemasmodulosTable extends Table
         $this->belongsTo('Statusfuncionals', [
             'foreignKey' => 'statusfuncional_id'
         ]);
+
+          // 17-10-2022 - Oséas 
+        $this->hasMany('Sistemascfgtables', [
+            'foreignKey' => 'sistema_id'
+        ]);     
     }
 
     /**

@@ -51,6 +51,7 @@ class Calendario extends Entity
         'diaserial' => true,
         'endweek' => true,
         'semananumero' => true,
+        'technicalfreezing' => true,        
         'referenciadia' => true,
         'etiqueta' => true,        
         'created' => true,

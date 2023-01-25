@@ -4,6 +4,20 @@
  * @var \App\Model\Entity\Projetosapontamento[]|\Cake\Collection\CollectionInterface $projetosapontamentos
  */
 ?>
+<section class="content">
+        <div class="container-fluid">
+            <div class="row">     
+
+                <div class="col-md-12">
+                    <div class="card card-info">
+                        <div class="card-header">
+
+                        <h3 class="card-title">Lista de Projetos</h3>
+                        </div>
+                            <div class="card-body">
+                                    <div class="row" > 
+
+
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
@@ -18,21 +32,20 @@
 </nav>
 <div class="projetosapontamentos index large-9 medium-8 columns content">
     <h3><?= __('Apontamentos') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <table class="table table-striped table-responsive">  
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('consultore_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('projetosprodutosentrega_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('consultore_id','Analista') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('projetosprodutosentrega_id','Demanda') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('data') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('horainicio') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('horafim') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('temporealizado') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('statusfuncional_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('horainicio','HrInicio') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('horafim','HrFim') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('temporealizado','Tmp') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('statusfuncional_id','Status') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('descricao') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('canal') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('created') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('created') ?></th>                
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -49,8 +62,7 @@
                 <td><?= $projetosapontamento->has('statusfuncional') ? $this->Html->link($projetosapontamento->statusfuncional->descricao, ['controller' => 'Statusfuncionals', 'action' => 'view', $projetosapontamento->statusfuncional->id]) : '' ?></td>
                 <td><?= h($projetosapontamento->descricao) ?></td>
                 <td><?= h($projetosapontamento->canal) ?></td>
-                <td><?= h($projetosapontamento->created) ?></td>
-                <td><?= h($projetosapontamento->modified) ?></td>
+                <td><?= h($projetosapontamento->created) ?></td>                
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $projetosapontamento->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $projetosapontamento->id]) ?>
@@ -71,3 +83,14 @@
         <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
     </div>
 </div>
+
+
+
+
+</div>                                                                   
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>      
+    </section>

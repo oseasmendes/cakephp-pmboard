@@ -27,6 +27,8 @@ class Atividadetipo extends Entity
     protected $_accessible = [
         'descricao' => true,
         'created' => true,
+        'notificacao' => true,
+        'tecnica' => true,
         'modified' => true,
         'agendas' => true
     ];

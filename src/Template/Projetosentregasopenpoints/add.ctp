@@ -24,6 +24,8 @@
             echo $this->Form->control('motivo_id', ['options' => $motivos, 'empty' => true]);
             echo $this->Form->control('planoacao');
             echo $this->Form->control('planodeacaodescricao');
+            echo $this->Form->control('dataprevistaatendimento', ['empty' => true]);
+            echo $this->Form->control('responsavel',['class'=> "form-control"]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

@@ -5,6 +5,20 @@
  */
 ?>
 
+<section class="content">
+        <div class="container-fluid">
+            <div class="row">     
+
+                <div class="col-md-12">
+                    <div class="card card-info">
+                        <div class="card-header">
+
+                        <h3 class="card-title">Deliverable</h3>
+                        </div>
+                            <div class="card-body">
+                                    <div class="row" > 
+
+
  <div class="sistemas index large-9 medium-8 columns content"> 
 
   
@@ -70,7 +84,7 @@
                 </div>              
             </div>
           </div>
-          <nav class="navbar navbar-dark bg-dark">
+          <nav class="navbar navbar-dark bg-info">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>      
             </button>            
@@ -127,3 +141,16 @@
         <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
     </div>
 </div>
+
+
+
+
+</div>                                                                   
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>      
+        </div>      
+        </div>      
+    </section>

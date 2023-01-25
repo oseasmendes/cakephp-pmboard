@@ -190,6 +190,20 @@
             <?= $this->Form->end() ?>
         </div>
     </div>
+    <div class="row no-gutters" >
+        <div class="col-3">    
+            <?= $this->Form->create($sistema, ['url'=>['controller' => 'Sistemasrelatorios', 'action' => 'addid'],'']) ?>   
+                <?= $this->Form->control('Relatorio',['default'=> $this->Number->format($sistema->id),'type' => 'hidden']); ?>                   
+             <?= $this->Form->button('Inserir Relatorios',['class'=>'btn btn-secondary btn-sm btn-block']) ?>
+            <?= $this->Form->end() ?>
+        </div>
+        <div class="col-3">    
+            <?= $this->Form->create($sistema, ['url'=>['controller' => 'Sistemascfgtables', 'action' => 'addid'],'']) ?>   
+                <?= $this->Form->control('TabelaRef',['default'=> $this->Number->format($sistema->id),'type' => 'hidden']); ?>                   
+             <?= $this->Form->button('Inserir Tabela',['class'=>'btn btn-secondary btn-sm btn-block']) ?>
+            <?= $this->Form->end() ?>
+        </div>
+    </div>
 
 
 
@@ -839,6 +853,7 @@
             <table class="table table-responsive">   
             <tr>
                 <th scope="col"><?= __('Id') ?></th>                
+                <th scope="col"><?= __('Codenome') ?></th>
                 <th scope="col"><?= __('Descricao') ?></th>
                 <th scope="col"><?= __('Motivo') ?></th>
                 <th scope="col"><?= __('Created') ?></th>
@@ -848,6 +863,7 @@
             <?php foreach ($sistema->sistemascfgscripts as $sistemascfgscript): ?>
             <tr>
                 <td><?= h($sistemascfgscript->id) ?></td>                    
+                <td><?= h($sistemascfgscript->codenome) ?></td>
                 <td><?= h($sistemascfgscript->descricao) ?></td>
                 <td><?= h($sistemascfgscript->motivo) ?></td>
                 <td><?= h($sistemascfgscript->created) ?></td>
@@ -894,9 +910,75 @@
         <?php endif; ?>
     </div>
 
+    <div class="related">
+        
+        <?php if (!empty($sistema->sistemasrelatorios)): ?>
+            <h5><?= __('Relatórios Associados') ?></h5>
+            <table class="table table-responsive">   
+            <tr>
+                <th scope="col"><?= __('Id') ?></th>                
+                <th scope="col"><?= __('Nome','Name') ?></th>
+                <th scope="col"><?= __('Descrição','Description') ?></th>
+                <th scope="col"><?= __('Objetivo','Objective') ?></th>
+                <th scope="col"><?= __('Data Criação','Datacriacao') ?></th>
+                <th scope="col"><?= __('Modified') ?></th>                
+                <th scope="col" class="actions"><?= __('Actions') ?></th>
+            </tr>
+            <?php foreach ($sistema->sistemasrelatorios as $sistemasrelatorio): ?>
+            <tr>
+                <td><?= h($sistemasrelatorio->id) ?></td>                    
+                <td><?= h($sistemasrelatorio->name) ?></td>
+                <td><?= h($sistemasrelatorio->description) ?></td>
+                <td><?= h($sistemasrelatorio->objective) ?></td>
+                <td><?= h($sistemasrelatorio->created) ?></td>
+                <td><?= h($sistemasrelatorio->modified) ?></td>
+                <td class="actions">
+                    <?= $this->Html->link(__('View'), ['controller' => 'Sistemasrelatorios', 'action' => 'view', $sistemasrelatorio->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Sistemasrelatorios', 'action' => 'edit', $sistemasrelatorio->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Sistemasrelatorios', 'action' => 'delete', $sistemasrelatorio->id], ['confirm' => __('Are you sure you want to delete # {0}?', $sistemasrelatorio->id)]) ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+        <?php endif; ?>
+    </div>
+
+    <div class="related">
+        
+        <?php if (!empty($sistema->sistemascfgtables)): ?>
+            <h5><?= __('Lista de Tabelas do Sistema') ?></h5>
+            <table class="table table-responsive">   
+            <tr>
+                <th scope="col"><?= __('Id') ?></th>                
+                <th scope="col"><?= __('Nome','Name') ?></th>
+                <th scope="col"><?= __('Descrição','Description') ?></th>
+                <th scope="col"><?= __('Objetivo','Objective') ?></th>
+                <th scope="col"><?= __('Data Criação','Datacriacao') ?></th>
+                <th scope="col"><?= __('Modified') ?></th>                
+                <th scope="col" class="actions"><?= __('Actions') ?></th>
+            </tr>
+            <?php foreach ($sistema->sistemascfgtables as $tables): ?>
+            <tr>
+                <td><?= h($tables->id) ?></td>                    
+                <td><?= h($tables->tabelanome) ?></td>
+                <td><?= h($tables->descricao) ?></td>
+                <td><?= h($tables->detalhe) ?></td>
+                <td><?= h($tables->created) ?></td>
+                <td><?= h($tables->modified) ?></td>
+                <td class="actions">
+                    <?= $this->Html->link(__('View'), ['controller' => 'Sistemascfgtables', 'action' => 'view', $tables->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Sistemascfgtables', 'action' => 'edit', $tables->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Sistemascfgtables', 'action' => 'delete', $tables->id], ['confirm' => __('Are you sure you want to delete # {0}?', $tables->id)]) ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+        <?php endif; ?>
+    </div>
+
 </div>
 
-
+<!--  FIM DE FORM --------- -->
 
 </div>                                                                   
                             </div>

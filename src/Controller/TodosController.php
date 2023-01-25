@@ -21,17 +21,20 @@ class TodosController extends AppController
     {
         $this->paginate = [
             'contain' => [
-                    'Programas', 
-                    'Projetos', 
-                    'Projetosprodutos', 
-                    'Naturezas', 
-                    'Paretos', 
-                    'Participantes'],
-                                 /*'limit' => 100, */             
-                    'conditions' => ['pareto_id NOT IN '=> [30,3,8,35]],       
-                                  'order' => [
-                                'Todos.dataprevistaentrega' => 'asc']
-        ];
+                        'Programas', 
+                        'Projetos', 
+                        'Projetosprodutos', 
+                        'Naturezas', 
+                        'Paretos'=> [
+                            'sort' => ['Paretos.todoprio' => 'ASC']], //47 - Closed, 
+                        'Participantes'],
+                                        /*'limit' => 100, */             
+                                        'conditions' => ['pareto_id NOT IN '=> [30,3,8,35]],       
+                                        'order' => [
+                                                'Todos.pareto_id' => 'desc',
+                                                'Todos.dataprevistaentrega' => 'asc'
+                                                ]
+                        ];
         $todos = $this->paginate($this->Todos);
 
         $this->set(compact('todos'));
@@ -79,6 +82,31 @@ class TodosController extends AppController
         $this->set(compact('todo', 'programas', 'projetos', 'projetosprodutos', 'naturezas', 'paretos', 'participantes'));
     }
 
+    
+    public function addident($id = null)
+    {
+        $todo = $this->Todos->newEntity();
+        if ($this->request->is('post')) {
+            $todo = $this->Todos->patchEntity($todo, $this->request->getData());
+            $todo->projetosprodutosentrega_id = $id;
+            if ($this->Todos->save($todo)) {
+                $this->Flash->success(__('The todo has been saved.'));
+
+                //return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller'=>'Projetosprodutosentregas','action' => 'view',$id]);
+            }
+            $this->Flash->error(__('The todo could not be saved. Please, try again.'));
+        }
+        //$programas = $this->Todos->Programas->find('list',array('conditions'=>array('Programas.ativo'=>true),'order' => array('Programas.descricao' => 'asc')));
+        //$projetos = $this->Todos->Projetos->find('list',array('conditions'=>array('Projetos.ativo'=>true),'order' => array('Projetos.codenome' => 'asc')));
+        //$projetosprodutos = $this->Todos->Projetosprodutos->find('list',array('conditions'=>array('Projetosprodutos.ativo = '=>true,'Projetosprodutos.statusfuncional_id NOT IN '=> [1,2,3,4,6,8,9,10,11,13,14,15,18,19]),'order' => array('Projetosprodutos.projeto_id' => 'desc','Projetosprodutos.descricao' => 'asc','Projetosprodutos.prioridade' => 'asc')) , ['limit' => 2000]);
+        $projetosprodutosentregas = $this->Todos->Projetosprodutosentregas->find('list',array('conditions'=>array('Projetosprodutosentregas.id'=>$id),'order' => array('Descricao' => 'asc')));
+        $naturezas = $this->Todos->Naturezas->find('list', ['limit' => 200]);
+        $paretos = $this->Todos->Paretos->find('list',array('conditions'=>array('Paretos.todo'=>1),'order' => array('Paretos.kanban' => 'asc')));
+        $participantes = $this->Todos->Participantes->find('list', ['limit' => 200]);        
+        $this->set(compact('todo', 'programas', 'projetos', 'projetosprodutos','projetosprodutosentregas', 'naturezas', 'paretos', 'participantes'));
+    }
+
     /**
      * Edit method
      *
@@ -91,8 +119,10 @@ class TodosController extends AppController
         $todo = $this->Todos->get($id, [
             'contain' => []
         ]);
+        $entregaid = $todo->projetosprodutosentrega_id;
         if ($this->request->is(['patch', 'post', 'put'])) {
             $todo = $this->Todos->patchEntity($todo, $this->request->getData());
+            
             if ($this->Todos->save($todo)) {
                 $this->Flash->success(__('The todo has been saved.'));
 
@@ -104,10 +134,11 @@ class TodosController extends AppController
         $projetos = $this->Todos->Projetos->find('list', ['limit' => 200]);
         //$projetosprodutos = $this->Todos->Projetosprodutos->find('list', ['limit' => 200]);
         $projetosprodutos = $this->Todos->Projetosprodutos->find('list',array('conditions'=>array('Projetosprodutos.ativo = '=>true,'Projetosprodutos.statusfuncional_id NOT IN '=> [1,2,3,4,6,8,9,10,11,13,14,15,18,19]),'order' => array('Projetosprodutos.projeto_id' => 'desc','Projetosprodutos.descricao' => 'asc','Projetosprodutos.prioridade' => 'asc')) , ['limit' => 2000]);
+        $projetosprodutosentregas = $this->Todos->Projetosprodutosentregas->find('list',array('conditions'=>array('Projetosprodutosentregas.id'=>$entregaid),'order' => array('Descricao' => 'asc')));
         $naturezas = $this->Todos->Naturezas->find('list', ['limit' => 200]);
         $paretos = $this->Todos->Paretos->find('list',array('conditions'=>array('Paretos.todo'=>1),'order' => array('Paretos.kanban' => 'asc')));
         $participantes = $this->Todos->Participantes->find('list', ['limit' => 200]);        
-        $this->set(compact('todo', 'programas', 'projetos', 'projetosprodutos', 'naturezas', 'paretos', 'participantes'));
+        $this->set(compact('todo', 'programas', 'projetos', 'projetosprodutos','projetosprodutosentregas', 'naturezas', 'paretos', 'participantes'));
     }
 
     /**

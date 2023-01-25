@@ -91,10 +91,13 @@ class Projetosprodutosentrega extends Entity
         'archivedate' => true,        
         'archivereason' => true,
         'projetosapontamentos' => true,
-        'consultore' => true,
+        'consultores' => true,
         'entregastipos' => true,
-        'projetosentregasparetos' => true,
+        'projetosentregasparetos' => true,        
+        'projetosprodutosentregasurls' => true,
+        'projetosentregasnotas' => true,
         'projetosentregasreqs' => true,
+        'todos' => true,
         'view_kanbanentregas' => true
     ];
 }

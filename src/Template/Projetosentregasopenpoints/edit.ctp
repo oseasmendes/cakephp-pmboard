@@ -48,6 +48,8 @@
             echo $this->Form->control('planodeacaodescricao',['class'=> "form-control"]);
             echo $this->Form->control('resolvido');
             echo $this->Form->control('resolvidoem', ['empty' => true]);
+            echo $this->Form->control('dataprevistaatendimento', ['empty' => true]);
+            echo $this->Form->control('responsavel',['class'=> "form-control"]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

@@ -125,6 +125,7 @@ class ProjetosentregasreqsrefsentsController extends AppController
             $this->Flash->error(__('The projetosentregasreqsrefsent could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        //return $this->redirect(['action' => 'index']);
+        return $this->redirect(['controller' => 'Projetosentregasreqsrefs','action' => 'view',$projetosentregasreqsrefsent->projetosentregasreqsref_id]);
     }
 }

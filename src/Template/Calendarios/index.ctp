@@ -108,7 +108,8 @@
                 <th scope="col"><?= $this->Paginator->sort('mesnome','Mes') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('feriado','DayOff') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('diaserial') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('endweek') ?></th>                
+                <th scope="col"><?= $this->Paginator->sort('endweek') ?></th>   
+                <th scope="col"><?= $this->Paginator->sort('technicalfreezing','FreeZ') ?></th>                   
                 <th scope="col"><?= $this->Paginator->sort('semananumero','Week') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('etiqueta') ?></th>                
                
@@ -129,6 +130,7 @@
                 <td><?= $this->Number->format($calendario->feriado) ?></td>
                 <td><?= $this->Number->format($calendario->diaserial) ?></td>
                 <td><?= $this->Number->format($calendario->endweek) ?></td>
+                <td><?= $this->Number->format($calendario->technicalfreezing) ?></td>
                 <td><?= $this->Number->format($calendario->semananumero) ?></td>
                 <td><?= h($calendario->etiqueta) ?></td>
                

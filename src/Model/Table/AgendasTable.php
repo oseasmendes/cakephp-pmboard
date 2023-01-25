@@ -160,7 +160,7 @@ class AgendasTable extends Table
         $rules->add($rules->existsIn(['projeto_id'], 'Projetos'));
         $rules->add($rules->existsIn(['projetosproduto_id'], 'Projetosprodutos'));
         $rules->add($rules->existsIn(['projetosprodutosentrega_id'], 'Projetosprodutosentregas'));
-
+        $rules->add($rules->existsIn(['consultore_id'], 'Consultores'));
         return $rules;
     }
 }

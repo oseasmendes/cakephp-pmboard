@@ -48,7 +48,7 @@ class ProjetosprodutosentregasflwsController extends AppController
                                  $this->paginate = [
                                     'contain' => ['Projetosprodutosentregas', 'Motivos', 'Statusfuncionals'],
                                     'conditions' => ['Projetosprodutosentregasflws.who LIKE '=> '%'.$keyword['who'].'%', ['Projetosprodutosentregasflws.statusfuncional_id NOT IN '=> [5,13,14,15,18,19,20,29]]],
-                                    'order' => array('who' => 'asc'),
+                                    'order' => array('created' => 'desc','who' => 'asc'),
                                 ];
                                 $projetosprodutosentregasflws = $this->paginate($this->Projetosprodutosentregasflws);
                             } 
@@ -57,7 +57,7 @@ class ProjetosprodutosentregasflwsController extends AppController
                                 $this->paginate = [
                                     'contain' => ['Projetosprodutosentregas', 'Motivos', 'Statusfuncionals'],
                                 'conditions' => ['Projetosprodutosentregasflws.statusfuncional_id NOT IN '=> [5,13,14,15,18,19,20,29]],
-                                'order' => array('who' => 'asc','projetosprodutosentrega_id' => 'asc'),
+                                'order' => array('Projetosprodutosentregasflws.created' => 'desc','Projetosprodutosentregasflws.who' => 'asc','Projetosprodutosentregasflws.projetosprodutosentrega_id' => 'asc'),
                                 ];
                             $projetosprodutosentregasflws = $this->paginate($this->Projetosprodutosentregasflws);
                             }

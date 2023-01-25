@@ -57,6 +57,18 @@
             <td><?= h($projetosentregasreq->descricao) ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('Versão') ?></th>
+            <td><?= h($projetosentregasreq->docversion) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Doc. Referência') ?></th>
+            <td><?= h($projetosentregasreq->docreference) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Resumo Técnico da Alteração') ?></th>
+            <td><?= h($projetosentregasreq->docchangereference) ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Objetivo') ?></th>
             <td><?= h($projetosentregasreq->objetivo) ?></td>
         </tr>

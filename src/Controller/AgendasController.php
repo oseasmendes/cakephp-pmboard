@@ -38,7 +38,7 @@ public function index()
 
         //$dataatual = gmdate("Y-m-d", time()-(3600*27));
 
-        $dataatual = date('Y-m-d',strtotime("-7 days"));
+        $dataatual = date('Y-m-d',strtotime("-30 days"));
 
         $atividadetipos = $this->Agendas->Atividadetipos->find('list', ['limit' => 200]);
         
@@ -111,7 +111,8 @@ public function index()
                             'Projetosprodutos', 
                             'Projetosprodutosentregas',
                             'Atas',
-                            'Projetossprintsdailysreferences']
+                            'Projetossprintsdailysreferences'=> [
+                                'sort' => ['Projetossprintsdailysreferences.reference' => 'ASC']]],
         ]);
 
         $this->set('agenda', $agenda);

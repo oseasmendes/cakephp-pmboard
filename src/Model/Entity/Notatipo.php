@@ -28,6 +28,8 @@ class Notatipo extends Entity
         'descricao' => true,
         'created' => true,
         'modified' => true,
+        'projetosentregasnotas' => true,
         'projetosprodutosnotas' => true
+
     ];
 }

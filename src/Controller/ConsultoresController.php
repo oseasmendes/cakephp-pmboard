@@ -80,15 +80,31 @@ class ConsultoresController extends AppController
      */
     public function view($id = null)
     {
-        $consultore = $this->Consultores->get($id, [
-            'contain' => ['Departamentos','Projetosprodutosentregas' ,'Superiorimediatos', 'Consultorias', 'Fivewthreehs', 'Projetosalocs','Projetosapontamentos', 'Sistemasconsultores','Consultoresnotas','Consultoresferias',
-                 'Projetosprodutosentregasalocs' => 
-                        ['conditions' => ['Projetosprodutosentregasalocs.pareto_id !=' => 3],
-                            'sort' => ['Projetosprodutosentregasalocs.descricao' => 'ASC',
-                        ],
+        $dataatual = date('Y-m-d',strtotime("-15 days"));
+        $dataate = date('Y-m-d',strtotime("+17 days"));
 
+        $consultore = $this->Consultores->get($id, [
+            'contain' => ['Departamentos',
+                          'Projetosprodutosentregas' => [
+                            'sort' => ['Projetosprodutosentregas.canal' => 'ASC'],
+                            'conditions' => ['Projetosprodutosentregas.pareto_id NOT IN ' => [11,13,30,27,47]], ], //47 - Closed,
+                          'Superiorimediatos', 
+                          'Consultorias', 
+                          'Fivewthreehs', 
+                          'Agendas' => [
+                            'sort' => [ 'Agendas.dataagenda' => 'asc'],
+                            'conditions' => ['Agendas.dataagenda > '=> $dataatual,'Agendas.dataagenda < '=> $dataate]], 
+                          'Projetosalocs',
+                          'Projetosapontamentos', 
+                          'Sistemasconsultores',
+                          'Consultoresnotas',
+                          'Consultoresferias',
+                          'Projetosprodutosentregasalocs' => 
+                                ['conditions' => ['Projetosprodutosentregasalocs.pareto_id !=' => 3],
+                                    'sort' => ['Projetosprodutosentregasalocs.descricao' => 'ASC'],
+                                ],
                         ]
-        ]]);
+        ]);
 
      
 

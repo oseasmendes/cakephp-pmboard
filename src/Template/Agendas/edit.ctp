@@ -32,18 +32,18 @@
             echo $this->Form->control('atividadetipo_id');
             echo $this->Form->control('departamento_id', ['options' => $departamentos, 'empty' => true]);
             echo $this->Form->control('projeto_id', ['options' => $projetos, 'empty' => true]);
-            echo $this->Form->control('tipoagenda');
-            echo $this->Form->control('observacao');
+            echo $this->Form->control('tipoagenda',['class'=> "form-control"]);
+            echo $this->Form->control('observacao',['class'=> "form-control"]);
             echo $this->Form->control('dataagenda', ['empty' => true]);
             echo $this->Form->control('horainicio', ['empty' => true]);
             echo $this->Form->control('horafim', ['empty' => true]);
-            echo $this->Form->control('local');
-            echo $this->Form->control('etiquetaadicional');
-            echo $this->Form->control('diadasemana');
-            echo $this->Form->control('localdiferente');
-            echo $this->Form->control('Periodicidade');
-            echo $this->Form->control('referencia');
-            echo $this->Form->control('referenciadia');
+            echo $this->Form->control('local',['class'=> "form-control"]);
+            echo $this->Form->control('etiquetaadicional',['class'=> "form-control"]);
+            echo $this->Form->control('diadasemana',['class'=> "form-control"]);
+            echo $this->Form->control('localdiferente',['class'=> "form-control"]);
+            echo $this->Form->control('Periodicidade',['class'=> "form-control"]);
+            echo $this->Form->control('referencia',['class'=> "form-control"]);
+            echo $this->Form->control('referenciadia',['class'=> "form-control"]);
             echo $this->Form->control('projetosproduto_id', ['options' => $projetosprodutos, 'empty' => true]);
             echo $this->Form->control('projetosprodutosentrega_id', ['options' => $projetosprodutosentregas, 'empty' => true]);
         ?>

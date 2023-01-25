@@ -62,6 +62,14 @@ class AtividadetiposTable extends Table
             ->maxLength('descricao', 45)
             ->allowEmptyString('descricao');
 
+        $validator
+            ->boolean('notificacao')
+            ->allowEmptyString('notificacao');
+
+        $validator
+            ->boolean('tecnica')
+            ->allowEmptyString('tecnica');
+
         return $validator;
     }
 }

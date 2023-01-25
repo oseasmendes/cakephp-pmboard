@@ -155,6 +155,22 @@ class ProjetosentregasreqsTable extends Table
             ->scalar('origem')
             ->maxLength('origem', 254)
             ->allowEmptyString('origem');      
+
+        $validator
+            ->scalar('docversion')
+            ->maxLength('docversion', 5)
+            ->allowEmptyString('docversion');      
+
+        $validator
+            ->scalar('docreference')
+            ->maxLength('docreference', 45)
+            ->allowEmptyString('docreference');      
+
+        $validator
+            ->scalar('docchangereference')
+            ->maxLength('docchangereference', 255)
+            ->allowEmptyString('docchangereference');      
+
         
         $validator
             ->scalar('objetivo')
@@ -165,6 +181,16 @@ class ProjetosentregasreqsTable extends Table
             ->scalar('regradenegocio')
             ->maxLength('regradenegocio', 4294967295)
             ->allowEmptyString('regradenegocio');
+
+        $validator
+            ->boolean('outofscope')
+            ->allowEmptyString('outofscope');
+
+        $validator
+            ->scalar('outofscopedescription')
+            ->maxLength('outofscopedescription', 255)
+            ->allowEmptyString('outofscopedescription');      
+
 
         return $validator;
     }

@@ -80,7 +80,8 @@ class SistemascfgscriptsController extends AppController
             }
             $this->Flash->error(__('The sistemascfgscript could not be saved. Please, try again.'));
         }
-        $sistemas = $this->Sistemascfgscripts->Sistemas->find('list', ['limit' => 200]);
+        //$sistemas = $this->Sistemascfgscripts->Sistemas->find('list', ['limit' => 200]);
+        $sistemas = $this->Sistemascfgscripts->Sistemas->find('list',array('conditions'=>array('Sistemas.id'=>$id),'order' => array('Sistemas.referencia' => 'asc')));
         $scriptstipos = $this->Sistemascfgscripts->Scriptstipos->find('list', ['limit' => 200]);
         $documentos = $this->Sistemascfgscripts->Documentos->find('list', ['limit' => 200]);
         $this->set(compact('sistemascfgscript', 'sistemas', 'scriptstipos', 'documentos'));

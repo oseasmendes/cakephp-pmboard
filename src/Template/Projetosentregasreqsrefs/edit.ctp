@@ -59,6 +59,8 @@
             echo $this->Form->control('cancelled');            
             echo $this->Form->control('statusfuncional_id', ['options' => $statusfuncionals, 'empty' => true]);
             echo $this->Form->control('motivo_id', ['options' => $motivos, 'empty' => true,'class'=>['class'=> 'form-control']]);
+            echo $this->Form->control('outofscope',['empty' => true,'label'=>'Fora de Escopo']);
+            echo $this->Form->control('outofscopedescription',['empty' => true,'label'=>'Fora de Escopo - Detalhes','class'=> "form-control"]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

@@ -54,6 +54,9 @@ class Projetosentregasreq extends Entity
     protected $_accessible = [
         'projetosprodutosentrega_id' => true,
         'entregastipo_id' => true,
+        'docversion' => true,
+        'docreference' => true,
+        'docchangereference' => true,
         'processo_id' => true,
         'participante_id' => true,
         'dataemissao' => true,
